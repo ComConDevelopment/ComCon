@@ -6,3 +6,9 @@ C:\Users\gener_000\Documents\GitHub\ComCon\ComConClient\ComConClient\obj\x86\Deb
 C:\Users\gener_000\Documents\GitHub\ComCon\ComConClient\ComConClient\obj\x86\Debug\ComConClient.g.resources
 C:\Users\gener_000\Documents\GitHub\ComCon\ComConClient\ComConClient\obj\x86\Debug\ComConClient.Properties.Resources.resources
 C:\Users\gener_000\Documents\GitHub\ComCon\ComConClient\ComConClient\obj\x86\Debug\ComConClient.csproj.GenerateResource.Cache
+C:\Users\gener_000\Documents\GitHub\ComCon\ComConClient\ComConClient\bin\Debug\ComConClient.exe
+C:\Users\gener_000\Documents\GitHub\ComCon\ComConClient\ComConClient\bin\Debug\ComConClient.pdb
+C:\Users\gener_000\Documents\GitHub\ComCon\ComConClient\ComConClient\bin\Debug\ComCon.Shared.Classes.dll
+C:\Users\gener_000\Documents\GitHub\ComCon\ComConClient\ComConClient\bin\Debug\ComCon.Shared.Classes.pdb
+C:\Users\gener_000\Documents\GitHub\ComCon\ComConClient\ComConClient\obj\x86\Debug\ComConClient.exe
+C:\Users\gener_000\Documents\GitHub\ComCon\ComConClient\ComConClient\obj\x86\Debug\ComConClient.pdb

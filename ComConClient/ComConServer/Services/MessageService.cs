@@ -12,96 +12,57 @@ namespace ComConServer
     public class MessageService : IServerFunctions
     {
 
-        public static readonly List<ChatUser> UserList = new List<ChatUser>();
+        public static readonly List<IClientFunctions> subscribers = new List<IClientFunctions>();
 
+
+        public void ConnectToServer(string pName, string pPassword)
+        {
+            IClientFunctions callback = OperationContext.Current.GetCallbackChannel<IClientFunctions>();
+            if (!subscribers.Contains(callback))
+            {
+                subscribers.Add(callback);
+            }
+        }
+
+        public void DisconnectFromServer()
+        {
+            
+        }
 
         public void Send(ChatMessage cm)
         {
-            foreach (ChatUser u in UserList)
+            List<IClientFunctions> subscribersToDelete = new List<IClientFunctions>();
+            IClientFunctions callback = OperationContext.Current.GetCallbackChannel<IClientFunctions>();
+            foreach (IClientFunctions client in subscribers)
             {
-                try
-                {
-                    u.ShowMessage(String.Format("[{0:T}]<{1}> {2}", cm.TimeStamp, cm.User.Username, cm.Message));
-                }
-                catch (Exception e)
-                {
-                    SendServerMessage(u.Username + " hat die Verbindung zum Server verloren");
-                    UserList.Remove(u);
-                    Logger.Log(e);
-                    
-                }
+
+                    try
+                    {
+                        client.ShowMessage(cm.User + ": " + cm.Message);
+                    }
+                    catch (Exception e)
+                    {
+                        subscribersToDelete.Add(client);
+                    }
+                
             }
-               
-
-        }
-
-        public void SendServerMessage(string pMessage)
-        {
-            foreach (ChatUser u in UserList)
+            foreach (IClientFunctions client in subscribersToDelete)
             {
-                try
+                if (subscribers.Contains(client))
                 {
-                    u.ShowMessage(String.Format("[{0:T}]<{1}> {2}", DateTime.Now, "Server", pMessage));
-                }
-                catch (Exception e)
-                {
-                    UserList.Remove(u);
-                    Logger.Log(e);
+                    subscribers.Remove(client);
                 }
             }
         }
 
         public void ConnectToChannel()
         {
-
+           
         }
 
         public void DisconnectFromChannel()
         {
-
-        }
-
-        public void ConnectToServer(string pName, string pPassword)
-        {
-            IClientFunctions callback = GetCallback();
-
-
-            OperationContext context = OperationContext.Current;
-            MessageProperties messageProperties = context.IncomingMessageProperties;
-            RemoteEndpointMessageProperty endpointProperty = messageProperties[RemoteEndpointMessageProperty.Name] as RemoteEndpointMessageProperty;
-
-            if (!UserList.Contains(callback))
-            {
-                ChatUser u = new ChatUser();
-                u.Username = pName;
-                u.IP = System.Net.IPAddress.Parse(endpointProperty.Address);
-                UserList.Add(u);
-                Logger.Log(String.Format("{0} ({1}) hat sich eingeloggt", u.Username, u.IP));
-            }
             
-        }
-
-
-        public void DisconnectFromServer()
-        {
-            IClientFunctions callback = GetCallback();
-            try
-            {
-                SendServerMessage((callback as ChatUser).Username + " hat sich ausgeloggt");
-                UserList.Remove(callback as ChatUser);
-                
-            }
-            catch (Exception e)
-            {
-                Logger.Log(e);
-            }
-           
-        }
-
-        private IClientFunctions GetCallback()
-        {
-            return OperationContext.Current.GetCallbackChannel<IClientFunctions>(); 
-
         }
     }
 }

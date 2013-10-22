@@ -9,7 +9,7 @@ using System.Net;
 namespace ComCon.Shared.Classes
 {
     [DataContract]
-    public class ChatUser : IClientFunctions
+    public class ChatUser
     {
 
         #region Deklaration
@@ -45,10 +45,6 @@ namespace ComCon.Shared.Classes
         }        
 
         #endregion   
-    
-        public void ShowMessage(string pMessage)
-        {
-            
-        }
+
     }
 }

@@ -1,8 +1,6 @@
 C:\Users\gener_000\Documents\GitHub\ComCon\ComConClient\ComConServer\bin\Debug\ComConServer.exe.config
 C:\Users\gener_000\Documents\GitHub\ComCon\ComConClient\ComConServer\bin\Debug\ComConServer.exe
 C:\Users\gener_000\Documents\GitHub\ComCon\ComConClient\ComConServer\bin\Debug\ComConServer.pdb
-C:\Users\gener_000\Documents\GitHub\ComCon\ComConClient\ComConServer\obj\x86\Debug\ServerMainWindow.baml
-C:\Users\gener_000\Documents\GitHub\ComCon\ComConClient\ComConServer\obj\x86\Debug\ServerMainWindow.g.cs
 C:\Users\gener_000\Documents\GitHub\ComCon\ComConClient\ComConServer\obj\x86\Debug\App.g.cs
 C:\Users\gener_000\Documents\GitHub\ComCon\ComConClient\ComConServer\obj\x86\Debug\ComConServer_MarkupCompile.cache
 C:\Users\gener_000\Documents\GitHub\ComCon\ComConClient\ComConServer\obj\x86\Debug\ComConServer.g.resources
@@ -10,3 +8,8 @@ C:\Users\gener_000\Documents\GitHub\ComCon\ComConClient\ComConServer\obj\x86\Deb
 C:\Users\gener_000\Documents\GitHub\ComCon\ComConClient\ComConServer\obj\x86\Debug\ComConServer.csproj.GenerateResource.Cache
 C:\Users\gener_000\Documents\GitHub\ComCon\ComConClient\ComConServer\obj\x86\Debug\ComConServer.exe
 C:\Users\gener_000\Documents\GitHub\ComCon\ComConClient\ComConServer\obj\x86\Debug\ComConServer.pdb
+C:\Users\gener_000\Documents\GitHub\ComCon\ComConClient\ComConServer\bin\Debug\ComCon.Shared.Classes.dll
+C:\Users\gener_000\Documents\GitHub\ComCon\ComConClient\ComConServer\bin\Debug\ComCon.Shared.Classes.pdb
+C:\Users\gener_000\Documents\GitHub\ComCon\ComConClient\ComConServer\obj\x86\Debug\ComConServer.csprojResolveAssemblyReference.cache
+C:\Users\gener_000\Documents\GitHub\ComCon\ComConClient\ComConServer\obj\x86\Debug\Views\ServerMainWindow.baml
+C:\Users\gener_000\Documents\GitHub\ComCon\ComConClient\ComConServer\obj\x86\Debug\Views\ServerMainWindow.g.cs

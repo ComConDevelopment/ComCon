@@ -1,0 +1,15 @@
+C:\Users\gener_000\Documents\GitHub\ComCon\ComConClient\ComConClient\bin\Debug\ComConClient.exe
+C:\Users\gener_000\Documents\GitHub\ComCon\ComConClient\ComConClient\bin\Debug\ComConClient.pdb
+C:\Users\gener_000\Documents\GitHub\ComCon\ComConClient\ComConClient\bin\Debug\ComCon.Shared.Classes.dll
+C:\Users\gener_000\Documents\GitHub\ComCon\ComConClient\ComConClient\bin\Debug\ComCon.Shared.Classes.pdb
+C:\Users\gener_000\Documents\GitHub\ComCon\ComConClient\ComConClient\obj\Debug\ComConClient.csprojResolveAssemblyReference.cache
+C:\Users\gener_000\Documents\GitHub\ComCon\ComConClient\ComConClient\obj\Debug\ClientMainWindow.baml
+C:\Users\gener_000\Documents\GitHub\ComCon\ComConClient\ComConClient\obj\Debug\ClientMainWindow.g.cs
+C:\Users\gener_000\Documents\GitHub\ComCon\ComConClient\ComConClient\obj\Debug\App.g.cs
+C:\Users\gener_000\Documents\GitHub\ComCon\ComConClient\ComConClient\obj\Debug\ComConClient_MarkupCompile.cache
+C:\Users\gener_000\Documents\GitHub\ComCon\ComConClient\ComConClient\obj\Debug\ComConClient.g.resources
+C:\Users\gener_000\Documents\GitHub\ComCon\ComConClient\ComConClient\obj\Debug\ComConClient.Properties.Resources.resources
+C:\Users\gener_000\Documents\GitHub\ComCon\ComConClient\ComConClient\obj\Debug\ComConClient.csproj.GenerateResource.Cache
+C:\Users\gener_000\Documents\GitHub\ComCon\ComConClient\ComConClient\obj\Debug\ComConClient.exe
+C:\Users\gener_000\Documents\GitHub\ComCon\ComConClient\ComConClient\obj\Debug\ComConClient.pdb
+C:\Users\gener_000\Documents\GitHub\ComCon\ComConClient\ComConClient\bin\Debug\ComConClient.exe.config

@@ -6,6 +6,7 @@ using System.ServiceModel;
 
 namespace ComCon.Shared.Classes
 {    
+    [ServiceContract]
     public interface IClientFunctions
     {
         [OperationContract(IsOneWay = true)]

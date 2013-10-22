@@ -12,6 +12,7 @@ namespace ComConServer.Helper
 
         public static void Log(Exception e)
         {
+
             StringBuilder sb = new StringBuilder();
             sb.AppendLine(String.Format("{0:dd.MM.yyyy HH:mm:ss} ERROR", DateTime.Now));
             sb.AppendLine("DATA");
@@ -31,6 +32,11 @@ namespace ComConServer.Helper
                 sb.AppendLine("\t" + e.InnerException.StackTrace);
             }
 
+            if (!Directory.Exists(BaseLogPath + DateTime.Now.ToShortDateString()))
+            {
+                Directory.CreateDirectory(BaseLogPath + DateTime.Now.ToShortDateString());
+            }
+
             using (StreamWriter writer = File.CreateText(BaseLogPath + DateTime.Now.ToShortDateString() + "\\Log.txt"))
             {
                 writer.Write(sb.ToString());
@@ -43,17 +49,26 @@ namespace ComConServer.Helper
 
         public static void Log(string e)
         {
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine(String.Format("{0:dd.MM.yyyy HH:mm:ss} INFO", DateTime.Now));
-            sb.AppendLine(e);
-            
-
-            using (StreamWriter writer = File.CreateText(BaseLogPath + DateTime.Now.ToShortDateString() + "\\Log.txt"))
+            try
             {
-                writer.Write(sb.ToString());
-                writer.Flush();
-                writer.Close();
+                StringBuilder sb = new StringBuilder();
+                sb.AppendLine(String.Format("{0:dd.MM.yyyy HH:mm:ss} INFO", DateTime.Now));
+                sb.AppendLine(e);
+
+
+                using (StreamWriter writer = File.CreateText(BaseLogPath + DateTime.Now.ToShortDateString() + "\\Log.txt"))
+                {
+                    writer.Write(sb.ToString());
+                    writer.Flush();
+                    writer.Close();
+                }
             }
+            catch (Exception)
+            {
+                
+                
+            }
+
 
 
         }

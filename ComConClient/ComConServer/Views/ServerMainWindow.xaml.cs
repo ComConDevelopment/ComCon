@@ -11,17 +11,34 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.ServiceModel;
 
 namespace ComConServer
 {
     /// <summary>
     /// Interaktionslogik für MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ServerMainWindow : Window
     {
-        public MainWindow()
+        ServiceHost sh = new ServiceHost(typeof(MessageService));
+
+        public ServerMainWindow()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            sh = new ServiceHost(typeof(MessageService));
+            sh.Open();
+            textBox1.AppendText("Server gestartet\n");
+            
+        }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            sh.Close();
+            textBox1.AppendText("Server gestoppt\n");
         }
     }
 }
