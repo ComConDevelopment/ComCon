@@ -1,7 +1,7 @@
 ﻿ComCon.Client.Modules.Chat
 
 
-winexe
+library
 C#
 .cs
 C:\Users\gener_000\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Chat\obj\x86\Debug\
@@ -9,12 +9,12 @@ ComCon.Client.Modules.Chat
 none
 false
 DEBUG;TRACE
-C:\Users\gener_000\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Chat\App.xaml
-11151548125
 
-6881110238
-12-1381780322
-MainWindow.xaml;
+1-1157192762
+
+6-171289935
+19-909908978
+ChatControl.xaml;
 
 False
 

@@ -6,12 +6,12 @@ using System.ServiceModel;
 
 namespace ComCon.Shared.Classes
 {
-    [ServiceContract(CallbackContract = typeof(IClientFunctions))]
+    [ServiceContract(CallbackContract = typeof(IUser))]
     public interface IServerFunctions
     {
 
         [OperationContract]
-        void ConnectToServer(string pName, string pPassword);
+        void ConnectToServer();
 
         [OperationContract]
         void DisconnectFromServer();
@@ -24,6 +24,9 @@ namespace ComCon.Shared.Classes
 
         [OperationContract]
         void DisconnectFromChannel();
+
+        [OperationContract]
+        IEnumerable<string> GetChannels();
 
     }
 }
