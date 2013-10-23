@@ -1,4 +1,0 @@
-C:\Users\gener_000\Documents\GitHub\ComCon\ComConClient\ComCon.Shared.Classes\bin\Debug\ComCon.Shared.Classes.dll
-C:\Users\gener_000\Documents\GitHub\ComCon\ComConClient\ComCon.Shared.Classes\bin\Debug\ComCon.Shared.Classes.pdb
-C:\Users\gener_000\Documents\GitHub\ComCon\ComConClient\ComCon.Shared.Classes\obj\Debug\ComCon.Shared.Classes.dll
-C:\Users\gener_000\Documents\GitHub\ComCon\ComConClient\ComCon.Shared.Classes\obj\Debug\ComCon.Shared.Classes.pdb
