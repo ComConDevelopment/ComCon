@@ -32,6 +32,8 @@ namespace ComCon.Client.Modules.Login.Models
             set { mName = value; RaisePropertyChanged("Name"); }
         }
 
+        public bool IsBusy { get { return Global.IsBusy; } set { Global.IsBusy = value; RaisePropertyChanged("IsBusy"); } }
+
         #endregion
 
         #region Konstruktor
@@ -54,7 +56,9 @@ namespace ComCon.Client.Modules.Login.Models
 
         public void Login()
         {
-            Global.IsBusy = true;
+            IsBusy = true;
+
+
             Global.IsLoggedIn = true;
             Global.User = new Base.ServerService.ChatUser()
             {
@@ -62,10 +66,18 @@ namespace ComCon.Client.Modules.Login.Models
                 IsVisible = true
             };
 
+            //BackgroundWorker bw = new BackgroundWorker();
+            //bw.DoWork += (s, args) =>
+            //    {
+            //        var moduleLoader = ServiceLocator.Current.GetInstance<IModuleManager>();
+            //        moduleLoader.LoadModule("ClientChatModule");
+            //    };
+            //bw.RunWorkerAsync();
 
             var moduleLoader = ServiceLocator.Current.GetInstance<IModuleManager>();
-            EventAggregator.GetEvent<OnLoginEvent>().Publish(Global.User);
             moduleLoader.LoadModule("ClientChatModule");
+            //EventAggregator.GetEvent<OnLoginEvent>().Publish(Global.User);
+            
         }
 
         #endregion

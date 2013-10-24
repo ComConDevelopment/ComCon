@@ -126,7 +126,7 @@
             </summary>
             <typeparam name="T">The target object must derive from Control</typeparam>
             <remarks>
-            CommandBehaviorBase can be used to provide new behaviors for commands.
+            CommandBehaviorBase can be used to provide new behaviors similar to <see cref="T:Microsoft.Practices.Prism.Commands.ButtonBaseClickCommandBehavior"/>.
             </remarks>
         </member>
         <member name="M:Microsoft.Practices.Prism.Commands.CommandBehaviorBase`1.#ctor(`0)">
@@ -907,7 +907,7 @@
             Subscription token returned from <see cref="T:Microsoft.Practices.Prism.Events.EventBase"/> on subscribe.
             </summary>
         </member>
-        <member name="M:Microsoft.Practices.Prism.Events.SubscriptionToken.#ctor(System.Action{Microsoft.Practices.Prism.Events.SubscriptionToken})">
+        <member name="M:Microsoft.Practices.Prism.Events.SubscriptionToken.#ctor">
             <summary>
             Initializes a new instance of <see cref="T:Microsoft.Practices.Prism.Events.SubscriptionToken"/>.
             </summary>
@@ -939,11 +939,6 @@
             A hash code for the current <see cref="T:System.Object" />.
             </returns>
             <filterpriority>2</filterpriority>
-        </member>
-        <member name="M:Microsoft.Practices.Prism.Events.SubscriptionToken.Dispose">
-            <summary>
-            Disposes the SubscriptionToken, removing the subscription from the corresponding <see cref="T:Microsoft.Practices.Prism.Events.EventBase"/>.
-            </summary>
         </member>
         <member name="T:Microsoft.Practices.Prism.Events.ThreadOption">
             <summary>
@@ -3130,11 +3125,6 @@
               Looks up a localized string similar to Navigation cannot proceed until a region is set for the RegionNavigationService..
             </summary>
         </member>
-        <member name="P:Microsoft.Practices.Prism.Properties.Resources.NoRegionAdapterException">
-            <summary>
-              Looks up a localized string similar to The IRegionAdapter for the type {0} is not registered in the region adapter mappings. You can register an IRegionAdapter for this control by overriding the ConfigureRegionAdapterMappings method in the bootstrapper..
-            </summary>
-        </member>
         <member name="P:Microsoft.Practices.Prism.Properties.Resources.NoRetrieverCanRetrieveModule">
             <summary>
               Looks up a localized string similar to There is currently no moduleTypeLoader in the ModuleManager that can retrieve the specified module..
@@ -3635,45 +3625,6 @@
             Behavior's attached region.
             </summary>
         </member>
-        <member name="T:Microsoft.Practices.Prism.Regions.Behaviors.ClearChildViewsRegionBehavior">
-            <summary>
-            Behavior that removes the RegionManager attached property of all the views in a region once the RegionManager property of a region becomes null.
-            This is useful when removing views with nested regions, to ensure these nested regions get removed from the RegionManager as well.
-            <remarks>
-            This behavior does not apply by default. 
-            In order to activate it, the ClearChildViews attached property must be set to True in the view containing the affected child regions.
-            </remarks>
-            </summary>
-        </member>
-        <member name="F:Microsoft.Practices.Prism.Regions.Behaviors.ClearChildViewsRegionBehavior.BehaviorKey">
-            <summary>
-            The behavior key.
-            </summary>
-        </member>
-        <member name="F:Microsoft.Practices.Prism.Regions.Behaviors.ClearChildViewsRegionBehavior.ClearChildViewsProperty">
-            <summary>
-            This attached property can be defined on a view to indicate that regions defined in it must be removed from the region manager when the parent view gets removed from a region.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Practices.Prism.Regions.Behaviors.ClearChildViewsRegionBehavior.GetClearChildViews(System.Windows.DependencyObject)">
-            <summary>
-            Gets the ClearChildViews attached property from a DependencyObject.
-            </summary>
-            <param name="target">The object from which to get the value.</param>
-            <returns>The value of the ClearChildViews attached property in the target specified.</returns>
-        </member>
-        <member name="M:Microsoft.Practices.Prism.Regions.Behaviors.ClearChildViewsRegionBehavior.SetClearChildViews(System.Windows.DependencyObject,System.Boolean)">
-            <summary>
-            Sets the ClearChildViews attached property in a DependencyObject.
-            </summary>
-            <param name="target">The object in which to set the value.</param>
-            <param name="value">The value of to set in the target object's ClearChildViews attached property.</param>
-        </member>
-        <member name="M:Microsoft.Practices.Prism.Regions.Behaviors.ClearChildViewsRegionBehavior.OnAttach">
-            <summary>
-            Subscribes to the <see cref="T:Microsoft.Practices.Prism.Regions.Region"/>'s PropertyChanged method to monitor its RegionManager property.
-            </summary>
-        </member>
         <member name="T:Microsoft.Practices.Prism.Regions.Behaviors.DelayedRegionCreationBehavior">
             <summary>
             Behavior that creates a new <see cref="T:Microsoft.Practices.Prism.Regions.IRegion"/>, when the control that will host the <see cref="T:Microsoft.Practices.Prism.Regions.IRegion"/> (see <see cref="P:Microsoft.Practices.Prism.Regions.Behaviors.DelayedRegionCreationBehavior.TargetElement"/>)
@@ -3756,10 +3707,6 @@
             an object that implements <see cref="T:Microsoft.Practices.Prism.IActiveAware"/> gets added or removed 
             from the collection.
             </summary>
-            <remarks>
-            This class can also sync the active state for any scoped regions directly on the view based on the <see cref="T:Microsoft.Practices.Prism.Regions.SyncActiveStateAttribute"/>.
-            If you use the <see cref="M:Microsoft.Practices.Prism.Regions.Region.Add(System.Object,System.String,System.Boolean)"/> method with the createRegionManagerScope option, the scoped manager will be attached to the view.
-            </remarks>
         </member>
         <member name="F:Microsoft.Practices.Prism.Regions.Behaviors.RegionActiveAwareBehavior.BehaviorKey">
             <summary>
@@ -5168,11 +5115,6 @@
             <param name="view">The view to activate.</param>
             <remarks>If there is an active view before calling this method,
             that view will be deactivated automatically.</remarks>
-        </member>
-        <member name="T:Microsoft.Practices.Prism.Regions.SyncActiveStateAttribute">
-            <summary>
-            Defines that a view is synchronized with its parent view's Active state.
-            </summary>
         </member>
         <member name="T:Microsoft.Practices.Prism.Regions.UpdateRegionsException">
             <summary>

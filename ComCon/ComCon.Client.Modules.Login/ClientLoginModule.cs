@@ -19,7 +19,7 @@ namespace ComCon.Client.Modules.Login
         public ClientLoginModule(IRegionManager manager, IEventAggregator eventAggregator)
             :base(manager, eventAggregator)
         {
-            RegionManager.RegisterViewWithRegion("DashboardRegion", typeof(LoginView));
+            RegionManager.RegisterViewWithRegion("MainRegion", typeof(LoginView));
         }
     }
 }

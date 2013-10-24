@@ -5,7 +5,28 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:toolkit="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
              mc:Ignorable="d" 
-             d:DesignHeight="446" d:DesignWidth="791">
+             d:DesignHeight="446" d:DesignWidth="791" x:Name="Window" Opacity="1">
+    <UserControl.Effect>
+        <DropShadowEffect BlurRadius="5" ShadowDepth="1" Direction="270" Opacity="0.7"></DropShadowEffect>
+    </UserControl.Effect>
+    <UserControl.RenderTransform>
+        <TranslateTransform X="-800" Y="0"></TranslateTransform>
+    </UserControl.RenderTransform>
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UserControl.RenderTransform).(TranslateTransform.X)" Storyboard.TargetName="Window" Duration="0:0:1">
+                        <SplineDoubleKeyFrame Value="0" KeyTime="0:0:0.2"></SplineDoubleKeyFrame>
+                        <SplineDoubleKeyFrame Value="20" KeyTime="0:0:0.25"></SplineDoubleKeyFrame>
+                        <SplineDoubleKeyFrame Value="10" KeyTime="0:0:0.3"></SplineDoubleKeyFrame>
+                        <SplineDoubleKeyFrame Value="0" KeyTime="0:0:0.35"></SplineDoubleKeyFrame>
+                    </DoubleAnimationUsingKeyFrames>
+                    <!--<DoubleAnimation Storyboard.TargetProperty="Opacity" Storyboard.TargetName="Window" From="0" To="1" Duration="0:0:1" AutoReverse="False"/>-->
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </UserControl.Triggers>
     <UserControl.Resources>
         <ResourceDictionary Source="../Resources.xaml"/>
     </UserControl.Resources>
@@ -19,14 +40,15 @@
             <RowDefinition Height="401*" />
             <RowDefinition Height="30*" />
         </Grid.RowDefinitions>
-        <toolkit:RichTextBox x:Name="ChatBox" FontSize="11" Text="{Binding ChatText, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" >
+        <toolkit:RichTextBox x:Name="ChatBox" FontSize="11" Text="{Binding ChatText, UpdateSourceTrigger=PropertyChanged}" BorderThickness="1,1,0,0" IsReadOnly="True" >
             <toolkit:RichTextBox.TextFormatter>
                 <toolkit:RtfFormatter />
             </toolkit:RichTextBox.TextFormatter>
-        </toolkit:RichTextBox>
-        <TextBox Grid.Row="1" Name="textBox1" Text="{Binding Message, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+               
+            </toolkit:RichTextBox>
+            <TextBox Grid.Row="1" Name="textBox1" Text="{Binding Message, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" BorderThickness="1,1,0,1" />
         <Button Content="Senden" Grid.Column="1" Grid.Row="1" Name="button1" Command="{Binding SendCommand}" />
-            <ListBox Grid.Column="1" Name="listBox1" ItemsSource="{Binding Users, UpdateSourceTrigger=PropertyChanged}" >
+            <ListBox Grid.Column="1" Name="listBox1" ItemsSource="{Binding Users, UpdateSourceTrigger=PropertyChanged}" BorderThickness="1,1,1,0" >
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Username}"/>

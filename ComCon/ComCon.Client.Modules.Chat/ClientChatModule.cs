@@ -23,8 +23,11 @@ namespace ComCon.Client.Modules.Chat
             : base(manager, eventAggregator)
         {
             if (Global.IsLoggedIn)
-            {                
-                RegionManager.RegisterViewWithRegion("MainRegion", typeof(ChatControl));
+            {
+                RegionManager.Regions["MainRegion"].RequestNavigate(new Uri("ChatControl", UriKind.Relative));
+
+                //RegionManager.Regions["MainRegion"].Remove(RegionManager.Regions["MainRegion"].Views.ElementAt(0));
+                //RegionManager.RegisterViewWithRegion("MainRegion", typeof(ChatControl));
             }
             
         }

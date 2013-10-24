@@ -5,23 +5,53 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:com="clr-namespace:ComCon.Client.Base.Classes;assembly=ComCon.Client.Base"
              mc:Ignorable="d" 
-             d:DesignHeight="270" d:DesignWidth="529">
-    <StackPanel VerticalAlignment="Center">
+             xmlns:toolkit="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
+             d:DesignHeight="270" d:DesignWidth="529" x:Name="Window" Background="White" BorderBrush="White" BorderThickness="1">
+    <UserControl.Effect>
+        <DropShadowEffect BlurRadius="5" ShadowDepth="1" Direction="270" Opacity="0.7"></DropShadowEffect>
+    </UserControl.Effect>
+    <UserControl.RenderTransform>
+        <TranslateTransform X="-600" Y="0"></TranslateTransform>
+    </UserControl.RenderTransform>
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UserControl.RenderTransform).(TranslateTransform.X)" Storyboard.TargetName="Window" Duration="0:0:1">
+                        <SplineDoubleKeyFrame Value="0" KeyTime="0:0:0.2"></SplineDoubleKeyFrame>
+                        <SplineDoubleKeyFrame Value="20" KeyTime="0:0:0.25"></SplineDoubleKeyFrame>
+                        <SplineDoubleKeyFrame Value="10" KeyTime="0:0:0.3"></SplineDoubleKeyFrame>
+                        <SplineDoubleKeyFrame Value="0" KeyTime="0:0:0.35"></SplineDoubleKeyFrame>
+                    </DoubleAnimationUsingKeyFrames>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+        <EventTrigger SourceName="LoginButton" RoutedEvent="Button.Click">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UserControl.RenderTransform).(TranslateTransform.Y)" Storyboard.TargetName="Window" Duration="0:0:1">
+                        <SplineDoubleKeyFrame Value="0" KeyTime="0:0:0.2"></SplineDoubleKeyFrame>
+                        <SplineDoubleKeyFrame Value="600" KeyTime="0:0:0.25"></SplineDoubleKeyFrame>
+                    </DoubleAnimationUsingKeyFrames>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </UserControl.Triggers>
+    <toolkit:BusyIndicator IsBusy="{Binding IsBusy, UpdateSourceTrigger=PropertyChanged}" BusyContent="Login...">
+        <StackPanel VerticalAlignment="Center" Background="White">
         <AdornerDecorator>
-            <TextBox Width="150" VerticalAlignment="Center" Margin="5" x:Name="NameBox" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+            <TextBox Width="150" Height="22" VerticalAlignment="Center" Margin="5" x:Name="NameBox" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
                 <com:WatermarkService.Watermark>
-                    <TextBlock>Username</TextBlock>
+                    <TextBlock FontSize="11">Username</TextBlock>
                 </com:WatermarkService.Watermark>
             </TextBox>
         </AdornerDecorator>
 
         <AdornerDecorator>
-            <PasswordBox Width="150" VerticalAlignment="Center" Margin="5">
-                <com:WatermarkService.Watermark>
-                    <TextBlock>Passwort</TextBlock>
-                </com:WatermarkService.Watermark>
+            <PasswordBox Width="150" Height="22" VerticalAlignment="Center" Margin="5">
             </PasswordBox>
         </AdornerDecorator>
-        <Button Content="Login" Width="80" Margin="70,5,0,0" Command="{Binding LoginCommand}"></Button>
+        <Button Content="Login" Name="LoginButton" Width="80" Margin="70,5,0,0" Command="{Binding LoginCommand}"></Button>
     </StackPanel>
+    </toolkit:BusyIndicator>
 </UserControl>

@@ -91,6 +91,9 @@
   <wsdl:message name="IServerFunctions_UpdateUserList_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:UpdateUserList" />
   </wsdl:message>
+  <wsdl:message name="IServerFunctions_UpdateUserList_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserListResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServerFunctions">
     <wsdl:operation name="ConnectToServer">
       <wsdl:input wsaw:Action="http://tempuri.org/IServerFunctions/ConnectToServer" message="tns:IServerFunctions_ConnectToServer_InputMessage" />
@@ -129,6 +132,7 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateUserList">
       <wsdl:output wsaw:Action="http://tempuri.org/IServerFunctions/UpdateUserList" message="tns:IServerFunctions_UpdateUserList_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IServerFunctions/UpdateUserListResponse" message="tns:IServerFunctions_UpdateUserList_InputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IServerFunctions" type="tns:IServerFunctions">
@@ -214,6 +218,9 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateUserList">
       <soap12:operation soapAction="http://tempuri.org/IServerFunctions/UpdateUserList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>
@@ -225,7 +232,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8500/ChatService</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>TFiedler@mac.dom</Upn>
+          <Upn>TOMS-RECHNER\gener_000</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>

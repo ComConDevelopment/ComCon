@@ -16,6 +16,8 @@ using Microsoft.Practices.Prism.Events;
 using Microsoft.Practices.ServiceLocation;
 using ComCon.Client.Base;
 using ComCon.Client.Base.ServerService;
+using ComCon.Client.Base.Helpers;
+using System.Windows.Threading;
 
 namespace ComCon.Client.Modules.Chat
 {
@@ -23,11 +25,11 @@ namespace ComCon.Client.Modules.Chat
     /// Interaktionslogik für ChatControl.xaml
     /// </summary>
     /// 
-    [Export]
+    [Export("ChatControl")]
     public partial class ChatControl : UserControl
     {
         private readonly IEventAggregator EventAggregator;
-
+        private delegate void MyDelegate();
         public ChatControl()
         {
             EventAggregator = ServiceLocator.Current.GetInstance<IEventAggregator>();
@@ -43,10 +45,14 @@ namespace ComCon.Client.Modules.Chat
             switch (pMessage.User.Username)
             {
                 case "Server":
-                    AppendTextToRTB("<" + pMessage.User.Username + "> " + pMessage.Message, new SolidColorBrush(Colors.Green));
+                    DispatchService.Invoke(() =>
+                        AppendTextToRTB("<" + pMessage.User.Username + "> " + pMessage.Message, new SolidColorBrush(Colors.Green)));
+                    EventAggregator.GetEvent<OnLoginEvent>().Publish("New User");
+                    
                     break;
                 default:
-                    AppendTextToRTB("<" + pMessage.User.Username + "> " + pMessage.Message, new SolidColorBrush(Colors.Black));
+                    DispatchService.Invoke(() =>
+                        AppendTextToRTB("<" + pMessage.User.Username + "> " + pMessage.Message, new SolidColorBrush(Colors.Black)));
                     break;
             }
             
@@ -63,7 +69,21 @@ namespace ComCon.Client.Modules.Chat
             p.Margin = new Thickness(0);
             ChatBox.Document.Blocks.Add(p);
         }
+    }
 
-
+    public static class DispatchService
+    {
+        public static void Invoke(Action action)
+        {
+            Dispatcher dispatchObject = Application.Current.Dispatcher;
+            if (dispatchObject == null || dispatchObject.CheckAccess())
+            {
+                action();
+            }
+            else
+            {
+                dispatchObject.Invoke(action, DispatcherPriority.Send);
+            }
+        }
     }
 }

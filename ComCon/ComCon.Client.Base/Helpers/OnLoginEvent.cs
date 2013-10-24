@@ -7,7 +7,7 @@ using ComCon.Client.Base.ServerService;
 
 namespace ComCon.Client.Base.Helpers
 {
-    public class OnLoginEvent : CompositePresentationEvent<ChatUser>
+    public class OnLoginEvent : CompositePresentationEvent<string>
     {
     }
 }

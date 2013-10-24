@@ -4,13 +4,18 @@ using System.Linq;
 using System.Text;
 using ComCon.Shared.Classes;
 using System.ServiceModel;
+using System.Data;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace ComCon.Server
 {
-    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)] 
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, AutomaticSessionShutdown = false, UseSynchronizationContext = false, ConcurrencyMode = ConcurrencyMode.Reentrant)]
     public class ServerFunctions : IServerFunctions
     {
+
         private ChatUser Server;
+        private static object locker = new object();
 
         public ServerFunctions()
         {
@@ -42,22 +47,37 @@ namespace ComCon.Server
                 Users.Add(u);
                 ConnectedUsers.Add(user);
             }
-            foreach (IUser us in ConnectedUsers)
-            {
-                if (us != user)
-                    us.UpdateUserList();
-            }
+
             SendServerMessage(u.Username + " hat den Server betreten");
-            
+            //UpdateAllUserLists();
         }
 
         private void SendServerMessage(string pMessage)
         {
             foreach (IUser connected in ConnectedUsers)
             {
-                connected.ShowMessage(new ChatMessage() { Message = pMessage, User = new ChatUser() { Username = "Server" } });
+                connected.ShowMessage(new ChatMessage() { Message = pMessage, User = Server });
 
             }
+        }
+
+        public void UpdateAllUserLists()
+        {
+            ThreadPool.QueueUserWorkItem(_ =>
+                {
+                    Parallel.ForEach(ConnectedUsers, subscriber =>
+                        {
+                            try
+                            {
+                                subscriber.UpdateUserList();
+                            }
+                            catch (Exception e)
+                            {
+
+                            }
+                        });
+
+                });
         }
 
         public void DisconnectFromServer()
@@ -66,6 +86,7 @@ namespace ComCon.Server
             ChatUser u = Users.SingleOrDefault(x => x.Callback == user);
             if (ConnectedUsers.Contains(user))
             {
+                SendServerMessage(u.Username + " hat den Server verlassen");
                 Users.Remove(u);
                 ConnectedUsers.Remove(user);
             }

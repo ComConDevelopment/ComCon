@@ -18,6 +18,7 @@ using ComCon.Client.Base.Classes;
 
 namespace ComCon.Client.Modules.Chat.Models
 {
+    [CallbackBehavior(UseSynchronizationContext = false)]
     public class ChatModel : INotifyPropertyChanged, IServerFunctionsCallback
     {
         #region Deklaration
@@ -90,15 +91,23 @@ namespace ComCon.Client.Modules.Chat.Models
             client = new ServerFunctionsClient(context);
             try
             {
-                client.Open();
+                //client.Open();
                 BusyText = "Verbinde zu Server";
                 
                 client.ConnectToServerAsync(Global.User.Username);
                 client.ConnectToServerCompleted += (s, args) =>
+                {
+                    EventAggregator.GetEvent<OnLoginEvent>().Subscribe(OnLogin);
+                    try
                     {
                         Users = client.GetUsers().ToList();
-                        IsBusy = false;
-                    };
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show(e.Message);
+                    }
+                    IsBusy = false;
+                };
 
             }
             catch (Exception e)
@@ -106,8 +115,8 @@ namespace ComCon.Client.Modules.Chat.Models
                 ShowMessage(new ChatMessage() { User = new ChatUser() { Username = "Server" }, Message = "Fehler beim Einloggen!\r\n" + e.Message });
             }
 
-         
 
+            
             
 
             
@@ -131,9 +140,21 @@ namespace ComCon.Client.Modules.Chat.Models
             }
             catch (Exception)
             {
-
+                
             }
 
+        }
+
+        void OnLogin(string pMessage)
+        {
+            try
+            {
+                
+            }
+            catch (Exception)
+            {
+            }
+            
         }
 
         #endregion
@@ -199,12 +220,6 @@ namespace ComCon.Client.Modules.Chat.Models
             throw new NotImplementedException();
         }
 
-
-        public void UpdateUserList()
-        {
-            client.GetUsers();
-        }
-
         public IAsyncResult BeginUpdateUserList(AsyncCallback callback, object asyncState)
         {
             throw new NotImplementedException();
@@ -213,6 +228,12 @@ namespace ComCon.Client.Modules.Chat.Models
         public void EndUpdateUserList(IAsyncResult result)
         {
             throw new NotImplementedException();
+        }
+
+
+        public void UpdateUserList()
+        {
+            //this.Users = client.GetUsers().ToList();
         }
     }
 

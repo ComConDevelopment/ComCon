@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.ServiceModel;
+using System.Net.Security;
 
 namespace ComCon.Shared.Classes
 {
-    [ServiceContract(CallbackContract = typeof(IUser))]
+    [ServiceContract(CallbackContract = typeof(IUser), ProtectionLevel = ProtectionLevel.None, SessionMode = SessionMode.Allowed)]
     public interface IServerFunctions
     {
 
