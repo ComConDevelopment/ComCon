@@ -29,15 +29,18 @@ namespace ComCon
             Application.Current.MainWindow.Show();
         }
 
+
         protected override void ConfigureAggregateCatalog()
         {
 
             //Alle Module laden
             this.AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof(Bootstrapper).Assembly));
             this.AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof(ComCon.Client.Base.ClientBaseModule).Assembly));
+            this.AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof(Client.Modules.Login.ClientLoginModule).Assembly));
             this.AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof(Client.Modules.Chat.ClientChatModule).Assembly));
             this.AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof(Client.Modules.Menu.ClientMenuModule).Assembly));
             this.AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof(Client.Modules.ContextDashboard.ClientContexDashboardModule).Assembly));
+            
         }
 
         protected override void ConfigureContainer()

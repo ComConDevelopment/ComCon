@@ -6,5 +6,5 @@ using Microsoft.Practices.Prism.Events;
 
 namespace ComCon.Client.Base
 {
-    public class MessageReceivedEvent : CompositePresentationEvent<string> { }
+    public class OnExitEvent : CompositePresentationEvent<string> { }
 }

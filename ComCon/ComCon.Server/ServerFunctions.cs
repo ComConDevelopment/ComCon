@@ -7,25 +7,66 @@ using System.ServiceModel;
 
 namespace ComCon.Server
 {
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)] 
     public class ServerFunctions : IServerFunctions
     {
-        public static readonly List<IUser> ConnectedUsers = new List<IUser>();
+        private ChatUser Server;
 
-        public void ConnectToServer()
+        public ServerFunctions()
         {
-            IUser user = OperationContext.Current.GetCallbackChannel<IUser>();
-            if (!ConnectedUsers.Contains(user))
+            if (Server == null)
             {
-                ConnectedUsers.Add(user);
+                ChatUser u = new ChatUser();
+                u.Username = "Server";
+                Users.Add(u);
+                Server = u;
             }
             
+        }
+
+        public static readonly List<IUser> ConnectedUsers = new List<IUser>();
+        public static readonly List<ChatUser> Users = new List<ChatUser>();
+
+        public void ConnectToServer(string pName)
+        {
+            if (Users.SingleOrDefault(x => x.Username == pName) != null)
+            {
+                throw new InvalidOperationException("Dieser Username ist schon vorhanden!");
+            }
+            IUser user = OperationContext.Current.GetCallbackChannel<IUser>();
+            ChatUser u = new ChatUser();
+            u.Username = pName;
+            u.Callback = user;
+            if (!ConnectedUsers.Contains(user))
+            {
+                Users.Add(u);
+                ConnectedUsers.Add(user);
+            }
+            foreach (IUser us in ConnectedUsers)
+            {
+                if (us != user)
+                    us.UpdateUserList();
+            }
+            SendServerMessage(u.Username + " hat den Server betreten");
+            
+        }
+
+        private void SendServerMessage(string pMessage)
+        {
+            foreach (IUser connected in ConnectedUsers)
+            {
+                connected.ShowMessage(new ChatMessage() { Message = pMessage, User = new ChatUser() { Username = "Server" } });
+
+            }
         }
 
         public void DisconnectFromServer()
         {
             IUser user = OperationContext.Current.GetCallbackChannel<IUser>();
+            ChatUser u = Users.SingleOrDefault(x => x.Callback == user);
             if (ConnectedUsers.Contains(user))
             {
+                Users.Remove(u);
                 ConnectedUsers.Remove(user);
             }
         }
@@ -38,7 +79,7 @@ namespace ComCon.Server
             {
                 try
                 {
-                    client.ShowMessage(String.Format("[{0}]<{1}> {2}",cm.TimeStamp, cm.User, cm.Message));
+                    client.ShowMessage(cm);
                 }
                 catch (Exception e)
                 {
@@ -47,9 +88,11 @@ namespace ComCon.Server
             }
             foreach (IUser client in subscribersToDelete)
             {
+                ChatUser u = Users.SingleOrDefault(x => x.Callback == client);
                 if (ConnectedUsers.Contains(client))
                 {
                     ConnectedUsers.Remove(client);
+                    Users.Remove(u);
                 }
             }
         }
@@ -70,6 +113,18 @@ namespace ComCon.Server
             ChannelList.Add("Testchannel");
             ChannelList.Add("Testchannel 2");
             return ChannelList;
+        }
+
+        public List<ChatUser> GetUsers()
+        {
+            return Users;
+        }
+
+
+
+        public ChatUser GetUser(string pName)
+        {
+            return (Users.SingleOrDefault(x => x.Username == pName));
         }
     }
 }

@@ -6,6 +6,10 @@
              xmlns:toolkit="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
              mc:Ignorable="d" 
              d:DesignHeight="446" d:DesignWidth="791">
+    <UserControl.Resources>
+        <ResourceDictionary Source="../Resources.xaml"/>
+    </UserControl.Resources>
+    <toolkit:BusyIndicator IsBusy="{Binding IsBusy, UpdateSourceTrigger=PropertyChanged}" BusyContent="{Binding BusyText, UpdateSourceTrigger=PropertyChanged}">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="634*" />
@@ -15,10 +19,21 @@
             <RowDefinition Height="401*" />
             <RowDefinition Height="30*" />
         </Grid.RowDefinitions>
-        <toolkit:RichTextBox Text="{Binding ChatText, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"></toolkit:RichTextBox>
+        <toolkit:RichTextBox x:Name="ChatBox" FontSize="11" Text="{Binding ChatText, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" >
+            <toolkit:RichTextBox.TextFormatter>
+                <toolkit:RtfFormatter />
+            </toolkit:RichTextBox.TextFormatter>
+        </toolkit:RichTextBox>
         <TextBox Grid.Row="1" Name="textBox1" Text="{Binding Message, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
         <Button Content="Senden" Grid.Column="1" Grid.Row="1" Name="button1" Command="{Binding SendCommand}" />
-        <ListBox Grid.Column="1" Name="listBox1" ItemsSource="{Binding Channels, UpdateSourceTrigger=PropertyChanged}" />
-        <toolkit:ColorCanvas Grid.Row="1" HorizontalAlignment="Left" Margin="-134,33,0,0" Name="colorCanvas1" VerticalAlignment="Top" />
+            <ListBox Grid.Column="1" Name="listBox1" ItemsSource="{Binding Users, UpdateSourceTrigger=PropertyChanged}" >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Username}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+       
     </Grid>
+    </toolkit:BusyIndicator>
 </UserControl>

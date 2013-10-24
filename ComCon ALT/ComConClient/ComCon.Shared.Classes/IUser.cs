@@ -10,6 +10,9 @@ namespace ComCon.Shared.Classes
     public interface IUser
     {
         [OperationContract(IsOneWay = true)]
-        void ShowMessage(string pMessage);
+        void ShowMessage(ChatMessage cm);
+
+        [OperationContract(IsOneWay = true)]
+        void UpdateUserList();
     }
 }

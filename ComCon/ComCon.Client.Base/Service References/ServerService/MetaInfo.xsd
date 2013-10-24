@@ -4,7 +4,9 @@
   <xs:import schemaLocation="http://localhost:8501/MetaInfo?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:element name="ConnectToServer">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pName" nillable="true" type="xs:string" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ConnectToServerResponse">
@@ -66,11 +68,42 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ComCon.Shared.Classes" minOccurs="0" name="GetUserResult" nillable="true" type="q3:ChatUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUsers">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUsersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ComCon.Shared.Classes" minOccurs="0" name="GetUsersResult" nillable="true" type="q4:ArrayOfChatUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="ShowMessage">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="pMessage" nillable="true" type="xs:string" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ComCon.Shared.Classes" minOccurs="0" name="cm" nillable="true" type="q5:ChatMessage" />
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUserList">
+    <xs:complexType>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
 </xs:schema>

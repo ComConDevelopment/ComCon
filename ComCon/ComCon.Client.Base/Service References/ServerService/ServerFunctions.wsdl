@@ -73,8 +73,23 @@
   <wsdl:message name="IServerFunctions_GetChannels_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetChannelsResponse" />
   </wsdl:message>
+  <wsdl:message name="IServerFunctions_GetUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUser" />
+  </wsdl:message>
+  <wsdl:message name="IServerFunctions_GetUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServerFunctions_GetUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsers" />
+  </wsdl:message>
+  <wsdl:message name="IServerFunctions_GetUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersResponse" />
+  </wsdl:message>
   <wsdl:message name="IServerFunctions_ShowMessage_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:ShowMessage" />
+  </wsdl:message>
+  <wsdl:message name="IServerFunctions_UpdateUserList_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserList" />
   </wsdl:message>
   <wsdl:portType name="IServerFunctions">
     <wsdl:operation name="ConnectToServer">
@@ -101,8 +116,19 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IServerFunctions/GetChannels" message="tns:IServerFunctions_GetChannels_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServerFunctions/GetChannelsResponse" message="tns:IServerFunctions_GetChannels_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServerFunctions/GetUser" message="tns:IServerFunctions_GetUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServerFunctions/GetUserResponse" message="tns:IServerFunctions_GetUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServerFunctions/GetUsers" message="tns:IServerFunctions_GetUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServerFunctions/GetUsersResponse" message="tns:IServerFunctions_GetUsers_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="ShowMessage">
       <wsdl:output wsaw:Action="http://tempuri.org/IServerFunctions/ShowMessage" message="tns:IServerFunctions_ShowMessage_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserList">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServerFunctions/UpdateUserList" message="tns:IServerFunctions_UpdateUserList_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IServerFunctions" type="tns:IServerFunctions">
@@ -162,8 +188,32 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <soap12:operation soapAction="http://tempuri.org/IServerFunctions/GetUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <soap12:operation soapAction="http://tempuri.org/IServerFunctions/GetUsers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="ShowMessage">
       <soap12:operation soapAction="http://tempuri.org/IServerFunctions/ShowMessage" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserList">
+      <soap12:operation soapAction="http://tempuri.org/IServerFunctions/UpdateUserList" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>
@@ -175,7 +225,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8500/ChatService</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>TOMS-RECHNER\gener_000</Upn>
+          <Upn>TFiedler@mac.dom</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>

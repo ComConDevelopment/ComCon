@@ -4,17 +4,17 @@
 library
 C#
 .cs
-C:\Users\gener_000\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Chat\obj\Debug\
+C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Chat\obj\Debug\
 ComCon.Client.Modules.Chat
 none
 false
 DEBUG;TRACE
 
-1-185237573
+2-1222942541
 
-7-1042101576
-27786350687
-Views\ChatControl.xaml;
+6850588946
+27-182344606
+Resources.xaml;Views\ChatControl.xaml;
 
 False
 

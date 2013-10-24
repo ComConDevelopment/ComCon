@@ -11,7 +11,7 @@ namespace ComCon.Shared.Classes
     {
 
         [OperationContract]
-        void ConnectToServer();
+        void ConnectToServer(string pName);
 
         [OperationContract]
         void DisconnectFromServer();
@@ -27,6 +27,12 @@ namespace ComCon.Shared.Classes
 
         [OperationContract]
         IEnumerable<string> GetChannels();
+
+        [OperationContract]
+        ChatUser GetUser(string pName);
+
+        [OperationContract]
+        List<ChatUser> GetUsers();
 
     }
 }

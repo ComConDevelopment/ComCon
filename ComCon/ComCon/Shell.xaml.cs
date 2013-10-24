@@ -24,6 +24,6 @@ namespace ComCon
         public Shell()
         {
             InitializeComponent();
-        }
+        }        
     }
 }

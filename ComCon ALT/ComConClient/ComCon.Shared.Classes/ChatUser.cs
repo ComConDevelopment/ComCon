@@ -15,36 +15,53 @@ namespace ComCon.Shared.Classes
         #region Deklaration
 
         private string mUsername;
-        private DateTime mLastLoggedIn;
-        private IPAddress mIP;
+
+        private IUser mCallback;
+
+        private bool mIsAdmin;
+
+        private bool mIsVisible;
 
         #endregion
 
 
         #region Properties
 
+        
+        [DataMember]
+        public bool IsVisible
+        {
+            get { return mIsVisible; }
+            set { mIsVisible = value; }
+        }
+
+        
+        [DataMember]
+        public bool IsAdmin
+        {
+            get { return mIsAdmin; }
+            set { mIsAdmin = value; }
+        }
+
+
+        public IUser Callback
+        {
+            get { return mCallback; }
+            set { mCallback = value; }
+        }
+
         [DataMember]
         public string Username
         {
             get { return mUsername; }
             set { mUsername = value; }
-        }
-
-        [DataMember]
-        public DateTime LastLoggedIn
-        {
-            get { return mLastLoggedIn; }
-            set { mLastLoggedIn = value; }
-        }        
-
-        [DataMember]
-        public IPAddress IP
-        {
-            get { return mIP; }
-            set { mIP = value; }
-        }        
+        }  
 
         #endregion   
 
+        public override string ToString()
+        {
+            return this.Username;
+        }
     }
 }

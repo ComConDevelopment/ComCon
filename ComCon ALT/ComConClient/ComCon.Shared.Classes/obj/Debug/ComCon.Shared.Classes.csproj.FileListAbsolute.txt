@@ -6,3 +6,7 @@ C:\Users\gener_000\Documents\GitHub\ComCon\ComCon ALT\ComConClient\ComCon.Shared
 C:\Users\gener_000\Documents\GitHub\ComCon\ComCon ALT\ComConClient\ComCon.Shared.Classes\bin\Debug\ComCon.Shared.Classes.pdb
 C:\Users\gener_000\Documents\GitHub\ComCon\ComCon ALT\ComConClient\ComCon.Shared.Classes\obj\Debug\ComCon.Shared.Classes.dll
 C:\Users\gener_000\Documents\GitHub\ComCon\ComCon ALT\ComConClient\ComCon.Shared.Classes\obj\Debug\ComCon.Shared.Classes.pdb
+C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon ALT\ComConClient\ComCon.Shared.Classes\bin\Debug\ComCon.Shared.Classes.dll
+C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon ALT\ComConClient\ComCon.Shared.Classes\bin\Debug\ComCon.Shared.Classes.pdb
+C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon ALT\ComConClient\ComCon.Shared.Classes\obj\Debug\ComCon.Shared.Classes.dll
+C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon ALT\ComConClient\ComCon.Shared.Classes\obj\Debug\ComCon.Shared.Classes.pdb

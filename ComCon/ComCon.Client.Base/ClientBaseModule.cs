@@ -8,6 +8,7 @@ using System.ComponentModel.Composition;
 using Microsoft.Practices.Prism.Regions;
 using System.ComponentModel.Composition.Hosting;
 using Microsoft.Practices.Prism.Events;
+using ComCon.Client.Base.Classes;
 
 namespace ComCon.Client.Base
 {
@@ -22,14 +23,17 @@ namespace ComCon.Client.Base
         public ClientBaseModule(IRegionManager manager, IEventAggregator eventAggregator)
         {
             this.RegionManager = manager;
-            this.EventAggregator = eventAggregator;
+            this.EventAggregator = eventAggregator;           
         }
 
 
 
         public void Initialize()
         {
-           
+
+            
+            //RegionManager.RegisterViewWithRegion("MainRegion", typeof(ChatControl));
+
         }
     }
 }

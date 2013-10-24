@@ -14,7 +14,7 @@ namespace ComCon.Shared.Classes
 
         private string mMessage;
         private DateTime mTimeStamp;
-        private string mUser;
+        private ChatUser mUser;
 
         #endregion
 
@@ -35,7 +35,7 @@ namespace ComCon.Shared.Classes
         }
 
         [DataMember]
-        public string User
+        public ChatUser User
         {
             get { return mUser; }
             set { mUser = value; }
