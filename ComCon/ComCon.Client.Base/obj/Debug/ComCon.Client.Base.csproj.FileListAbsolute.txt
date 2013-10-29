@@ -27,7 +27,6 @@ C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Base\bin\Debug\Mi
 C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Base\bin\Debug\Microsoft.Practices.Prism.MefExtensions.pdb
 C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Base\bin\Debug\Microsoft.Practices.Prism.MefExtensions.xml
 C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Base\bin\Debug\Microsoft.Practices.ServiceLocation.xml
-C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Base\obj\Debug\ComCon.Client.Base.csprojResolveAssemblyReference.cache
 C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Base\obj\Debug\ComCon.Client.Base.Properties.Resources.resources
 C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Base\obj\Debug\ComCon.Client.Base.csproj.GenerateResource.Cache
 C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Base\obj\Debug\ComCon.Client.Base.dll
