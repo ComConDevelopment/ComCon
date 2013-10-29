@@ -6,9 +6,9 @@
              xmlns:toolkit="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
              mc:Ignorable="d" 
              d:DesignHeight="446" d:DesignWidth="791" x:Name="Window" Opacity="1">
-    <UserControl.Effect>
+    <!--<UserControl.Effect>
         <DropShadowEffect BlurRadius="5" ShadowDepth="1" Direction="270" Opacity="0.7"></DropShadowEffect>
-    </UserControl.Effect>
+    </UserControl.Effect>-->
     <UserControl.RenderTransform>
         <TranslateTransform X="-800" Y="0"></TranslateTransform>
     </UserControl.RenderTransform>
