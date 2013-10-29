@@ -20,7 +20,7 @@ namespace ComCon.Client.Modules.Menu
             : base(manager, eventAggregator)
             
         {
-
+            RegionManager.RegisterViewWithRegion("MenuRegion", typeof(Menu));
         }
     }
 }

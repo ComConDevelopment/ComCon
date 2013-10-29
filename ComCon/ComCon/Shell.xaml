@@ -4,7 +4,7 @@
         xmlns:prism="http://www.codeplex.com/prism"
         xmlns:local="clr-namespace:ComCon.Client.Base.Classes;assembly=ComCon.Client.Base"
         xmlns:toolkit="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
-        Title="ComCon" Height="600" Width="1200" Icon="/ComCon;component/Logo%20Design%20-%202%20-%20Stand%20Alone.png" Background="#F3F3F3">
+        Title="ComCon" Height="780" Width="1200" Icon="/ComCon;component/Logo%20Design%20-%202%20-%20Stand%20Alone.png" Background="#F3F3F3">
 
     <Window.Resources>
         <local:Global x:Key="Global"/>
@@ -12,19 +12,19 @@
     <toolkit:BusyIndicator IsBusy="{Binding Source={StaticResource Global}, Path=IsBusy}">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="27*" />
-            <RowDefinition Height="511*" />
-                <RowDefinition Height="23*" />
+            <RowDefinition Height="51*" />
+            <RowDefinition Height="668*" />
+                <RowDefinition Height="30*" />
             </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="252*" />
             <ColumnDefinition Width="852*" />
             <ColumnDefinition Width="68*" />
         </Grid.ColumnDefinitions>
-        <ContentControl Grid.Row="1" prism:RegionManager.RegionName="DashboardRegion" Grid.RowSpan="2"></ContentControl>
-        <ContentControl Grid.Column="1" Grid.Row="1" prism:RegionManager.RegionName="MainRegion" />
+        <ContentControl Grid.Row="1" prism:RegionManager.RegionName="DashboardRegion"/>
+            <ContentControl Grid.Column="1" Grid.Row="1" prism:RegionManager.RegionName="MainRegion" />
         <ContentControl Grid.ColumnSpan="3" prism:RegionManager.RegionName="MenuRegion" />
-        <ContentControl Grid.Column="2" Grid.Row="1" prism:RegionManager.RegionName="RightRegion" Grid.RowSpan="2" Margin="0,19,0,0"></ContentControl>
+        <ContentControl Grid.Column="2" Grid.Row="1" prism:RegionManager.RegionName="RightRegion" Grid.RowSpan="2"></ContentControl>
     </Grid>
     </toolkit:BusyIndicator>
 </Window>

@@ -1,0 +1,61 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+
+    
+    <Color x:Key="MainBorderColor">#708694</Color>
+    <SolidColorBrush Color="{StaticResource MainBorderColor}" x:Key="MainBorderBrush"/>
+    <Color x:Key="MainBackgroundColor">#45474A</Color>
+    <SolidColorBrush Color="{StaticResource MainBackgroundColor}" x:Key="MainBackgroundBrush"/>
+    <Color x:Key="MainLightBackgroundColor">#95B1C4</Color>
+    <SolidColorBrush Color="{StaticResource MainLightBackgroundColor}" x:Key="MainLightBackgroundBrush"/>
+    <Color x:Key="MainHoverColor">#596B80</Color>
+    <SolidColorBrush Color="{StaticResource MainHoverColor}" x:Key="MainHoverBrush"/>
+    <Color x:Key="MainActiveColor">#466180</Color>
+    <SolidColorBrush Color="{StaticResource MainActiveColor}" x:Key="MainActiveBrush"/>
+    <Color x:Key="MainDisabledColor">#9299A1</Color>
+    <SolidColorBrush Color="{StaticResource MainDisabledColor}" x:Key="MainDisabledBrush"/>
+
+    <Style TargetType="Button" x:Key="ButtonStyle">
+        <Setter Property="Background" Value="{StaticResource MainLightBackgroundBrush}"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Width" Value="60"></Setter>
+        <Setter Property="Height" Value="22"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <VisualStateManager.VisualStateGroups>
+
+                            <VisualStateGroup x:Name="Common">
+                                <VisualState x:Name="Normal">
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource MainLightBackgroundColor}" Duration="0:0:0.1" Storyboard.TargetName="MainBorder" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)">
+                                        </ColorAnimation>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource MainHoverColor}" Duration="0:0:0.1" Storyboard.TargetName="MainBorder" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)">                                            
+                                        </ColorAnimation>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource MainActiveColor}" Duration="0:0:0.1" Storyboard.TargetName="MainBorder" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)">
+                                        </ColorAnimation>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+
+                        <Border x:Name="MainBorder" BorderBrush="{StaticResource MainBorderBrush}" BorderThickness="0,0,0,2.2" CornerRadius="2" Background="{TemplateBinding Background}">
+                            
+                        </Border>
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
