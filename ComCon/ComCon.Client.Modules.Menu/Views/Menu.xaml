@@ -23,12 +23,14 @@
             </BeginStoryboard>
         </EventTrigger>
     </UserControl.Triggers>
-    <Grid Background="{StaticResource MainBackgroundBrush}">
+    <Border Background="{StaticResource MainBackgroundBrush}" BorderBrush="White" BorderThickness="4" CornerRadius="5">
+        <Grid Background="{StaticResource MainBackgroundBrush}"  >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="524*"/>
             <ColumnDefinition Width="75*"/>
         </Grid.ColumnDefinitions>
-        <ListBox Background="{StaticResource MainBackgroundBrush}" BorderBrush="Transparent">
+       
+        <ListBox Background="{StaticResource MainBackgroundBrush}" ItemsSource="{Binding MenuItems}">
         <ListBox.ItemsPanel>
             <ItemsPanelTemplate>
                 <StackPanel Orientation="Horizontal"/>
@@ -37,7 +39,7 @@
         <ListBox.ItemContainerStyle>
             <Style TargetType="ListBoxItem">
                 <Setter Property="Foreground" Value="White"/>
-                <Setter Property="FontSize" Value="15"/>
+                <Setter Property="FontSize" Value="14"/>
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="ListBoxItem">
@@ -122,20 +124,21 @@
                 </Setter>
             </Style>
         </ListBox.ItemContainerStyle>
-        <ListBox.Items>
+        <!--<ListBox.Items>
             <ListBoxItem Content="MenuEintrag1"/>
             <ListBoxItem Content="MenuEintrag2"/>
             <ListBoxItem Content="MenuEintrag3"/>
             <ListBoxItem Content="MenuEintrag4"/>
-        </ListBox.Items>
+        </ListBox.Items>-->
     </ListBox>
         <StackPanel Orientation="Horizontal" Grid.Column="1">
             <TextBlock Text="Mein Profil" Foreground="White" Margin="0,0,10,0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             <Expander HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <Ellipse Stroke="White" StrokeThickness="2" Width="45" Height="45"></Ellipse>
+            <Ellipse Stroke="White" StrokeThickness="2" Width="28" Height="28"></Ellipse>
             
         </StackPanel>
        
 
     </Grid>
+    </Border>
 </UserControl>

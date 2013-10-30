@@ -58,3 +58,7 @@ C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.ContextDashboa
 C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.ContextDashboard\obj\Debug\Views\Dashboard.g.cs
 C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.ContextDashboard\obj\Debug\ComCon.Client.Modules.ContextDashboard_MarkupCompile.cache
 C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.ContextDashboard\obj\Debug\ComCon.Client.Modules.ContextDashboard.g.resources
+C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.ContextDashboard\obj\Debug\Views\Dashboard.baml
+C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.ContextDashboard\obj\Debug\Views\Dashboard.g.cs
+C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.ContextDashboard\obj\Debug\ComCon.Client.Modules.ContextDashboard_MarkupCompile.cache
+C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.ContextDashboard\obj\Debug\ComCon.Client.Modules.ContextDashboard.g.resources

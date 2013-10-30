@@ -49,12 +49,6 @@ C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Server\bin\Debug\Xceed.W
 C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Server\bin\Debug\Xceed.Wpf.DataGrid.dll
 C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Server\bin\Debug\Xceed.Wpf.Toolkit.dll
 C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Server\bin\Debug\ComCon.Shared.Classes.pdb
-C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Server\bin\Debug\Microsoft.Practices.Prism.pdb
-C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Server\bin\Debug\Microsoft.Practices.Prism.xml
-C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Server\bin\Debug\Microsoft.Practices.Prism.Interactivity.pdb
-C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Server\bin\Debug\Microsoft.Practices.Prism.Interactivity.xml
-C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Server\bin\Debug\Microsoft.Practices.Prism.MefExtensions.pdb
-C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Server\bin\Debug\Microsoft.Practices.Prism.MefExtensions.xml
 C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Server\bin\Debug\Microsoft.Practices.ServiceLocation.xml
 C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Server\bin\Debug\de\Xceed.Wpf.AvalonDock.resources.dll
 C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Server\bin\Debug\es\Xceed.Wpf.AvalonDock.resources.dll
