@@ -1,5 +1,7 @@
-﻿using System;
+﻿using ComCon.Client.Modules.Login.Models;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -11,8 +13,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ComCon.Client.Modules.Login.Models;
-using System.ComponentModel.Composition;
 
 namespace ComCon.Client.Modules.Login.Views
 {

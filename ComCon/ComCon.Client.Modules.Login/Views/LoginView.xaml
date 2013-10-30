@@ -3,28 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:com="clr-namespace:ComCon.Client.Base.Classes;assembly=ComCon.Client.Base"
              mc:Ignorable="d" 
              xmlns:toolkit="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
-             d:DesignHeight="270" d:DesignWidth="529" x:Name="Window" Background="#45474A" Opacity="0"  BorderBrush="White" BorderThickness="1">
-    <!--<UserControl.Effect>
-        <DropShadowEffect BlurRadius="5" ShadowDepth="1" Direction="270" Opacity="0.7"></DropShadowEffect>
-    </UserControl.Effect>-->
-    <!--<UserControl.RenderTransform>
-        <TranslateTransform X="-600" Y="0"></TranslateTransform>
-    </UserControl.RenderTransform>-->
+             d:DesignHeight="270" d:DesignWidth="529" x:Name="Window" Background="White" Opacity="0"  BorderBrush="White" BorderThickness="1">
     <UserControl.Triggers>
         <EventTrigger RoutedEvent="Loaded">
             <BeginStoryboard>
                 <Storyboard>
-                    <!--<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UserControl.RenderTransform).(TranslateTransform.X)" Storyboard.TargetName="Window" Duration="0:0:1">
-                        <SplineDoubleKeyFrame Value="0" KeyTime="0:0:0.2"></SplineDoubleKeyFrame>
-                        <SplineDoubleKeyFrame Value="20" KeyTime="0:0:0.25"></SplineDoubleKeyFrame>
-                        <SplineDoubleKeyFrame Value="10" KeyTime="0:0:0.3"></SplineDoubleKeyFrame>
-                        <SplineDoubleKeyFrame Value="0" KeyTime="0:0:0.35"></SplineDoubleKeyFrame>
-                    </DoubleAnimationUsingKeyFrames>-->
                     <DoubleAnimation From="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="Window" Duration="0:0:0.5">
-                        
+
                     </DoubleAnimation>
                 </Storyboard>
             </BeginStoryboard>
@@ -41,20 +28,56 @@
         </EventTrigger>
     </UserControl.Triggers>
     <toolkit:BusyIndicator IsBusy="{Binding IsBusy, UpdateSourceTrigger=PropertyChanged}" BusyContent="Login...">
-        <StackPanel VerticalAlignment="Center" Background="#45474A">
-        <AdornerDecorator>
-            <TextBox Width="150" Height="22" VerticalAlignment="Center" Margin="5" x:Name="NameBox" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" BorderBrush="Gray" BorderThickness="2">
-                <com:WatermarkService.Watermark>
-                    <TextBlock FontSize="11">Username</TextBlock>
-                </com:WatermarkService.Watermark>
+        
+        <Border Background="{StaticResource MainBackgroundBrush}" Height="300" Width="200" CornerRadius="5">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" >
+                <!--<Image Source="../Logo Design - 2_Splashscreen.jpg" Height="50" Width="50"></Image>-->
+                    <TextBlock Foreground="White" Text="Bitte logge dich ein" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,25" FontWeight="Bold"/>
+                <TextBox Height="22" Width="150" VerticalAlignment="Center" Margin="5" x:Name="NameBox" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" BorderBrush="Gray" BorderThickness="2">
             </TextBox>
-        </AdornerDecorator>
-
-        <AdornerDecorator>
-                <PasswordBox Width="150" Height="22" VerticalAlignment="Center" Margin="5"  BorderBrush="Gray" BorderThickness="2">
+                <PasswordBox Height="22" Width="150" VerticalAlignment="Center" Margin="5"  BorderBrush="Gray" BorderThickness="2">
             </PasswordBox>
-        </AdornerDecorator>
-            <Button Content="Login" Name="LoginButton" Style="{StaticResource ButtonStyle}"  Width="80" Margin="70,5,0,0" Command="{Binding LoginCommand}"></Button>
-    </StackPanel>
+            <Button Content="Login" Width="100" Margin="0,20,0,0" x:Name="LoginButton" Command="{Binding LoginCommand}">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Grid Width="{TemplateBinding Width}">
+                                        <VisualStateManager.VisualStateGroups>
+
+                                            <VisualStateGroup x:Name="Common">
+                                                <VisualState x:Name="Normal">
+                                                    <Storyboard>
+                                                        <ColorAnimation To="{StaticResource MainGreenColor}" Duration="0:0:0.1" Storyboard.TargetName="MainBorder" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"/>
+                                                    </Storyboard>
+                                                </VisualState>
+                                                <VisualState x:Name="MouseOver">
+                                                    <Storyboard>
+                                                        <ColorAnimation To="{StaticResource MainHoverColor}" Duration="0:0:0.1" Storyboard.TargetName="MainBorder" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"/>
+                                                    </Storyboard>
+                                                </VisualState>
+                                                <VisualState x:Name="Pressed">
+                                                    <Storyboard>
+                                                        <ColorAnimation To="{StaticResource MainActiveColor}" Duration="0:0:0.1" Storyboard.TargetName="MainBorder" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"/>
+                                                    </Storyboard>
+                                                </VisualState>
+                                            </VisualStateGroup>
+                                        </VisualStateManager.VisualStateGroups>
+                                        <Border x:Name="MainBorder" Background="{StaticResource MainGreenBrush}" Height="30" CornerRadius="5">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+
+                    </Style>
+                </Button.Style>
+
+            </Button>
+        </StackPanel>
+        </Border>
     </toolkit:BusyIndicator>
 </UserControl>

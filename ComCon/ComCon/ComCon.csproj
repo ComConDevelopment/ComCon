@@ -163,9 +163,6 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <SplashScreen Include="Logo Design - 2_Splashscreen.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\..\ComCon ALT\ComConClient\ComCon.Shared.Classes\ComCon.Shared.Classes.csproj">
       <Project>{C28BA773-105A-47CE-BFFB-05E6325E8465}</Project>
       <Name>ComCon.Shared.Classes</Name>
@@ -206,6 +203,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <SplashScreen Include="Logo Design - 2_Splashscreen NEW %28Paddy%29.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

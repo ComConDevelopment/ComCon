@@ -23,7 +23,7 @@ namespace ComCon.Client.Modules.Menu
     {
         private List<string> mMenuItems = new List<string>();
 
-        public List<string> MenuItems
+        public List<string> CurrentItems
         {
             get { return mMenuItems; }
             set { mMenuItems = value; }
@@ -33,9 +33,9 @@ namespace ComCon.Client.Modules.Menu
 
         public Menu()
         {
-            MenuItems.Add("Test1");
-            MenuItems.Add("Test2");
-            MenuItems.Add("Test3");
+            CurrentItems.Add("Test1");
+            CurrentItems.Add("Test2");
+            CurrentItems.Add("Test3");
             this.DataContext = this;
             InitializeComponent();
         }

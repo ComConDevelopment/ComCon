@@ -5,16 +5,18 @@
     
     <Color x:Key="MainBorderColor">#708694</Color>
     <SolidColorBrush Color="{StaticResource MainBorderColor}" x:Key="MainBorderBrush"/>
-    <Color x:Key="MainBackgroundColor">#45474A</Color>
+    <Color x:Key="MainBackgroundColor">#FF46CFFF</Color>
     <SolidColorBrush Color="{StaticResource MainBackgroundColor}" x:Key="MainBackgroundBrush"/>
-    <Color x:Key="MainLightBackgroundColor">#95B1C4</Color>
+    <Color x:Key="MainLightBackgroundColor">#ABDFFF</Color>
     <SolidColorBrush Color="{StaticResource MainLightBackgroundColor}" x:Key="MainLightBackgroundBrush"/>
-    <Color x:Key="MainHoverColor">#596B80</Color>
+    <Color x:Key="MainHoverColor">#FF007DC2</Color>
     <SolidColorBrush Color="{StaticResource MainHoverColor}" x:Key="MainHoverBrush"/>
     <Color x:Key="MainActiveColor">#466180</Color>
     <SolidColorBrush Color="{StaticResource MainActiveColor}" x:Key="MainActiveBrush"/>
     <Color x:Key="MainDisabledColor">#9299A1</Color>
     <SolidColorBrush Color="{StaticResource MainDisabledColor}" x:Key="MainDisabledBrush"/>
+    <Color x:Key="MainGreenColor">#FF35BF86</Color>
+    <SolidColorBrush Color="{StaticResource MainGreenColor}" x:Key="MainGreenBrush"/>
 
     <Style TargetType="Button" x:Key="ButtonStyle">
         <Setter Property="Background" Value="{StaticResource MainLightBackgroundBrush}"/>
@@ -49,7 +51,7 @@
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
 
-                        <Border x:Name="MainBorder" BorderBrush="{StaticResource MainBorderBrush}" BorderThickness="0,0,0,2.2" CornerRadius="2" Background="{TemplateBinding Background}">
+                        <Border x:Name="MainBorder" BorderBrush="{StaticResource MainGreenBrush}" Background="{StaticResource MainGreenBrush}">
                             
                         </Border>
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>

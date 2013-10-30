@@ -1,0 +1,13 @@
+C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Jarvis\bin\Debug\ComCon.Jarvis.exe.config
+C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Jarvis\bin\Debug\ComCon.Jarvis.exe
+C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Jarvis\bin\Debug\ComCon.Jarvis.pdb
+C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Jarvis\obj\Debug\MainWindow.baml
+C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Jarvis\obj\Debug\MainWindow.g.cs
+C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Jarvis\obj\Debug\App.g.cs
+C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Jarvis\obj\Debug\ComCon.Jarvis_MarkupCompile.cache
+C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Jarvis\obj\Debug\ComCon.Jarvis.g.resources
+C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Jarvis\obj\Debug\ComCon.Jarvis.Properties.Resources.resources
+C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Jarvis\obj\Debug\ComCon.Jarvis.csproj.GenerateResource.Cache
+C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Jarvis\obj\Debug\ComCon.Jarvis.exe
+C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Jarvis\obj\Debug\ComCon.Jarvis.pdb
+C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Jarvis\obj\Debug\ComCon.Jarvis.csprojResolveAssemblyReference.cache

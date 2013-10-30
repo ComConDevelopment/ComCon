@@ -23,14 +23,88 @@
             </BeginStoryboard>
         </EventTrigger>
     </UserControl.Triggers>
-    <Border Background="{StaticResource MainBackgroundBrush}" BorderBrush="White" BorderThickness="4" CornerRadius="5">
+    <Border Background="{StaticResource MainBackgroundBrush}" BorderBrush="White" BorderThickness="10" CornerRadius="5" Margin="5" Padding="0">
         <Grid Background="{StaticResource MainBackgroundBrush}"  >
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="524*"/>
-            <ColumnDefinition Width="75*"/>
+            <ColumnDefinition Width="85*"/>
+                <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="382*"/>
+                <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="71*"/>
         </Grid.ColumnDefinitions>
-       
-        <ListBox Background="{StaticResource MainBackgroundBrush}" ItemsSource="{Binding MenuItems}">
+            
+            
+            
+            <Button Content="Einstellungen">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="BorderBrush" Value="Transparent"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="FontSize" Value="15"/>
+                        <Setter Property="FontWeight" Value="Bold"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <Image></Image>
+                                        <ContentPresenter></ContentPresenter>
+                                    </StackPanel>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button Grid.Column="1">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Grid>
+                                        <VisualStateManager.VisualStateGroups>
+                                            <VisualStateGroup x:Name="Common">
+                                                <VisualState x:Name="Normal">
+                                                    <Storyboard>
+                                                        <ColorAnimation To="White" Duration="0:0:0.1" Storyboard.TargetName="MainPath" Storyboard.TargetProperty="(Path.Stroke).(SolidColorBrush.Color)">
+                                                        </ColorAnimation>
+                                                    </Storyboard>
+                                                </VisualState>
+                                                <VisualState x:Name="MouseOver">
+                                                    <Storyboard>
+                                                        <ColorAnimation To="{StaticResource MainHoverColor}" Duration="0:0:0.1" Storyboard.TargetName="MainPath" Storyboard.TargetProperty="(Path.Stroke).(SolidColorBrush.Color)">
+                                                        </ColorAnimation>
+                                                    </Storyboard>
+                                                </VisualState>
+                                                <VisualState x:Name="Pressed">
+                                                    <Storyboard>
+                                                        <ColorAnimation To="{StaticResource MainActiveColor}" Duration="0:0:0.1" Storyboard.TargetName="MainPath" Storyboard.TargetProperty="(Path.Stroke).(SolidColorBrush.Color)">
+                                                        </ColorAnimation>
+                                                    </Storyboard>
+                                                </VisualState>
+                                            </VisualStateGroup>
+                                        </VisualStateManager.VisualStateGroups>
+                                        <Border x:Name="MainBorder" Background="{StaticResource MainBackgroundBrush}" VerticalAlignment="Center" >
+                                            <Path Data="M5,5 15,15 5,25" x:Name="MainPath" StrokeThickness="8" Stroke="White" StrokeEndLineCap="Round" StrokeStartLineCap="Round" StrokeLineJoin="Round" RenderTransformOrigin="0.5, 0.5">
+                                                <Path.RenderTransform>
+                                                    
+                                                    <RotateTransform CenterX="0.5" CenterY="0.5" Angle="180">
+                                                        
+                                                    </RotateTransform>
+                                                </Path.RenderTransform>
+                                            </Path>
+
+                                        </Border>
+
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <ListBox Background="{StaticResource MainBackgroundBrush}" ItemsSource="{Binding CurrentItems}" BorderBrush="Transparent" Padding="0" Grid.Column="2" HorizontalAlignment="Center">
         <ListBox.ItemsPanel>
             <ItemsPanelTemplate>
                 <StackPanel Orientation="Horizontal"/>
@@ -39,12 +113,13 @@
         <ListBox.ItemContainerStyle>
             <Style TargetType="ListBoxItem">
                 <Setter Property="Foreground" Value="White"/>
-                <Setter Property="FontSize" Value="14"/>
-                <Setter Property="Template">
+                <Setter Property="FontSize" Value="13"/>
+                <Setter Property="Padding" Value="0"/>
+                        <Setter Property="Template">                        
                     <Setter.Value>
                         <ControlTemplate TargetType="ListBoxItem">
                             <Grid>
-                                <VisualStateManager.VisualStateGroups>
+                                <!--<VisualStateManager.VisualStateGroups>
                                     <VisualStateGroup x:Name="Common">
                                         <VisualState x:Name="Normal">
                                             <Storyboard>
@@ -65,18 +140,20 @@
                                             </Storyboard>
                                         </VisualState>
                                     </VisualStateGroup>
-                                </VisualStateManager.VisualStateGroups>
-
-                                    <Border x:Name="MainBorder" Background="{StaticResource MainBackgroundBrush}" BorderBrush="{StaticResource MainBorderBrush}">
-
-                                    </Border>
-                                    <Button Background="{StaticResource MainBackgroundBrush}" BorderBrush="Transparent" Foreground="White">
+                                </VisualStateManager.VisualStateGroups>-->
+                                    <Button Background="{StaticResource MainBackgroundBrush}" Margin="0" Padding="0" BorderBrush="Transparent" Foreground="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                                         <Button.Content>
-                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"></ContentPresenter>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <Image></Image>
+                                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"></ContentPresenter>
+                                                </StackPanel>
+                                                    
                                         </Button.Content>
                                         <Button.Style>
                                             <Style TargetType="Button">
-                                            <Setter Property="Template">
+                                                    <Setter Property="FontSize" Value="15"/>
+                                                    <Setter Property="FontWeight" Value="Bold"/>
+                                                    <Setter Property="Template">
                                                 <Setter.Value>
                                                     <ControlTemplate TargetType="Button">
                                                         <Grid>
@@ -104,10 +181,10 @@
                                                                 </VisualStateGroup>
                                                             </VisualStateManager.VisualStateGroups>
 
-                                                            <Border x:Name="MainBorder" BorderBrush="Transparent" BorderThickness="0,0,0,2.2" CornerRadius="2" Background="{TemplateBinding Background}">
+                                                            <Border x:Name="MainBorder" BorderBrush="Transparent" Margin="0" Background="Transparent" Padding="0">
 
                                                             </Border>
-                                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
+                                                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" ></ContentPresenter>
                                                         </Grid>
                                                     </ControlTemplate>
                                                 </Setter.Value>
@@ -131,14 +208,56 @@
             <ListBoxItem Content="MenuEintrag4"/>
         </ListBox.Items>-->
     </ListBox>
-        <StackPanel Orientation="Horizontal" Grid.Column="1">
+            <Button Grid.Column="3">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Template">
+                            <Setter.Value> 
+                                <ControlTemplate TargetType="Button">
+                                    <Grid>
+                                        <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="Common">
+                                                <VisualState x:Name="Normal">
+                                                    <Storyboard>
+                                                        <ColorAnimation To="White" Duration="0:0:0.1" Storyboard.TargetName="MainPath" Storyboard.TargetProperty="(Path.Stroke).(SolidColorBrush.Color)">
+                                                        </ColorAnimation>
+                                                    </Storyboard>
+                                                </VisualState>
+                                                <VisualState x:Name="MouseOver">
+                                                    <Storyboard>
+                                                        <ColorAnimation To="{StaticResource MainHoverColor}" Duration="0:0:0.1" Storyboard.TargetName="MainPath" Storyboard.TargetProperty="(Path.Stroke).(SolidColorBrush.Color)">
+                                                        </ColorAnimation>
+                                                    </Storyboard>
+                                                </VisualState>
+                                                <VisualState x:Name="Pressed">
+                                                    <Storyboard>
+                                                        <ColorAnimation To="{StaticResource MainActiveColor}" Duration="0:0:0.1" Storyboard.TargetName="MainPath" Storyboard.TargetProperty="(Path.Stroke).(SolidColorBrush.Color)">
+                                                        </ColorAnimation>
+                                                    </Storyboard>
+                                                </VisualState>
+                                            </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                        <Border x:Name="MainBorder" Background="{StaticResource MainBackgroundBrush}" VerticalAlignment="Center" >
+                                            <Path Data="M5,5 15,15 5,25"  x:Name="MainPath" StrokeThickness="8" Stroke="White" StrokeEndLineCap="Round" StrokeStartLineCap="Round" StrokeLineJoin="Round"></Path>
+                                            
+                                        </Border>
+
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+        <StackPanel Orientation="Horizontal" Grid.Column="4">
             <TextBlock Text="Mein Profil" Foreground="White" Margin="0,0,10,0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             <Expander HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <Ellipse Stroke="White" StrokeThickness="2" Width="28" Height="28"></Ellipse>
             
         </StackPanel>
-       
+            
 
-    </Grid>
+
+        </Grid>
     </Border>
 </UserControl>
