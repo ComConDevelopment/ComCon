@@ -21,10 +21,21 @@ namespace ComCon.Client.Modules.Menu
     [Export]
     public partial class Menu : UserControl
     {
+        private List<string> mMenuItems = new List<string>();
+
+        public List<string> MenuItems
+        {
+            get { return mMenuItems; }
+            set { mMenuItems = value; }
+        }
+
+
 
         public Menu()
         {
-           
+            MenuItems.Add("Test1");
+            MenuItems.Add("Test2");
+            MenuItems.Add("Test3");
             this.DataContext = this;
             InitializeComponent();
         }

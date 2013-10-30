@@ -58,3 +58,7 @@ C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Menu\obj\Debug
 C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Menu\obj\Debug\ComCon.Client.Modules.Menu.pdb
 C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Menu\obj\Debug\Views\Menu.baml
 C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Menu\obj\Debug\Views\Menu.g.cs
+C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Menu\obj\Debug\Views\Menu.baml
+C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Menu\obj\Debug\Views\Menu.g.cs
+C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Menu\obj\Debug\ComCon.Client.Modules.Menu_MarkupCompile.cache
+C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Menu\obj\Debug\ComCon.Client.Modules.Menu.g.resources

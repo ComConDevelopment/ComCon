@@ -167,3 +167,5 @@ C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon\obj\Debug\ComCon.g.resources
 C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon\obj\Debug\ComCon.Properties.Resources.resources
 C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon\obj\Debug\ComCon.csproj.GenerateResource.Cache
 C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon\obj\Debug\App.baml
+C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon\obj\Debug\Styles.baml
+C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon\obj\Debug\App.baml
