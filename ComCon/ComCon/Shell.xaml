@@ -10,21 +10,19 @@
         <local:Global x:Key="Global"/>
     </Window.Resources>
     <toolkit:BusyIndicator IsBusy="{Binding Source={StaticResource Global}, Path=IsBusy}">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="77*" />
-            <RowDefinition Height="784*" />
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="77*" />
+                <RowDefinition Height="784*" />
                 <RowDefinition Height="36*" />
             </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="252*" />
-            <ColumnDefinition Width="852*" />
-            <ColumnDefinition Width="68*" />
-        </Grid.ColumnDefinitions>
-        <ContentControl Grid.Row="1" prism:RegionManager.RegionName="DashboardRegion"/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="353*" />
+                <ColumnDefinition Width="1289*" />
+            </Grid.ColumnDefinitions>
+            <ContentControl Grid.Row="1" prism:RegionManager.RegionName="DashboardRegion"/>
             <ContentControl Grid.Column="1" Grid.Row="1" prism:RegionManager.RegionName="MainRegion" />
-        <ContentControl Grid.ColumnSpan="3" prism:RegionManager.RegionName="MenuRegion" />
-        <ContentControl Grid.Column="2" Grid.Row="1" prism:RegionManager.RegionName="RightRegion" Grid.RowSpan="2"></ContentControl>
-    </Grid>
+            <ContentControl Grid.ColumnSpan="2" prism:RegionManager.RegionName="MenuRegion" />
+        </Grid>
     </toolkit:BusyIndicator>
 </Window>

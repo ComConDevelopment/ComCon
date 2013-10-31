@@ -6,7 +6,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300" Opacity="0" x:Name="Window">
     <UserControl.Triggers>
-        
+
         <EventTrigger RoutedEvent="Loaded">
             <BeginStoryboard>
                 <Storyboard>
@@ -23,55 +23,66 @@
             </BeginStoryboard>
         </EventTrigger>
     </UserControl.Triggers>
-    <ListBox Background="{StaticResource  MainBackgroundBrush}" BorderBrush="Transparent">
-        <ListBox.ItemsPanel>
-            <ItemsPanelTemplate>
-                <StackPanel/>
-            </ItemsPanelTemplate>
-        </ListBox.ItemsPanel>
-        <ListBox.ItemContainerStyle>
-            <Style TargetType="ListBoxItem">
-                <Setter Property="Margin" Value="5"/>
-                <Setter Property="Template">
-                    <Setter.Value>
-                        <ControlTemplate TargetType="ListBoxItem">
-                            <WrapPanel Orientation="Horizontal" Background="White">
-                                <Border Background="White" Width="AUto" Margin="0,0,0,0" Height="Auto" MaxWidth="300"  MinHeight="30">                                   
-                                </Border>
-                                <ContentPresenter VerticalAlignment="Center" MaxWidth="250"></ContentPresenter>
-                            </WrapPanel>
-                    
-                        </ControlTemplate>
-                    </Setter.Value>
-                </Setter>
-            </Style>
-        </ListBox.ItemContainerStyle>
-        <ListBox.Items>
-            <ListBoxItem>
-                <StackPanel Orientation="Vertical" Margin="2" HorizontalAlignment="Center">
-                    <TextBlock Text="Lorem Ipsum dolor sit amet"/>
-                    <Rectangle Height="1" Stroke="Black"/>
-                    <TextBlock Text="Lorem Ipsum dolor sit amet"/>
-                    <Rectangle Height="1" Stroke="Black"/>
-                    <TextBlock Text="Lorem Ipsum dolor sit amet"/>
-                    <Rectangle Height="1" Stroke="Black"/>
-                </StackPanel>
-            </ListBoxItem>
-            <ListBoxItem>
-                <StackPanel Orientation="Vertical" Margin="2" HorizontalAlignment="Center">
-                    <TextBlock Text="Lorem Ipsum dolor sit amet"/>
-                    <Rectangle Height="1" Stroke="Black"/>
-                    <ProgressBar IsIndeterminate="True" Height="10"/>
-                    <Rectangle Height="1" Stroke="Black"/>
-                </StackPanel>
-            </ListBoxItem>
-            <ListBoxItem>
-                <StackPanel HorizontalAlignment="Left">
-                    <TextBlock FontWeight="Bold" FontSize="14" Text="News"/>
-                    <TextBlock Text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua." TextWrapping="Wrap"/>
-                </StackPanel>
-            </ListBoxItem>
-            <ListBoxItem></ListBoxItem>
-        </ListBox.Items>
-    </ListBox>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="62*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Background="White" Margin="6,10,6,6">
+            <TextBlock Text="NEWS" Grid.Row="0" Margin="10,10,10,10" HorizontalAlignment="Left" FontSize="22" FontWeight="Bold" FontFamily="Calibri" Foreground="{StaticResource MainBackgroundBrush}" VerticalAlignment="Center"></TextBlock>
+            <Border Height="3" Background="Black" BorderBrush="Black" CornerRadius="3" Margin="10,0,10,10"></Border>
+        </StackPanel>
+
+        <ListBox Background="White" BorderBrush="Transparent" Grid.Row="1" Margin="5,0,5,0">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="Margin" Value="5"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="ListBoxItem">
+                                <WrapPanel Orientation="Horizontal" Background="White">
+                                    <Border Background="White" Width="Auto" Margin="0,0,0,0" Height="Auto" MaxWidth="300"  MinHeight="30">
+                                    </Border>
+                                    <ContentPresenter VerticalAlignment="Center" MaxWidth="250"></ContentPresenter>
+                                </WrapPanel>
+
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListBox.ItemContainerStyle>
+            <ListBox.Items>
+                <ListBoxItem>
+                    <StackPanel Orientation="Vertical" Margin="2" HorizontalAlignment="Center">
+                        <TextBlock Text="Lorem Ipsum dolor sit amet"/>
+                        <Rectangle Height="1" Stroke="Black"/>
+                        <TextBlock Text="Lorem Ipsum dolor sit amet"/>
+                        <Rectangle Height="1" Stroke="Black"/>
+                        <TextBlock Text="Lorem Ipsum dolor sit amet"/>
+                        <Rectangle Height="1" Stroke="Black"/>
+                    </StackPanel>
+                </ListBoxItem>
+                <ListBoxItem>
+                    <StackPanel Orientation="Vertical" Margin="2" HorizontalAlignment="Center">
+                        <TextBlock Text="Lorem Ipsum dolor sit amet"/>
+                        <Rectangle Height="1" Stroke="Black"/>
+                        <ProgressBar IsIndeterminate="True" Height="10"/>
+                        <Rectangle Height="1" Stroke="Black"/>
+                    </StackPanel>
+                </ListBoxItem>
+                <ListBoxItem>
+                    <StackPanel HorizontalAlignment="Left">
+                        <TextBlock FontWeight="Bold" FontSize="14" Text="News"/>
+                        <TextBlock Text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua." TextWrapping="Wrap"/>
+                    </StackPanel>
+                </ListBoxItem>
+                <ListBoxItem></ListBoxItem>
+            </ListBox.Items>
+        </ListBox>
+    </Grid>
 </UserControl>

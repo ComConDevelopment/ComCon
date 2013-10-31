@@ -102,6 +102,8 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Extensions.cs" />
+    <Compile Include="Classes\Regions.cs" />
     <Compile Include="Helpers\BusyChangedEvent.cs" />
     <Compile Include="Classes\Global.cs" />
     <Compile Include="ClientBaseModule.cs" />

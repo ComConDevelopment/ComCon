@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              xmlns:toolkit="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
-             d:DesignHeight="270" d:DesignWidth="529" x:Name="Window" Background="White" Opacity="0"  BorderBrush="White" BorderThickness="1">
+             d:DesignHeight="270" d:DesignWidth="529" x:Name="Window" Background="White" Opacity="0"  BorderBrush="White" BorderThickness="1" Margin="6,10,6,0">
     <UserControl.Triggers>
         <EventTrigger RoutedEvent="Loaded">
             <BeginStoryboard>
@@ -29,10 +29,9 @@
     </UserControl.Triggers>
     <toolkit:BusyIndicator IsBusy="{Binding IsBusy, UpdateSourceTrigger=PropertyChanged}" BusyContent="Login...">
         <Grid>
-            
         <Border Background="{StaticResource MainBackgroundBrush}" Height="300" Width="260" CornerRadius="5">
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" >
-                <!--<Image Source="../Logo Design - 2_Splashscreen.jpg" Height="50" Width="50"></Image>-->
+                
                     <TextBlock Foreground="White" FontSize="20" Text="Bitte logge dich ein" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,25" FontFamily="Calibri"/>
                 <TextBox Foreground="#FF303030" FontSize="15" FontFamily="Calibri" Style="{StaticResource WaterMarkTextBox}" Height="40" Width="220" VerticalAlignment="Center" Margin="5" x:Name="NameBox" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" BorderBrush="Gray" BorderThickness="2">
                 </TextBox>

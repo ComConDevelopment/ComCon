@@ -56,7 +56,7 @@
                     </Style>
                 </Button.Style>
             </Button>
-            <Button Grid.Column="1">
+            <Button Grid.Column="1" Command="{Binding PreviousCommand}" x:Name="PreviousButton">
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="Template">
@@ -104,7 +104,7 @@
                     </Style>
                 </Button.Style>
             </Button>
-            <ListBox Background="{StaticResource MainBackgroundBrush}" ItemsSource="{Binding CurrentItems}" BorderBrush="Transparent" Padding="0" Grid.Column="2" HorizontalAlignment="Center">
+            <ListBox Background="{StaticResource MainBackgroundBrush}" ItemsSource="{Binding CurrentMenuItems}" BorderBrush="Transparent" Padding="0" Grid.Column="2" HorizontalAlignment="Center">
         <ListBox.ItemsPanel>
             <ItemsPanelTemplate>
                 <StackPanel Orientation="Horizontal"/>
@@ -118,8 +118,13 @@
                         <Setter Property="Template">                        
                     <Setter.Value>
                         <ControlTemplate TargetType="ListBoxItem">
-                            <Grid>
-                                <!--<VisualStateManager.VisualStateGroups>
+                                    <Grid x:Name="MenuButton" Width="300" >
+                                        <Grid.RenderTransform>
+                                            <TransformGroup>
+                                                <TranslateTransform></TranslateTransform>
+                                            </TransformGroup>
+                                        </Grid.RenderTransform>
+                                        <!--<VisualStateManager.VisualStateGroups>
                                     <VisualStateGroup x:Name="Common">
                                         <VisualState x:Name="Normal">
                                             <Storyboard>
@@ -141,15 +146,39 @@
                                         </VisualState>
                                     </VisualStateGroup>
                                 </VisualStateManager.VisualStateGroups>-->
-                                    <Button Background="{StaticResource MainBackgroundBrush}" Margin="0" Padding="0" BorderBrush="Transparent" Foreground="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                    <Button Background="{StaticResource MainBackgroundBrush}"  Margin="0" Padding="0" BorderBrush="Transparent" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Stretch">
                                         <Button.Content>
                                                 <StackPanel Orientation="Horizontal">
                                                     <Image></Image>
-                                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"></ContentPresenter>
+                                                    <TextBlock Text="{Binding Caption, UpdateSourceTrigger=PropertyChanged}" Foreground="White" Margin="4"></TextBlock>
                                                 </StackPanel>
                                                     
                                         </Button.Content>
-                                        <Button.Style>
+     
+                                                <Button.Triggers>
+                                                <!--<DataTrigger  Binding="{Binding IsPressed, ElementName=PreviousButton}" Value="True">
+                                                    <DataTrigger.EnterActions>
+                                                    <BeginStoryboard>
+                                                        <Storyboard>
+                                                            <DoubleAnimation Storyboard.TargetName="MenuButton" Storyboard.TargetProperty="RenderTransform.Children[0].X" From="-300" To="0" Duration="0:0:0.5">
+
+                                                            </DoubleAnimation>
+                                                        </Storyboard>
+                                                    </BeginStoryboard>
+                                                    </DataTrigger.EnterActions>
+                                                </DataTrigger >-->
+       
+                                                <EventTrigger RoutedEvent="Unloaded">
+                                                    <BeginStoryboard>
+                                                        <Storyboard>
+                                                            <DoubleAnimation Storyboard.TargetName="MenuButton" Storyboard.TargetProperty="RenderTransform.Children[0].X" From="0" To="300" Duration="0:0:0.5">
+
+                                                            </DoubleAnimation>
+                                                        </Storyboard>
+                                                    </BeginStoryboard>
+                                                </EventTrigger>
+                                            </Button.Triggers>
+                                                <Button.Style>
                                             <Style TargetType="Button">
                                                     <Setter Property="FontSize" Value="15"/>
                                                     <Setter Property="FontWeight" Value="Bold"/>
@@ -208,7 +237,7 @@
             <ListBoxItem Content="MenuEintrag4"/>
         </ListBox.Items>-->
     </ListBox>
-            <Button Grid.Column="3">
+            <Button Grid.Column="3"  Command="{Binding NextCommand}" x:Name="NextButton">
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="Template">

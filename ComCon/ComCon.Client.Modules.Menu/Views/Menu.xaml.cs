@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ComCon.Client.Modules.Menu.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
@@ -21,22 +22,11 @@ namespace ComCon.Client.Modules.Menu
     [Export]
     public partial class Menu : UserControl
     {
-        private List<string> mMenuItems = new List<string>();
-
-        public List<string> CurrentItems
-        {
-            get { return mMenuItems; }
-            set { mMenuItems = value; }
-        }
-
-
 
         public Menu()
         {
-            CurrentItems.Add("Test1");
-            CurrentItems.Add("Test2");
-            CurrentItems.Add("Test3");
-            this.DataContext = this;
+
+            this.DataContext = new MenuModel();
             InitializeComponent();
         }
     }
