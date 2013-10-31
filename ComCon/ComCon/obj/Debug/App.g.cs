@@ -67,7 +67,7 @@ namespace ComCon {
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "4.0.0.0")]
         public static void Main() {
-            SplashScreen splashScreen = new SplashScreen("logo%20design%20-%202_splashscreen%20new%20(paddy).jpg");
+            SplashScreen splashScreen = new SplashScreen("resources/logo%20design%20-%202_splashscreen%20new%20(paddy).jpg");
             splashScreen.Show(true);
             ComCon.App app = new ComCon.App();
             app.InitializeComponent();

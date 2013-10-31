@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("logo%20design%20-%202_splashscreen%20new%20(paddy).jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/locksmall.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/mailsmall.png")]
 
 

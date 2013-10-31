@@ -57,7 +57,6 @@ namespace ComCon.Server
             foreach (IUser connected in ConnectedUsers)
             {
                 connected.ShowMessage(new ChatMessage() { Message = pMessage, User = Server });
-
             }
         }
 

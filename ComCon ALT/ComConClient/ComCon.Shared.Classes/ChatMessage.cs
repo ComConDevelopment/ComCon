@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.ServiceModel;
 using System.Runtime.Serialization;
+using System.Windows.Media;
 
 namespace ComCon.Shared.Classes
 {
@@ -40,6 +41,15 @@ namespace ComCon.Shared.Classes
             get { return mUser; }
             set { mUser = value; }
         }
+
+        private Color mColor;
+
+        public Color Color
+        {
+            get { return mColor; }
+            set { mColor = value; }
+        }
+
 
         #endregion
 

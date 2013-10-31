@@ -4,7 +4,7 @@
         xmlns:prism="http://www.codeplex.com/prism"
         xmlns:local="clr-namespace:ComCon.Client.Base.Classes;assembly=ComCon.Client.Base"
         xmlns:toolkit="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
-        Title="ComCon" Height="928" Width="1650" Icon="/ComCon;component/Logo%20Design%20-%202%20-%20Stand%20Alone.png" Background="#45D0FF">
+        Title="ComCon" Height="928" Width="1650" Icon="Resources/Logo Design - 2 - Stand Alone.png" Background="#45D0FF">
 
     <Window.Resources>
         <local:Global x:Key="Global"/>

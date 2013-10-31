@@ -22,6 +22,8 @@ namespace ComCon.Server
     {
         ServiceHost sh;
 
+        
+
         public MainWindow()
         {
             InitializeComponent();

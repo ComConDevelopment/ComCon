@@ -24,6 +24,7 @@ namespace ComCon.Client.Modules.ContextDashboard.Views
         public Dashboard()
         {
             InitializeComponent();
+           
         }
     }
 }

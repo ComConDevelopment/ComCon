@@ -199,13 +199,17 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Logo Design - 2 - Stand Alone.png" />
+    <Resource Include="Resources\Logo Design - 2 - Stand Alone.png" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <SplashScreen Include="Logo Design - 2_Splashscreen NEW %28Paddy%29.jpg" />
+    <SplashScreen Include="Resources\Logo Design - 2_Splashscreen NEW %28Paddy%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\lockSmall.png" />
+    <Resource Include="Resources\mailSmall.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
