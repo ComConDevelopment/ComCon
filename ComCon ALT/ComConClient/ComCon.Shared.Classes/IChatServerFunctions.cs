@@ -7,12 +7,12 @@ using System.Net.Security;
 
 namespace ComCon.Shared.Classes
 {
-    [ServiceContract(CallbackContract = typeof(IUser), ProtectionLevel = ProtectionLevel.None, SessionMode = SessionMode.Allowed)]
-    public interface IServerFunctions
+    [ServiceContract(CallbackContract = typeof(IChatUser), ProtectionLevel = ProtectionLevel.None, SessionMode = SessionMode.Allowed)]
+    public interface IChatServerFunctions
     {
 
         [OperationContract]
-        void ConnectToServer(string pName);
+        void ConnectToServer(Credentials credentials);
 
         [OperationContract]
         void DisconnectFromServer();
@@ -30,10 +30,13 @@ namespace ComCon.Shared.Classes
         IEnumerable<string> GetChannels();
 
         [OperationContract]
-        ChatUser GetUser(string pName);
+        ChatUser GetUser(Credentials pCredentials);
 
-        [OperationContract]
-        List<ChatUser> GetUsers();
+        List<ChatUser> LoggedInUsers
+        {
+            [OperationContract]
+            get;
+        }
 
     }
 }

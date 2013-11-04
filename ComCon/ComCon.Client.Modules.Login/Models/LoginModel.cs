@@ -9,6 +9,8 @@ using ComCon.Client.Base.Helpers;
 using Microsoft.Practices.Prism.Commands;
 using System.ComponentModel;
 using Microsoft.Practices.Prism.Modularity;
+using ComCon.Shared.Classes;
+using System.Security;
 
 namespace ComCon.Client.Modules.Login.Models
 {
@@ -32,6 +34,22 @@ namespace ComCon.Client.Modules.Login.Models
             set { mName = value; RaisePropertyChanged("Name"); }
         }
 
+
+        private string mPassword;
+        public string Password
+        {
+            get { return (mPassword); }
+            set { mPassword = value; RaisePropertyChanged("Password"); }
+        }
+
+
+        private string mEMail;
+        public string EMail
+        {
+            get { return (mEMail); }
+            set { mEMail = value; RaisePropertyChanged("EMail"); }
+        }
+
         public bool IsBusy { get { return Global.IsBusy; } set { Global.IsBusy = value; RaisePropertyChanged("IsBusy"); } }
 
         #endregion
@@ -40,15 +58,21 @@ namespace ComCon.Client.Modules.Login.Models
 
         public LoginModel()
         {
+            
             LoginCommand = new DelegateCommand(Login);
             this.EventAggregator = ServiceLocator.Current.GetInstance<IEventAggregator>();
+            this.EventAggregator.GetEvent<Events.PasswordChangedEvent>().Subscribe(PasswordChanged);
+            
         }
 
         #endregion
 
         #region Events
 
-
+        private void PasswordChanged(string pPassword)
+        {
+            Password = pPassword;
+        }
 
         #endregion
 
@@ -58,12 +82,10 @@ namespace ComCon.Client.Modules.Login.Models
         {
             IsBusy = true;
 
-
-            Global.IsLoggedIn = true;
-            Global.User = new Base.ServerService.ChatUser()
+            Global.Credentials = new Base.ServerService.Credentials()
             {
-                Username = Name,
-                IsVisible = true
+                 EMail = this.EMail,
+                 Password = this.Password
             };
 
             //BackgroundWorker bw = new BackgroundWorker();

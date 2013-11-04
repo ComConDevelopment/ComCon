@@ -1,4 +1,6 @@
 ﻿using ComCon.Client.Modules.Login.Models;
+using Microsoft.Practices.Prism.Events;
+using Microsoft.Practices.ServiceLocation;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
@@ -22,10 +24,18 @@ namespace ComCon.Client.Modules.Login.Views
     [Export]
     public partial class LoginView : UserControl
     {
+        private IEventAggregator EventAggregator;
+
         public LoginView()
         {
+            this.EventAggregator = ServiceLocator.Current.GetInstance<IEventAggregator>();
             this.DataContext = new LoginModel();
             InitializeComponent();
+        }
+
+        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            EventAggregator.GetEvent<Events.PasswordChangedEvent>().Publish(ComCon.Shared.Classes.Crypter.Crypt((sender as PasswordBox).Password));
         }
     }
 }

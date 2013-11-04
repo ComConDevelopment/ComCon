@@ -33,7 +33,7 @@ namespace ComCon.Server
         {
             try
             {
-                sh = new ServiceHost((typeof(ServerFunctions)));
+                sh = new ServiceHost((typeof(ChatServerFunctions)));
                 sh.Open();
                 Log("Server gestartet");
             }

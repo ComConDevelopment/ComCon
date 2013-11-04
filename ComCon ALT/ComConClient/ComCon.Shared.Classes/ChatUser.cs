@@ -16,7 +16,7 @@ namespace ComCon.Shared.Classes
 
         private string mUsername;
 
-        private IUser mCallback;
+        private IChatUser mCallback;
 
         private bool mIsAdmin;
 
@@ -44,11 +44,19 @@ namespace ComCon.Shared.Classes
         }
 
 
-        public IUser Callback
+        public IChatUser Callback
         {
             get { return mCallback; }
             set { mCallback = value; }
         }
+
+        private Credentials mCredentials;
+        public Credentials Credentials
+        {
+            get { return mCredentials; }
+            set { mCredentials = value; }
+        }
+
 
         [DataMember]
         public string Username

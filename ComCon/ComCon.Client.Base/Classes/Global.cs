@@ -40,6 +40,14 @@ namespace ComCon.Client.Base.Classes
             set { mUser = value; }
         }
 
+        private static Credentials mCredentials;
+
+        public static Credentials Credentials
+        {
+            get { return mCredentials; }
+            set { mCredentials = value; }
+        }
+
 
 
         #endregion

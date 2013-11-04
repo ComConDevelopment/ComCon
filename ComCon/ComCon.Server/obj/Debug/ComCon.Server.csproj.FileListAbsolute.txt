@@ -95,8 +95,6 @@ C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Server\bin\Debug\ru\Xceed.Wpf
 C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Server\bin\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
 C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Server\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
 C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Server\obj\Debug\ComCon.Server.csprojResolveAssemblyReference.cache
-C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Server\obj\Debug\MainWindow.baml
-C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Server\obj\Debug\MainWindow.g.cs
 C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Server\obj\Debug\App.g.cs
 C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Server\obj\Debug\ComCon.Server_MarkupCompile.cache
 C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Server\obj\Debug\ComCon.Server.g.resources
@@ -115,3 +113,5 @@ C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Server\bin\Debug\ja\System.Wi
 C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Server\bin\Debug\ko\System.Windows.Interactivity.resources.dll
 C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Server\bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
 C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Server\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
+C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Server\obj\Debug\Views\MainWindow.baml
+C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Server\obj\Debug\Views\MainWindow.g.cs

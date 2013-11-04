@@ -43,7 +43,7 @@ namespace ComCon.Shared.Classes
         }
 
         private Color mColor;
-
+        [DataMember]
         public Color Color
         {
             get { return mColor; }

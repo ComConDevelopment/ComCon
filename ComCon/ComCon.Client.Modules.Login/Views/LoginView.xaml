@@ -36,7 +36,7 @@
                 <TextBox Foreground="#FF303030" FontSize="15" FontFamily="Calibri" Style="{StaticResource WaterMarkTextBox}" Height="40" Width="220" VerticalAlignment="Center" Margin="5" x:Name="NameBox" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" BorderBrush="Gray" BorderThickness="2">
                 </TextBox>
 
-                <PasswordBox Height="40" Width="220" VerticalAlignment="Center" Margin="5"  BorderBrush="Gray" BorderThickness="2">
+                <PasswordBox Height="40" Width="220" VerticalAlignment="Center" Margin="5"  BorderBrush="Gray" BorderThickness="2" PasswordChanged="PasswordBox_PasswordChanged">
             </PasswordBox>
             <Button Content="Login" Width="150" FontFamily="Calibri" FontWeight="Bold" Margin="0,20,0,0" x:Name="LoginButton" Command="{Binding LoginCommand}">
                 <Button.Style>

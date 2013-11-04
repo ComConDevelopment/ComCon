@@ -158,6 +158,9 @@
     <None Include="Service References\ServerService\MetaInfo3.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\ServerService\MetaInfo4.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\ServerService\ServerFunctions.wsdl" />
   </ItemGroup>
   <ItemGroup>

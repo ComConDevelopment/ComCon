@@ -93,14 +93,16 @@ namespace ComCon.Client.Modules.Chat.Models
             {
                 //client.Open();
                 BusyText = "Verbinde zu Server";
-                
-                client.ConnectToServerAsync(Global.User.Username);
+                Credentials cred = new Credentials();
+                client.ConnectToServerAsync(Global.Credentials);
                 client.ConnectToServerCompleted += (s, args) =>
                 {
+                    Global.User = client.GetUser(Global.Credentials);
                     EventAggregator.GetEvent<OnLoginEvent>().Subscribe(OnLogin);
                     try
                     {
-                        Users = client.GetUsers().ToList();
+                        Users = client.get_LoggedInUsers().ToList();
+                        
                     }
                     catch (Exception e)
                     {
@@ -171,7 +173,7 @@ namespace ComCon.Client.Modules.Chat.Models
                     {
                         if (!String.IsNullOrEmpty(this.Message))
                         {
-                            ChatUser u = client.GetUser(Global.User.Username);
+                            ChatUser u = client.GetUser(Global.Credentials);
                             client.Send(new Base.ServerService.ChatMessage() { Message = this.Message, TimeStamp = DateTime.Now, User = u });
                         }
                     }

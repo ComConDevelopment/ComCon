@@ -14,3 +14,4 @@ C:\Users\Tom\Documents\GitHub\ComCon\ComCon ALT\ComConClient\ComCon.Shared.Class
 C:\Users\Tom\Documents\GitHub\ComCon\ComCon ALT\ComConClient\ComCon.Shared.Classes\bin\Debug\ComCon.Shared.Classes.pdb
 C:\Users\Tom\Documents\GitHub\ComCon\ComCon ALT\ComConClient\ComCon.Shared.Classes\obj\Debug\ComCon.Shared.Classes.dll
 C:\Users\Tom\Documents\GitHub\ComCon\ComCon ALT\ComConClient\ComCon.Shared.Classes\obj\Debug\ComCon.Shared.Classes.pdb
+C:\Users\Tom\Documents\GitHub\ComCon\ComCon ALT\ComConClient\ComCon.Shared.Classes\obj\Debug\ComCon.Shared.Classes.csprojResolveAssemblyReference.cache

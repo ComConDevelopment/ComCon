@@ -11,26 +11,29 @@ using System.Threading.Tasks;
 namespace ComCon.Server
 {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, AutomaticSessionShutdown = false, UseSynchronizationContext = false, ConcurrencyMode = ConcurrencyMode.Reentrant)]
-    public class ServerFunctions : IServerFunctions
+    public class ChatServerFunctions : IChatServerFunctions
     {
+
+
+        #region Deklaration
 
         private ChatUser Server;
         private static object locker = new object();
 
-        public ServerFunctions()
+
+        public static readonly List<IChatUser> ConnectedUsers = new List<IChatUser>();
+        public static readonly List<ChatUser> Users = new List<ChatUser>();
+
+        #endregion
+
+        #region IServerFunctionsImplementations
+
+        public void ConnectToServer(Credentials credentials)
         {
-            if (Server == null)
-            {
-                ChatUser u = new ChatUser();
-                u.Username = "Server";
-                Users.Add(u);
-                Server = u;
-            }
-            
+            IChatUser user = OperationContext.Current.GetCallbackChannel<IChatUser>();
+
         }
 
-        public static readonly List<IUser> ConnectedUsers = new List<IUser>();
-        public static readonly List<ChatUser> Users = new List<ChatUser>();
 
         public void ConnectToServer(string pName)
         {
@@ -38,7 +41,7 @@ namespace ComCon.Server
             {
                 throw new InvalidOperationException("Dieser Username ist schon vorhanden!");
             }
-            IUser user = OperationContext.Current.GetCallbackChannel<IUser>();
+            IChatUser user = OperationContext.Current.GetCallbackChannel<IChatUser>();
             ChatUser u = new ChatUser();
             u.Username = pName;
             u.Callback = user;
@@ -52,36 +55,10 @@ namespace ComCon.Server
             //UpdateAllUserLists();
         }
 
-        private void SendServerMessage(string pMessage)
-        {
-            foreach (IUser connected in ConnectedUsers)
-            {
-                connected.ShowMessage(new ChatMessage() { Message = pMessage, User = Server });
-            }
-        }
-
-        public void UpdateAllUserLists()
-        {
-            ThreadPool.QueueUserWorkItem(_ =>
-                {
-                    Parallel.ForEach(ConnectedUsers, subscriber =>
-                        {
-                            try
-                            {
-                                subscriber.UpdateUserList();
-                            }
-                            catch (Exception e)
-                            {
-
-                            }
-                        });
-
-                });
-        }
 
         public void DisconnectFromServer()
         {
-            IUser user = OperationContext.Current.GetCallbackChannel<IUser>();
+            IChatUser user = OperationContext.Current.GetCallbackChannel<IChatUser>();
             ChatUser u = Users.SingleOrDefault(x => x.Callback == user);
             if (ConnectedUsers.Contains(user))
             {
@@ -93,9 +70,9 @@ namespace ComCon.Server
 
         public void Send(ChatMessage cm)
         {
-            List<IUser> subscribersToDelete = new List<IUser>();
-            IUser callback = OperationContext.Current.GetCallbackChannel<IUser>();
-            foreach (IUser client in ConnectedUsers)
+            List<IChatUser> subscribersToDelete = new List<IChatUser>();
+            IChatUser callback = OperationContext.Current.GetCallbackChannel<IChatUser>();
+            foreach (IChatUser client in ConnectedUsers)
             {
                 try
                 {
@@ -106,7 +83,7 @@ namespace ComCon.Server
                     subscribersToDelete.Add(client);
                 }
             }
-            foreach (IUser client in subscribersToDelete)
+            foreach (IChatUser client in subscribersToDelete)
             {
                 ChatUser u = Users.SingleOrDefault(x => x.Callback == client);
                 if (ConnectedUsers.Contains(client))
@@ -135,16 +112,58 @@ namespace ComCon.Server
             return ChannelList;
         }
 
-        public List<ChatUser> GetUsers()
+
+
+
+        public ChatUser GetUser(Credentials pCredentials)
         {
-            return Users;
+            return (Users.SingleOrDefault(x => x.Credentials == pCredentials));
         }
 
 
 
-        public ChatUser GetUser(string pName)
+        public List<ChatUser> LoggedInUsers
         {
-            return (Users.SingleOrDefault(x => x.Username == pName));
+            get { return Users; }
         }
+
+        #endregion
+
+        #region Konstruktor
+
+        public ChatServerFunctions()
+        {
+            if (Server == null)
+            {
+                ChatUser u = new ChatUser();
+                u.Username = "Server";
+                Users.Add(u);
+                Server = u;
+            }
+
+        }
+
+        #endregion
+
+        #region Diverses
+
+
+        private void SendServerMessage(string pMessage)
+        {
+            foreach (IChatUser connected in ConnectedUsers)
+            {
+                connected.ShowMessage(new ChatMessage() { Message = pMessage, User = Server });
+            }
+        }
+
+        #endregion
+
+
+        
+
+
+        
+        
+
     }
 }

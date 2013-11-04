@@ -12,7 +12,7 @@ using Microsoft.Practices.Prism.Events;
 
 namespace ComCon.Client.Modules.ContextDashboard
 {
-    [ModuleExport(typeof(ClientContexDashboardModule), InitializationMode = InitializationMode.WhenAvailable)]
+    [ModuleExport(typeof(ClientContexDashboardModule), InitializationMode = InitializationMode.OnDemand)]
     public class ClientContexDashboardModule : ClientBaseModule
     {
         [ImportingConstructor]

@@ -112,3 +112,5 @@ C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Login\bin\Debu
 C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Login\bin\Debug\ko\System.Windows.Interactivity.resources.dll
 C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Login\bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
 C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Login\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
+C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Login\bin\Debug\ComCon.Shared.Classes.dll
+C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Login\bin\Debug\ComCon.Shared.Classes.pdb

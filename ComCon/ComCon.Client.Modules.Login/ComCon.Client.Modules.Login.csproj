@@ -85,6 +85,7 @@
   <ItemGroup>
     <Compile Include="Classes\WaterMarkTextHelper.cs" />
     <Compile Include="ClientLoginModule.cs" />
+    <Compile Include="Events\PasswordChangedEvent.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\LoginView.xaml.cs">
@@ -92,6 +93,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\ComCon ALT\ComConClient\ComCon.Shared.Classes\ComCon.Shared.Classes.csproj">
+      <Project>{c28ba773-105a-47ce-bffb-05e6325e8465}</Project>
+      <Name>ComCon.Shared.Classes</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ComCon.Client.Base\ComCon.Client.Base.csproj">
       <Project>{1D039D3D-E657-4FFA-BF57-6CA5A4F0C5FA}</Project>
       <Name>ComCon.Client.Base</Name>

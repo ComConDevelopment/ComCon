@@ -46,8 +46,13 @@
   <ItemGroup>
     <Compile Include="ChatMessage.cs" />
     <Compile Include="ChatUser.cs" />
+    <Compile Include="Credentials.cs" />
+    <Compile Include="Crypter.cs" />
+    <Compile Include="DashboardMessage.cs" />
+    <Compile Include="IMainServerFunctions.cs" />
+    <Compile Include="IChatUser.cs" />
+    <Compile Include="IChatServerFunctions.cs" />
     <Compile Include="IUser.cs" />
-    <Compile Include="IServerFunctions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

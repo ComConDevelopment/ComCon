@@ -25,6 +25,7 @@
     <MetadataFile FileName="ServerFunctions.wsdl" MetadataType="Wsdl" ID="7eed78bf-8072-4318-adf9-588b5b11685c" SourceId="1" SourceUrl="http://localhost:8501/MetaInfo" />
     <MetadataFile FileName="MetaInfo1.xsd" MetadataType="Schema" ID="731b7315-321c-4a43-89c2-dd176c682f9f" SourceId="1" SourceUrl="http://localhost:8501/MetaInfo?xsd=xsd1" />
     <MetadataFile FileName="MetaInfo.xsd" MetadataType="Schema" ID="69666862-ee30-4604-8bac-9f58bfc3f1d2" SourceId="1" SourceUrl="http://localhost:8501/MetaInfo?xsd=xsd0" />
+    <MetadataFile FileName="MetaInfo4.xsd" MetadataType="Schema" ID="a9653bc6-0986-47e9-b8b1-64ef08f7d76b" SourceId="1" SourceUrl="http://localhost:8501/MetaInfo?xsd=xsd4" />
     <MetadataFile FileName="MetaInfo3.xsd" MetadataType="Schema" ID="c689bf6f-f669-4364-8250-ac39683b2b97" SourceId="1" SourceUrl="http://localhost:8501/MetaInfo?xsd=xsd3" />
   </Metadata>
   <Extensions>

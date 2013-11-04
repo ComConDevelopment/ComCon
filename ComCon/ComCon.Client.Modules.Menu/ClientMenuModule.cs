@@ -12,7 +12,7 @@ using Microsoft.Practices.Prism.Events;
 
 namespace ComCon.Client.Modules.Menu
 {
-    [ModuleExport(typeof(ClientMenuModule), InitializationMode  = InitializationMode.WhenAvailable)]
+    [ModuleExport(typeof(ClientMenuModule), InitializationMode  = InitializationMode.OnDemand)]
     public class ClientMenuModule : ClientBaseModule
     {
         [ImportingConstructor]

@@ -1,19 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.ServiceModel;
+using System.Text;
 
 namespace ComCon.Shared.Classes
-{    
+{
     [ServiceContract]
-    
     public interface IUser
     {
         [OperationContract(IsOneWay = true)]
-        void ShowMessage(ChatMessage cm);
-
-        [OperationContract(IsOneWay = false)]
-        void UpdateUserList();
+        void PublishDashboardMessage(DashboardMessage pMessage);
     }
 }

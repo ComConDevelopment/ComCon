@@ -15,12 +15,76 @@ namespace ComCon.Client.Base.ServerService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Credentials", Namespace="http://schemas.datacontract.org/2004/07/ComCon.Shared.Classes")]
+    [System.SerializableAttribute()]
+    public partial class Credentials : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EMailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PasswordField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EMail {
+            get {
+                return this.EMailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EMailField, value) != true)) {
+                    this.EMailField = value;
+                    this.RaisePropertyChanged("EMail");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Password {
+            get {
+                return this.PasswordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
+                    this.PasswordField = value;
+                    this.RaisePropertyChanged("Password");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ChatMessage", Namespace="http://schemas.datacontract.org/2004/07/ComCon.Shared.Classes")]
     [System.SerializableAttribute()]
     public partial class ChatMessage : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Windows.Media.Color ColorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string MessageField;
@@ -38,6 +102,19 @@ namespace ComCon.Client.Base.ServerService {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Windows.Media.Color Color {
+            get {
+                return this.ColorField;
+            }
+            set {
+                if ((this.ColorField.Equals(value) != true)) {
+                    this.ColorField = value;
+                    this.RaisePropertyChanged("Color");
+                }
             }
         }
         
@@ -172,10 +249,10 @@ namespace ComCon.Client.Base.ServerService {
     public interface IServerFunctions {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServerFunctions/ConnectToServer", ReplyAction="http://tempuri.org/IServerFunctions/ConnectToServerResponse")]
-        void ConnectToServer(string pName);
+        void ConnectToServer(ComCon.Client.Base.ServerService.Credentials credentials);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IServerFunctions/ConnectToServer", ReplyAction="http://tempuri.org/IServerFunctions/ConnectToServerResponse")]
-        System.IAsyncResult BeginConnectToServer(string pName, System.AsyncCallback callback, object asyncState);
+        System.IAsyncResult BeginConnectToServer(ComCon.Client.Base.ServerService.Credentials credentials, System.AsyncCallback callback, object asyncState);
         
         void EndConnectToServer(System.IAsyncResult result);
         
@@ -220,20 +297,20 @@ namespace ComCon.Client.Base.ServerService {
         string[] EndGetChannels(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServerFunctions/GetUser", ReplyAction="http://tempuri.org/IServerFunctions/GetUserResponse")]
-        ComCon.Client.Base.ServerService.ChatUser GetUser(string pName);
+        ComCon.Client.Base.ServerService.ChatUser GetUser(ComCon.Client.Base.ServerService.Credentials pCredentials);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IServerFunctions/GetUser", ReplyAction="http://tempuri.org/IServerFunctions/GetUserResponse")]
-        System.IAsyncResult BeginGetUser(string pName, System.AsyncCallback callback, object asyncState);
+        System.IAsyncResult BeginGetUser(ComCon.Client.Base.ServerService.Credentials pCredentials, System.AsyncCallback callback, object asyncState);
         
         ComCon.Client.Base.ServerService.ChatUser EndGetUser(System.IAsyncResult result);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServerFunctions/GetUsers", ReplyAction="http://tempuri.org/IServerFunctions/GetUsersResponse")]
-        ComCon.Client.Base.ServerService.ChatUser[] GetUsers();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServerFunctions/get_LoggedInUsers", ReplyAction="http://tempuri.org/IServerFunctions/get_LoggedInUsersResponse")]
+        ComCon.Client.Base.ServerService.ChatUser[] get_LoggedInUsers();
         
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IServerFunctions/GetUsers", ReplyAction="http://tempuri.org/IServerFunctions/GetUsersResponse")]
-        System.IAsyncResult BeginGetUsers(System.AsyncCallback callback, object asyncState);
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IServerFunctions/get_LoggedInUsers", ReplyAction="http://tempuri.org/IServerFunctions/get_LoggedInUsersResponse")]
+        System.IAsyncResult Beginget_LoggedInUsers(System.AsyncCallback callback, object asyncState);
         
-        ComCon.Client.Base.ServerService.ChatUser[] EndGetUsers(System.IAsyncResult result);
+        ComCon.Client.Base.ServerService.ChatUser[] Endget_LoggedInUsers(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -246,14 +323,6 @@ namespace ComCon.Client.Base.ServerService {
         System.IAsyncResult BeginShowMessage(ComCon.Client.Base.ServerService.ChatMessage cm, System.AsyncCallback callback, object asyncState);
         
         void EndShowMessage(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServerFunctions/UpdateUserList", ReplyAction="http://tempuri.org/IServerFunctions/UpdateUserListResponse")]
-        void UpdateUserList();
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IServerFunctions/UpdateUserList", ReplyAction="http://tempuri.org/IServerFunctions/UpdateUserListResponse")]
-        System.IAsyncResult BeginUpdateUserList(System.AsyncCallback callback, object asyncState);
-        
-        void EndUpdateUserList(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -300,11 +369,11 @@ namespace ComCon.Client.Base.ServerService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetUsersCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class get_LoggedInUsersCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        public GetUsersCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        public get_LoggedInUsersCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -363,11 +432,11 @@ namespace ComCon.Client.Base.ServerService {
         
         private System.Threading.SendOrPostCallback onGetUserCompletedDelegate;
         
-        private BeginOperationDelegate onBeginGetUsersDelegate;
+        private BeginOperationDelegate onBeginget_LoggedInUsersDelegate;
         
-        private EndOperationDelegate onEndGetUsersDelegate;
+        private EndOperationDelegate onEndget_LoggedInUsersDelegate;
         
-        private System.Threading.SendOrPostCallback onGetUsersCompletedDelegate;
+        private System.Threading.SendOrPostCallback onget_LoggedInUsersCompletedDelegate;
         
         public ServerFunctionsClient(System.ServiceModel.InstanceContext callbackInstance) : 
                 base(callbackInstance) {
@@ -403,15 +472,15 @@ namespace ComCon.Client.Base.ServerService {
         
         public event System.EventHandler<GetUserCompletedEventArgs> GetUserCompleted;
         
-        public event System.EventHandler<GetUsersCompletedEventArgs> GetUsersCompleted;
+        public event System.EventHandler<get_LoggedInUsersCompletedEventArgs> get_LoggedInUsersCompleted;
         
-        public void ConnectToServer(string pName) {
-            base.Channel.ConnectToServer(pName);
+        public void ConnectToServer(ComCon.Client.Base.ServerService.Credentials credentials) {
+            base.Channel.ConnectToServer(credentials);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginConnectToServer(string pName, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginConnectToServer(pName, callback, asyncState);
+        public System.IAsyncResult BeginConnectToServer(ComCon.Client.Base.ServerService.Credentials credentials, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginConnectToServer(credentials, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -420,8 +489,8 @@ namespace ComCon.Client.Base.ServerService {
         }
         
         private System.IAsyncResult OnBeginConnectToServer(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string pName = ((string)(inValues[0]));
-            return this.BeginConnectToServer(pName, callback, asyncState);
+            ComCon.Client.Base.ServerService.Credentials credentials = ((ComCon.Client.Base.ServerService.Credentials)(inValues[0]));
+            return this.BeginConnectToServer(credentials, callback, asyncState);
         }
         
         private object[] OnEndConnectToServer(System.IAsyncResult result) {
@@ -436,11 +505,11 @@ namespace ComCon.Client.Base.ServerService {
             }
         }
         
-        public void ConnectToServerAsync(string pName) {
-            this.ConnectToServerAsync(pName, null);
+        public void ConnectToServerAsync(ComCon.Client.Base.ServerService.Credentials credentials) {
+            this.ConnectToServerAsync(credentials, null);
         }
         
-        public void ConnectToServerAsync(string pName, object userState) {
+        public void ConnectToServerAsync(ComCon.Client.Base.ServerService.Credentials credentials, object userState) {
             if ((this.onBeginConnectToServerDelegate == null)) {
                 this.onBeginConnectToServerDelegate = new BeginOperationDelegate(this.OnBeginConnectToServer);
             }
@@ -451,7 +520,7 @@ namespace ComCon.Client.Base.ServerService {
                 this.onConnectToServerCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnConnectToServerCompleted);
             }
             base.InvokeAsync(this.onBeginConnectToServerDelegate, new object[] {
-                        pName}, this.onEndConnectToServerDelegate, this.onConnectToServerCompletedDelegate, userState);
+                        credentials}, this.onEndConnectToServerDelegate, this.onConnectToServerCompletedDelegate, userState);
         }
         
         public void DisconnectFromServer() {
@@ -692,13 +761,13 @@ namespace ComCon.Client.Base.ServerService {
             base.InvokeAsync(this.onBeginGetChannelsDelegate, null, this.onEndGetChannelsDelegate, this.onGetChannelsCompletedDelegate, userState);
         }
         
-        public ComCon.Client.Base.ServerService.ChatUser GetUser(string pName) {
-            return base.Channel.GetUser(pName);
+        public ComCon.Client.Base.ServerService.ChatUser GetUser(ComCon.Client.Base.ServerService.Credentials pCredentials) {
+            return base.Channel.GetUser(pCredentials);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginGetUser(string pName, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetUser(pName, callback, asyncState);
+        public System.IAsyncResult BeginGetUser(ComCon.Client.Base.ServerService.Credentials pCredentials, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetUser(pCredentials, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -707,8 +776,8 @@ namespace ComCon.Client.Base.ServerService {
         }
         
         private System.IAsyncResult OnBeginGetUser(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string pName = ((string)(inValues[0]));
-            return this.BeginGetUser(pName, callback, asyncState);
+            ComCon.Client.Base.ServerService.Credentials pCredentials = ((ComCon.Client.Base.ServerService.Credentials)(inValues[0]));
+            return this.BeginGetUser(pCredentials, callback, asyncState);
         }
         
         private object[] OnEndGetUser(System.IAsyncResult result) {
@@ -724,11 +793,11 @@ namespace ComCon.Client.Base.ServerService {
             }
         }
         
-        public void GetUserAsync(string pName) {
-            this.GetUserAsync(pName, null);
+        public void GetUserAsync(ComCon.Client.Base.ServerService.Credentials pCredentials) {
+            this.GetUserAsync(pCredentials, null);
         }
         
-        public void GetUserAsync(string pName, object userState) {
+        public void GetUserAsync(ComCon.Client.Base.ServerService.Credentials pCredentials, object userState) {
             if ((this.onBeginGetUserDelegate == null)) {
                 this.onBeginGetUserDelegate = new BeginOperationDelegate(this.OnBeginGetUser);
             }
@@ -739,55 +808,55 @@ namespace ComCon.Client.Base.ServerService {
                 this.onGetUserCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetUserCompleted);
             }
             base.InvokeAsync(this.onBeginGetUserDelegate, new object[] {
-                        pName}, this.onEndGetUserDelegate, this.onGetUserCompletedDelegate, userState);
+                        pCredentials}, this.onEndGetUserDelegate, this.onGetUserCompletedDelegate, userState);
         }
         
-        public ComCon.Client.Base.ServerService.ChatUser[] GetUsers() {
-            return base.Channel.GetUsers();
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginGetUsers(System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetUsers(callback, asyncState);
+        public ComCon.Client.Base.ServerService.ChatUser[] get_LoggedInUsers() {
+            return base.Channel.get_LoggedInUsers();
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public ComCon.Client.Base.ServerService.ChatUser[] EndGetUsers(System.IAsyncResult result) {
-            return base.Channel.EndGetUsers(result);
+        public System.IAsyncResult Beginget_LoggedInUsers(System.AsyncCallback callback, object asyncState) {
+            return base.Channel.Beginget_LoggedInUsers(callback, asyncState);
         }
         
-        private System.IAsyncResult OnBeginGetUsers(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            return this.BeginGetUsers(callback, asyncState);
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public ComCon.Client.Base.ServerService.ChatUser[] Endget_LoggedInUsers(System.IAsyncResult result) {
+            return base.Channel.Endget_LoggedInUsers(result);
         }
         
-        private object[] OnEndGetUsers(System.IAsyncResult result) {
-            ComCon.Client.Base.ServerService.ChatUser[] retVal = this.EndGetUsers(result);
+        private System.IAsyncResult OnBeginget_LoggedInUsers(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            return this.Beginget_LoggedInUsers(callback, asyncState);
+        }
+        
+        private object[] OnEndget_LoggedInUsers(System.IAsyncResult result) {
+            ComCon.Client.Base.ServerService.ChatUser[] retVal = this.Endget_LoggedInUsers(result);
             return new object[] {
                     retVal};
         }
         
-        private void OnGetUsersCompleted(object state) {
-            if ((this.GetUsersCompleted != null)) {
+        private void Onget_LoggedInUsersCompleted(object state) {
+            if ((this.get_LoggedInUsersCompleted != null)) {
                 InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetUsersCompleted(this, new GetUsersCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+                this.get_LoggedInUsersCompleted(this, new get_LoggedInUsersCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
             }
         }
         
-        public void GetUsersAsync() {
-            this.GetUsersAsync(null);
+        public void get_LoggedInUsersAsync() {
+            this.get_LoggedInUsersAsync(null);
         }
         
-        public void GetUsersAsync(object userState) {
-            if ((this.onBeginGetUsersDelegate == null)) {
-                this.onBeginGetUsersDelegate = new BeginOperationDelegate(this.OnBeginGetUsers);
+        public void get_LoggedInUsersAsync(object userState) {
+            if ((this.onBeginget_LoggedInUsersDelegate == null)) {
+                this.onBeginget_LoggedInUsersDelegate = new BeginOperationDelegate(this.OnBeginget_LoggedInUsers);
             }
-            if ((this.onEndGetUsersDelegate == null)) {
-                this.onEndGetUsersDelegate = new EndOperationDelegate(this.OnEndGetUsers);
+            if ((this.onEndget_LoggedInUsersDelegate == null)) {
+                this.onEndget_LoggedInUsersDelegate = new EndOperationDelegate(this.OnEndget_LoggedInUsers);
             }
-            if ((this.onGetUsersCompletedDelegate == null)) {
-                this.onGetUsersCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetUsersCompleted);
+            if ((this.onget_LoggedInUsersCompletedDelegate == null)) {
+                this.onget_LoggedInUsersCompletedDelegate = new System.Threading.SendOrPostCallback(this.Onget_LoggedInUsersCompleted);
             }
-            base.InvokeAsync(this.onBeginGetUsersDelegate, null, this.onEndGetUsersDelegate, this.onGetUsersCompletedDelegate, userState);
+            base.InvokeAsync(this.onBeginget_LoggedInUsersDelegate, null, this.onEndget_LoggedInUsersDelegate, this.onget_LoggedInUsersCompletedDelegate, userState);
         }
     }
 }
