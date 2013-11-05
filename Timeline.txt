@@ -1,0 +1,34 @@
+Ein Kommunikations- und Kontrollprogramm zur einfachen Kommunikation und Steuerung 
+
+Funktionen (bis Version 1.0.0):
+-Einfacher Chat
+-Account und Login
+-Berechtigungen für einen Account festlegen
+-Einstellungen in der Applikation (auch per Befehl bedienbar)
+-Datensharing (automatischer Download nur auf den Server)
+-Googlesuche über den Chat starten ("google:")
+-Ereignisse in einer Spalte festhalten ("ViewScreen")
+
+Funktionen (bis Version 2.0.0)
+-Jarvis kann Befehle ausführen (die Wörter werden analysiert und führen dann zu einem Befehl; Bsp.: Programm starten)
+-Programme lassen sich starten ("öffne Spotify")
+-Steuerung der Wohnung (Licht und Temperatur)[plugin]
+-Emails empfangen und schreiben [plugin]
+-Grafische Oberfläche anpassen
+-CC wird per Sprachbefehl aktiviert ("OK Jarvis" - lässt sich in den Einstellungen festlegen)[plugin] 
+-Dauerhafte Sprachsteuerung in der App (lässt sich in den Einstellungen schalten - zur Steuerung der App und zur Eingabe)[plugin]
+ 
+Funktionen (bis Version 3.0.0)
+-Automatischer Wechsel zwischen den Funktionen (bei Eingabe von "aktuelle News" zu "RSS" wechseln, bei Frage an Jarvis zum "CHAT" wechseln)
+-Videochat
+-Videoüberwachung (Kamera anzeigen per Befehl "zeige mir das Wohnzimmer/Garten etc.")
+
+Funktionen (bis Version 4.0.0)
+-Bildercollection (Bilder werden nach Datum und Ort abgelegt und lassen sich so wieder aufrufen "Bilder vom 03.03.2011 anzeigen")
+-weitere Plugins
+
+Aufgabenverteilung
+
+Willy: Dokumentation, Server, XAML (Expression Blend), Android ROM und App
+Tom: Code
+Patrick: Design
