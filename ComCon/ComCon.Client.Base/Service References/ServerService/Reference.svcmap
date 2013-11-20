@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0ed90137-5c7b-4de1-a83d-c06c27d18fce" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="8ac50b76-3575-4a6f-b7f7-3ee5383db0fe" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
@@ -18,15 +18,15 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:8501/MetaInfo" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:8551/ComConServiceMetadata" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="MetaInfo2.xsd" MetadataType="Schema" ID="fc677f4d-ac60-440c-9ba6-83ffb7d422d8" SourceId="1" SourceUrl="http://localhost:8501/MetaInfo?xsd=xsd2" />
-    <MetadataFile FileName="ServerFunctions.wsdl" MetadataType="Wsdl" ID="7eed78bf-8072-4318-adf9-588b5b11685c" SourceId="1" SourceUrl="http://localhost:8501/MetaInfo" />
-    <MetadataFile FileName="MetaInfo1.xsd" MetadataType="Schema" ID="731b7315-321c-4a43-89c2-dd176c682f9f" SourceId="1" SourceUrl="http://localhost:8501/MetaInfo?xsd=xsd1" />
-    <MetadataFile FileName="MetaInfo.xsd" MetadataType="Schema" ID="69666862-ee30-4604-8bac-9f58bfc3f1d2" SourceId="1" SourceUrl="http://localhost:8501/MetaInfo?xsd=xsd0" />
-    <MetadataFile FileName="MetaInfo4.xsd" MetadataType="Schema" ID="a9653bc6-0986-47e9-b8b1-64ef08f7d76b" SourceId="1" SourceUrl="http://localhost:8501/MetaInfo?xsd=xsd4" />
-    <MetadataFile FileName="MetaInfo3.xsd" MetadataType="Schema" ID="c689bf6f-f669-4364-8250-ac39683b2b97" SourceId="1" SourceUrl="http://localhost:8501/MetaInfo?xsd=xsd3" />
+    <MetadataFile FileName="ComConServiceMetadata.xsd" MetadataType="Schema" ID="d1a88111-bc9e-4fda-9a84-615eac54caa6" SourceId="1" SourceUrl="http://localhost:8551/ComConServiceMetadata?xsd=xsd1" />
+    <MetadataFile FileName="ComConServiceMetadata1.xsd" MetadataType="Schema" ID="04ad0a83-e252-48b2-a378-c9a2e3dd431f" SourceId="1" SourceUrl="http://localhost:8551/ComConServiceMetadata?xsd=xsd3" />
+    <MetadataFile FileName="ComConServiceMetadata2.xsd" MetadataType="Schema" ID="3c421fad-7c31-41f0-a0fd-057aea009076" SourceId="1" SourceUrl="http://localhost:8551/ComConServiceMetadata?xsd=xsd0" />
+    <MetadataFile FileName="ComConServer.wsdl" MetadataType="Wsdl" ID="5f3d1b06-dd48-4283-a788-c219dfb98c53" SourceId="1" SourceUrl="http://localhost:8551/ComConServiceMetadata" />
+    <MetadataFile FileName="ComConServiceMetadata3.xsd" MetadataType="Schema" ID="658b30e2-8e28-4f1f-8878-1348178961d5" SourceId="1" SourceUrl="http://localhost:8551/ComConServiceMetadata?xsd=xsd2" />
+    <MetadataFile FileName="ComConServiceMetadata4.xsd" MetadataType="Schema" ID="f4c44669-ebe5-4ad4-bd5b-1e870edf2749" SourceId="1" SourceUrl="http://localhost:8551/ComConServiceMetadata?xsd=xsd4" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

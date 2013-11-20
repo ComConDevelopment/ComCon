@@ -16,10 +16,14 @@ namespace ComCon.Shared.Classes
         private static string PrivateCrypt(string pInput)
         {
             SHA256 sha = new SHA256Managed();
-            Encoding encoding = Encoding.Default;
-            byte[] array = encoding.GetBytes(pInput);
-            sha.ComputeHash(array);
-            return encoding.GetString(sha.Hash);
+            byte[] array = Encoding.UTF8.GetBytes(pInput);
+            byte[] hash = sha.ComputeHash(array);
+            string hashString = string.Empty;
+            foreach (byte x in hash)
+            {
+                hashString += String.Format("{0:x2}", x);
+            }
+            return hashString;
 
         }
     }

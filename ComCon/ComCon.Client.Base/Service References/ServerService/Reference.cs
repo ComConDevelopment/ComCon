@@ -23,7 +23,7 @@ namespace ComCon.Client.Base.ServerService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string EMailField;
+        private string EmailField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PasswordField;
@@ -39,14 +39,14 @@ namespace ComCon.Client.Base.ServerService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EMail {
+        public string Email {
             get {
-                return this.EMailField;
+                return this.EmailField;
             }
             set {
-                if ((object.ReferenceEquals(this.EMailField, value) != true)) {
-                    this.EMailField = value;
-                    this.RaisePropertyChanged("EMail");
+                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
+                    this.EmailField = value;
+                    this.RaisePropertyChanged("Email");
                 }
             }
         }
@@ -60,6 +60,115 @@ namespace ComCon.Client.Base.ServerService {
                 if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
                     this.PasswordField = value;
                     this.RaisePropertyChanged("Password");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="User", Namespace="http://schemas.datacontract.org/2004/07/ComCon.Shared.Classes")]
+    [System.SerializableAttribute()]
+    public partial class User : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsAdminField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime LastOnlineField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int UserIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UsernameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Email {
+            get {
+                return this.EmailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
+                    this.EmailField = value;
+                    this.RaisePropertyChanged("Email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsAdmin {
+            get {
+                return this.IsAdminField;
+            }
+            set {
+                if ((this.IsAdminField.Equals(value) != true)) {
+                    this.IsAdminField = value;
+                    this.RaisePropertyChanged("IsAdmin");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime LastOnline {
+            get {
+                return this.LastOnlineField;
+            }
+            set {
+                if ((this.LastOnlineField.Equals(value) != true)) {
+                    this.LastOnlineField = value;
+                    this.RaisePropertyChanged("LastOnline");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int UserID {
+            get {
+                return this.UserIDField;
+            }
+            set {
+                if ((this.UserIDField.Equals(value) != true)) {
+                    this.UserIDField = value;
+                    this.RaisePropertyChanged("UserID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Username {
+            get {
+                return this.UsernameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UsernameField, value) != true)) {
+                    this.UsernameField = value;
+                    this.RaisePropertyChanged("Username");
                 }
             }
         }
@@ -93,7 +202,7 @@ namespace ComCon.Client.Base.ServerService {
         private System.DateTime TimeStampField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ComCon.Client.Base.ServerService.ChatUser UserField;
+        private ComCon.Client.Base.ServerService.User UserField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -145,7 +254,7 @@ namespace ComCon.Client.Base.ServerService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public ComCon.Client.Base.ServerService.ChatUser User {
+        public ComCon.Client.Base.ServerService.User User {
             get {
                 return this.UserField;
             }
@@ -167,166 +276,226 @@ namespace ComCon.Client.Base.ServerService {
         }
     }
     
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServerService.IMainServerFunctions")]
+    public interface IMainServerFunctions {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMainServerFunctions/Authenticate", ReplyAction="http://tempuri.org/IMainServerFunctions/AuthenticateResponse")]
+        ComCon.Client.Base.ServerService.User Authenticate(ComCon.Client.Base.ServerService.Credentials pCredentials);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMainServerFunctions/Authenticate", ReplyAction="http://tempuri.org/IMainServerFunctions/AuthenticateResponse")]
+        System.IAsyncResult BeginAuthenticate(ComCon.Client.Base.ServerService.Credentials pCredentials, System.AsyncCallback callback, object asyncState);
+        
+        ComCon.Client.Base.ServerService.User EndAuthenticate(System.IAsyncResult result);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IMainServerFunctionsChannel : ComCon.Client.Base.ServerService.IMainServerFunctions, System.ServiceModel.IClientChannel {
+    }
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ChatUser", Namespace="http://schemas.datacontract.org/2004/07/ComCon.Shared.Classes")]
-    [System.SerializableAttribute()]
-    public partial class ChatUser : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class AuthenticateCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        private object[] results;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool IsAdminField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool IsVisibleField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string UsernameField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
+        public AuthenticateCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool IsAdmin {
+        public ComCon.Client.Base.ServerService.User Result {
             get {
-                return this.IsAdminField;
-            }
-            set {
-                if ((this.IsAdminField.Equals(value) != true)) {
-                    this.IsAdminField = value;
-                    this.RaisePropertyChanged("IsAdmin");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool IsVisible {
-            get {
-                return this.IsVisibleField;
-            }
-            set {
-                if ((this.IsVisibleField.Equals(value) != true)) {
-                    this.IsVisibleField = value;
-                    this.RaisePropertyChanged("IsVisible");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Username {
-            get {
-                return this.UsernameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UsernameField, value) != true)) {
-                    this.UsernameField = value;
-                    this.RaisePropertyChanged("Username");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+                base.RaiseExceptionIfNecessary();
+                return ((ComCon.Client.Base.ServerService.User)(this.results[0]));
             }
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServerService.IServerFunctions", CallbackContract=typeof(ComCon.Client.Base.ServerService.IServerFunctionsCallback))]
-    public interface IServerFunctions {
+    public partial class MainServerFunctionsClient : System.ServiceModel.ClientBase<ComCon.Client.Base.ServerService.IMainServerFunctions>, ComCon.Client.Base.ServerService.IMainServerFunctions {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServerFunctions/ConnectToServer", ReplyAction="http://tempuri.org/IServerFunctions/ConnectToServerResponse")]
-        void ConnectToServer(ComCon.Client.Base.ServerService.Credentials credentials);
+        private BeginOperationDelegate onBeginAuthenticateDelegate;
         
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IServerFunctions/ConnectToServer", ReplyAction="http://tempuri.org/IServerFunctions/ConnectToServerResponse")]
+        private EndOperationDelegate onEndAuthenticateDelegate;
+        
+        private System.Threading.SendOrPostCallback onAuthenticateCompletedDelegate;
+        
+        public MainServerFunctionsClient() {
+        }
+        
+        public MainServerFunctionsClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public MainServerFunctionsClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public MainServerFunctionsClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public MainServerFunctionsClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public event System.EventHandler<AuthenticateCompletedEventArgs> AuthenticateCompleted;
+        
+        public ComCon.Client.Base.ServerService.User Authenticate(ComCon.Client.Base.ServerService.Credentials pCredentials) {
+            return base.Channel.Authenticate(pCredentials);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginAuthenticate(ComCon.Client.Base.ServerService.Credentials pCredentials, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginAuthenticate(pCredentials, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public ComCon.Client.Base.ServerService.User EndAuthenticate(System.IAsyncResult result) {
+            return base.Channel.EndAuthenticate(result);
+        }
+        
+        private System.IAsyncResult OnBeginAuthenticate(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            ComCon.Client.Base.ServerService.Credentials pCredentials = ((ComCon.Client.Base.ServerService.Credentials)(inValues[0]));
+            return this.BeginAuthenticate(pCredentials, callback, asyncState);
+        }
+        
+        private object[] OnEndAuthenticate(System.IAsyncResult result) {
+            ComCon.Client.Base.ServerService.User retVal = this.EndAuthenticate(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnAuthenticateCompleted(object state) {
+            if ((this.AuthenticateCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.AuthenticateCompleted(this, new AuthenticateCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void AuthenticateAsync(ComCon.Client.Base.ServerService.Credentials pCredentials) {
+            this.AuthenticateAsync(pCredentials, null);
+        }
+        
+        public void AuthenticateAsync(ComCon.Client.Base.ServerService.Credentials pCredentials, object userState) {
+            if ((this.onBeginAuthenticateDelegate == null)) {
+                this.onBeginAuthenticateDelegate = new BeginOperationDelegate(this.OnBeginAuthenticate);
+            }
+            if ((this.onEndAuthenticateDelegate == null)) {
+                this.onEndAuthenticateDelegate = new EndOperationDelegate(this.OnEndAuthenticate);
+            }
+            if ((this.onAuthenticateCompletedDelegate == null)) {
+                this.onAuthenticateCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnAuthenticateCompleted);
+            }
+            base.InvokeAsync(this.onBeginAuthenticateDelegate, new object[] {
+                        pCredentials}, this.onEndAuthenticateDelegate, this.onAuthenticateCompletedDelegate, userState);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServerService.IChatServerFunctions", CallbackContract=typeof(ComCon.Client.Base.ServerService.IChatServerFunctionsCallback))]
+    public interface IChatServerFunctions {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IChatServerFunctions/ConnectToServer", ReplyAction="http://tempuri.org/IChatServerFunctions/ConnectToServerResponse")]
+        ComCon.Client.Base.ServerService.User ConnectToServer(ComCon.Client.Base.ServerService.Credentials credentials);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IChatServerFunctions/ConnectToServer", ReplyAction="http://tempuri.org/IChatServerFunctions/ConnectToServerResponse")]
         System.IAsyncResult BeginConnectToServer(ComCon.Client.Base.ServerService.Credentials credentials, System.AsyncCallback callback, object asyncState);
         
-        void EndConnectToServer(System.IAsyncResult result);
+        ComCon.Client.Base.ServerService.User EndConnectToServer(System.IAsyncResult result);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServerFunctions/DisconnectFromServer", ReplyAction="http://tempuri.org/IServerFunctions/DisconnectFromServerResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IChatServerFunctions/DisconnectFromServer", ReplyAction="http://tempuri.org/IChatServerFunctions/DisconnectFromServerResponse")]
         void DisconnectFromServer();
         
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IServerFunctions/DisconnectFromServer", ReplyAction="http://tempuri.org/IServerFunctions/DisconnectFromServerResponse")]
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IChatServerFunctions/DisconnectFromServer", ReplyAction="http://tempuri.org/IChatServerFunctions/DisconnectFromServerResponse")]
         System.IAsyncResult BeginDisconnectFromServer(System.AsyncCallback callback, object asyncState);
         
         void EndDisconnectFromServer(System.IAsyncResult result);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServerFunctions/Send", ReplyAction="http://tempuri.org/IServerFunctions/SendResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IChatServerFunctions/Send", ReplyAction="http://tempuri.org/IChatServerFunctions/SendResponse")]
         void Send(ComCon.Client.Base.ServerService.ChatMessage cm);
         
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IServerFunctions/Send", ReplyAction="http://tempuri.org/IServerFunctions/SendResponse")]
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IChatServerFunctions/Send", ReplyAction="http://tempuri.org/IChatServerFunctions/SendResponse")]
         System.IAsyncResult BeginSend(ComCon.Client.Base.ServerService.ChatMessage cm, System.AsyncCallback callback, object asyncState);
         
         void EndSend(System.IAsyncResult result);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServerFunctions/ConnectToChannel", ReplyAction="http://tempuri.org/IServerFunctions/ConnectToChannelResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IChatServerFunctions/ConnectToChannel", ReplyAction="http://tempuri.org/IChatServerFunctions/ConnectToChannelResponse")]
         void ConnectToChannel();
         
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IServerFunctions/ConnectToChannel", ReplyAction="http://tempuri.org/IServerFunctions/ConnectToChannelResponse")]
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IChatServerFunctions/ConnectToChannel", ReplyAction="http://tempuri.org/IChatServerFunctions/ConnectToChannelResponse")]
         System.IAsyncResult BeginConnectToChannel(System.AsyncCallback callback, object asyncState);
         
         void EndConnectToChannel(System.IAsyncResult result);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServerFunctions/DisconnectFromChannel", ReplyAction="http://tempuri.org/IServerFunctions/DisconnectFromChannelResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IChatServerFunctions/DisconnectFromChannel", ReplyAction="http://tempuri.org/IChatServerFunctions/DisconnectFromChannelResponse")]
         void DisconnectFromChannel();
         
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IServerFunctions/DisconnectFromChannel", ReplyAction="http://tempuri.org/IServerFunctions/DisconnectFromChannelResponse")]
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IChatServerFunctions/DisconnectFromChannel", ReplyAction="http://tempuri.org/IChatServerFunctions/DisconnectFromChannelResponse")]
         System.IAsyncResult BeginDisconnectFromChannel(System.AsyncCallback callback, object asyncState);
         
         void EndDisconnectFromChannel(System.IAsyncResult result);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServerFunctions/GetChannels", ReplyAction="http://tempuri.org/IServerFunctions/GetChannelsResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IChatServerFunctions/GetChannels", ReplyAction="http://tempuri.org/IChatServerFunctions/GetChannelsResponse")]
         string[] GetChannels();
         
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IServerFunctions/GetChannels", ReplyAction="http://tempuri.org/IServerFunctions/GetChannelsResponse")]
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IChatServerFunctions/GetChannels", ReplyAction="http://tempuri.org/IChatServerFunctions/GetChannelsResponse")]
         System.IAsyncResult BeginGetChannels(System.AsyncCallback callback, object asyncState);
         
         string[] EndGetChannels(System.IAsyncResult result);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServerFunctions/GetUser", ReplyAction="http://tempuri.org/IServerFunctions/GetUserResponse")]
-        ComCon.Client.Base.ServerService.ChatUser GetUser(ComCon.Client.Base.ServerService.Credentials pCredentials);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IChatServerFunctions/GetUser", ReplyAction="http://tempuri.org/IChatServerFunctions/GetUserResponse")]
+        ComCon.Client.Base.ServerService.User GetUser(string pMail);
         
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IServerFunctions/GetUser", ReplyAction="http://tempuri.org/IServerFunctions/GetUserResponse")]
-        System.IAsyncResult BeginGetUser(ComCon.Client.Base.ServerService.Credentials pCredentials, System.AsyncCallback callback, object asyncState);
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IChatServerFunctions/GetUser", ReplyAction="http://tempuri.org/IChatServerFunctions/GetUserResponse")]
+        System.IAsyncResult BeginGetUser(string pMail, System.AsyncCallback callback, object asyncState);
         
-        ComCon.Client.Base.ServerService.ChatUser EndGetUser(System.IAsyncResult result);
+        ComCon.Client.Base.ServerService.User EndGetUser(System.IAsyncResult result);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServerFunctions/get_LoggedInUsers", ReplyAction="http://tempuri.org/IServerFunctions/get_LoggedInUsersResponse")]
-        ComCon.Client.Base.ServerService.ChatUser[] get_LoggedInUsers();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IChatServerFunctions/get_LoggedInUsers", ReplyAction="http://tempuri.org/IChatServerFunctions/get_LoggedInUsersResponse")]
+        ComCon.Client.Base.ServerService.User[] get_LoggedInUsers();
         
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IServerFunctions/get_LoggedInUsers", ReplyAction="http://tempuri.org/IServerFunctions/get_LoggedInUsersResponse")]
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IChatServerFunctions/get_LoggedInUsers", ReplyAction="http://tempuri.org/IChatServerFunctions/get_LoggedInUsersResponse")]
         System.IAsyncResult Beginget_LoggedInUsers(System.AsyncCallback callback, object asyncState);
         
-        ComCon.Client.Base.ServerService.ChatUser[] Endget_LoggedInUsers(System.IAsyncResult result);
+        ComCon.Client.Base.ServerService.User[] Endget_LoggedInUsers(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IServerFunctionsCallback {
+    public interface IChatServerFunctionsCallback {
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServerFunctions/ShowMessage")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatServerFunctions/ShowMessage")]
         void ShowMessage(ComCon.Client.Base.ServerService.ChatMessage cm);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, AsyncPattern=true, Action="http://tempuri.org/IServerFunctions/ShowMessage")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, AsyncPattern=true, Action="http://tempuri.org/IChatServerFunctions/ShowMessage")]
         System.IAsyncResult BeginShowMessage(ComCon.Client.Base.ServerService.ChatMessage cm, System.AsyncCallback callback, object asyncState);
         
         void EndShowMessage(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IServerFunctionsChannel : ComCon.Client.Base.ServerService.IServerFunctions, System.ServiceModel.IClientChannel {
+    public interface IChatServerFunctionsChannel : ComCon.Client.Base.ServerService.IChatServerFunctions, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ConnectToServerCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public ConnectToServerCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public ComCon.Client.Base.ServerService.User Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((ComCon.Client.Base.ServerService.User)(this.results[0]));
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -359,10 +528,10 @@ namespace ComCon.Client.Base.ServerService {
             this.results = results;
         }
         
-        public ComCon.Client.Base.ServerService.ChatUser Result {
+        public ComCon.Client.Base.ServerService.User Result {
             get {
                 base.RaiseExceptionIfNecessary();
-                return ((ComCon.Client.Base.ServerService.ChatUser)(this.results[0]));
+                return ((ComCon.Client.Base.ServerService.User)(this.results[0]));
             }
         }
     }
@@ -378,17 +547,17 @@ namespace ComCon.Client.Base.ServerService {
             this.results = results;
         }
         
-        public ComCon.Client.Base.ServerService.ChatUser[] Result {
+        public ComCon.Client.Base.ServerService.User[] Result {
             get {
                 base.RaiseExceptionIfNecessary();
-                return ((ComCon.Client.Base.ServerService.ChatUser[])(this.results[0]));
+                return ((ComCon.Client.Base.ServerService.User[])(this.results[0]));
             }
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ServerFunctionsClient : System.ServiceModel.DuplexClientBase<ComCon.Client.Base.ServerService.IServerFunctions>, ComCon.Client.Base.ServerService.IServerFunctions {
+    public partial class ChatServerFunctionsClient : System.ServiceModel.DuplexClientBase<ComCon.Client.Base.ServerService.IChatServerFunctions>, ComCon.Client.Base.ServerService.IChatServerFunctions {
         
         private BeginOperationDelegate onBeginConnectToServerDelegate;
         
@@ -438,27 +607,27 @@ namespace ComCon.Client.Base.ServerService {
         
         private System.Threading.SendOrPostCallback onget_LoggedInUsersCompletedDelegate;
         
-        public ServerFunctionsClient(System.ServiceModel.InstanceContext callbackInstance) : 
+        public ChatServerFunctionsClient(System.ServiceModel.InstanceContext callbackInstance) : 
                 base(callbackInstance) {
         }
         
-        public ServerFunctionsClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
+        public ChatServerFunctionsClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
                 base(callbackInstance, endpointConfigurationName) {
         }
         
-        public ServerFunctionsClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
+        public ChatServerFunctionsClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
                 base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public ServerFunctionsClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public ChatServerFunctionsClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public ServerFunctionsClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public ChatServerFunctionsClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(callbackInstance, binding, remoteAddress) {
         }
         
-        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> ConnectToServerCompleted;
+        public event System.EventHandler<ConnectToServerCompletedEventArgs> ConnectToServerCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> DisconnectFromServerCompleted;
         
@@ -474,8 +643,8 @@ namespace ComCon.Client.Base.ServerService {
         
         public event System.EventHandler<get_LoggedInUsersCompletedEventArgs> get_LoggedInUsersCompleted;
         
-        public void ConnectToServer(ComCon.Client.Base.ServerService.Credentials credentials) {
-            base.Channel.ConnectToServer(credentials);
+        public ComCon.Client.Base.ServerService.User ConnectToServer(ComCon.Client.Base.ServerService.Credentials credentials) {
+            return base.Channel.ConnectToServer(credentials);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -484,8 +653,8 @@ namespace ComCon.Client.Base.ServerService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public void EndConnectToServer(System.IAsyncResult result) {
-            base.Channel.EndConnectToServer(result);
+        public ComCon.Client.Base.ServerService.User EndConnectToServer(System.IAsyncResult result) {
+            return base.Channel.EndConnectToServer(result);
         }
         
         private System.IAsyncResult OnBeginConnectToServer(object[] inValues, System.AsyncCallback callback, object asyncState) {
@@ -494,14 +663,15 @@ namespace ComCon.Client.Base.ServerService {
         }
         
         private object[] OnEndConnectToServer(System.IAsyncResult result) {
-            this.EndConnectToServer(result);
-            return null;
+            ComCon.Client.Base.ServerService.User retVal = this.EndConnectToServer(result);
+            return new object[] {
+                    retVal};
         }
         
         private void OnConnectToServerCompleted(object state) {
             if ((this.ConnectToServerCompleted != null)) {
                 InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.ConnectToServerCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+                this.ConnectToServerCompleted(this, new ConnectToServerCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
             }
         }
         
@@ -761,27 +931,27 @@ namespace ComCon.Client.Base.ServerService {
             base.InvokeAsync(this.onBeginGetChannelsDelegate, null, this.onEndGetChannelsDelegate, this.onGetChannelsCompletedDelegate, userState);
         }
         
-        public ComCon.Client.Base.ServerService.ChatUser GetUser(ComCon.Client.Base.ServerService.Credentials pCredentials) {
-            return base.Channel.GetUser(pCredentials);
+        public ComCon.Client.Base.ServerService.User GetUser(string pMail) {
+            return base.Channel.GetUser(pMail);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public System.IAsyncResult BeginGetUser(ComCon.Client.Base.ServerService.Credentials pCredentials, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetUser(pCredentials, callback, asyncState);
+        public System.IAsyncResult BeginGetUser(string pMail, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetUser(pMail, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public ComCon.Client.Base.ServerService.ChatUser EndGetUser(System.IAsyncResult result) {
+        public ComCon.Client.Base.ServerService.User EndGetUser(System.IAsyncResult result) {
             return base.Channel.EndGetUser(result);
         }
         
         private System.IAsyncResult OnBeginGetUser(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            ComCon.Client.Base.ServerService.Credentials pCredentials = ((ComCon.Client.Base.ServerService.Credentials)(inValues[0]));
-            return this.BeginGetUser(pCredentials, callback, asyncState);
+            string pMail = ((string)(inValues[0]));
+            return this.BeginGetUser(pMail, callback, asyncState);
         }
         
         private object[] OnEndGetUser(System.IAsyncResult result) {
-            ComCon.Client.Base.ServerService.ChatUser retVal = this.EndGetUser(result);
+            ComCon.Client.Base.ServerService.User retVal = this.EndGetUser(result);
             return new object[] {
                     retVal};
         }
@@ -793,11 +963,11 @@ namespace ComCon.Client.Base.ServerService {
             }
         }
         
-        public void GetUserAsync(ComCon.Client.Base.ServerService.Credentials pCredentials) {
-            this.GetUserAsync(pCredentials, null);
+        public void GetUserAsync(string pMail) {
+            this.GetUserAsync(pMail, null);
         }
         
-        public void GetUserAsync(ComCon.Client.Base.ServerService.Credentials pCredentials, object userState) {
+        public void GetUserAsync(string pMail, object userState) {
             if ((this.onBeginGetUserDelegate == null)) {
                 this.onBeginGetUserDelegate = new BeginOperationDelegate(this.OnBeginGetUser);
             }
@@ -808,10 +978,10 @@ namespace ComCon.Client.Base.ServerService {
                 this.onGetUserCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetUserCompleted);
             }
             base.InvokeAsync(this.onBeginGetUserDelegate, new object[] {
-                        pCredentials}, this.onEndGetUserDelegate, this.onGetUserCompletedDelegate, userState);
+                        pMail}, this.onEndGetUserDelegate, this.onGetUserCompletedDelegate, userState);
         }
         
-        public ComCon.Client.Base.ServerService.ChatUser[] get_LoggedInUsers() {
+        public ComCon.Client.Base.ServerService.User[] get_LoggedInUsers() {
             return base.Channel.get_LoggedInUsers();
         }
         
@@ -821,7 +991,7 @@ namespace ComCon.Client.Base.ServerService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public ComCon.Client.Base.ServerService.ChatUser[] Endget_LoggedInUsers(System.IAsyncResult result) {
+        public ComCon.Client.Base.ServerService.User[] Endget_LoggedInUsers(System.IAsyncResult result) {
             return base.Channel.Endget_LoggedInUsers(result);
         }
         
@@ -830,7 +1000,7 @@ namespace ComCon.Client.Base.ServerService {
         }
         
         private object[] OnEndget_LoggedInUsers(System.IAsyncResult result) {
-            ComCon.Client.Base.ServerService.ChatUser[] retVal = this.Endget_LoggedInUsers(result);
+            ComCon.Client.Base.ServerService.User[] retVal = this.Endget_LoggedInUsers(result);
             return new object[] {
                     retVal};
         }

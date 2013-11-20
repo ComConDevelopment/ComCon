@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.ServiceModel;
+using ComCon.Server.Classes;
 
 namespace ComCon.Server
 {
@@ -26,26 +27,48 @@ namespace ComCon.Server
 
         public MainWindow()
         {
+            LoggingService.LogEvent += LoggingService_LogEvent;
             InitializeComponent();
+        }
+
+        void LoggingService_LogEvent(object sender, LoggingEventArgs data)
+        {
+            Dispatcher.Invoke((Action)(() =>
+            {
+                Log(data.LogString, data.Status);
+            }), System.Windows.Threading.DispatcherPriority.Send);         
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                sh = new ServiceHost((typeof(ChatServerFunctions)));
+                sh = new ServiceHost((typeof(ComConServer)));
                 sh.Open();
-                Log("Server gestartet");
+                LoggingService.Log("Server gestartet", LogStatus.INFO);
             }
             catch (Exception ex)
             {
-                Log(ex.Message);
+                LoggingService.Log(ex.Message, LogStatus.WARNING);
             }
         }
 
-        private void Log(string pText)
+        private void Log(string pText, LogStatus pStatus)
         {
-            textBox1.AppendText("[INFO] " + pText + "\n");
+            switch (pStatus)
+            {
+                case LogStatus.ERROR:
+                    textBox1.AppendText("[ERROR] " + pText + "\n");
+                    break;
+                case LogStatus.INFO:
+                    textBox1.AppendText("[INFO] " + pText + "\n");
+                    break;
+                case LogStatus.WARNING:
+                    textBox1.AppendText("[WARNING] " + pText + "\n");
+                    break;
+
+            }
+            
         }
 
         private void button2_Click(object sender, RoutedEventArgs e)
@@ -53,12 +76,14 @@ namespace ComCon.Server
             try
             {
                 sh.Close();
-                Log("Server beendet");
+                LoggingService.Log("Server beendet", LogStatus.INFO);
             }
             catch (Exception ex)
             {
-                Log(ex.Message);
+                LoggingService.Log(ex.Message, LogStatus.ERROR);
             }
         }
     }
+
+
 }

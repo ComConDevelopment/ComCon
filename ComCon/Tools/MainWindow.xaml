@@ -1,0 +1,33 @@
+﻿<Window x:Class="Tools.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <TabControl Margin="0,0,2,17">
+            <TabItem Header="Crypter">
+                <Grid>
+                    <TextBox x:Name="textbox1" Height="23" Margin="0,11,10,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.Column="1"/>
+                    <TextBox x:Name="textbox2" Margin="0,0,10,4" TextWrapping="Wrap" Text="" Height="23" VerticalAlignment="Bottom" Grid.Column="1"/>
+                    <Button Content="Crypt" HorizontalAlignment="Left" Margin="0,0,0,32" Width="75" RenderTransformOrigin="0.507,0.5" Click="Button_Click" Height="26" VerticalAlignment="Bottom" Grid.Column="1"/>
+                    
+                </Grid>
+            </TabItem>
+            <TabItem Header="Database Test">
+                <Grid>
+                    <Button Content="Verbindungstest" Margin="0,0,15,15" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="121" Height="23" Click="Button_Click_1" />
+                    <TextBlock  HorizontalAlignment="Left" Margin="20,60,0,0" TextWrapping="Wrap" Text="Server" VerticalAlignment="Top"/>
+                    <TextBox Name="tbHost" HorizontalAlignment="Left" Height="23" Margin="80,58,0,0" TextWrapping="Wrap" Text="localhost" VerticalAlignment="Top" Width="120"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="20,80,0,0" TextWrapping="Wrap" Text="Port" VerticalAlignment="Top"/>
+                    <TextBox Name="tbPort"  HorizontalAlignment="Left" Height="23" Margin="80,78,0,0" TextWrapping="Wrap" Text="5432" VerticalAlignment="Top" Width="120"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="20,100,0,0" TextWrapping="Wrap" Text="UserID" VerticalAlignment="Top"/>
+                    <TextBox Name="tbUser" HorizontalAlignment="Left" Height="23" Margin="80,98,0,0" TextWrapping="Wrap" Text="ComConAdmin" VerticalAlignment="Top" Width="120"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="20,120,0,0" TextWrapping="Wrap" Text="Passwort" VerticalAlignment="Top"/>
+                    <PasswordBox Name="tbPass"  HorizontalAlignment="Left" Height="23" Margin="80,118,0,0" VerticalAlignment="Top" Password="test" Width="120"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="20,140,0,0" TextWrapping="Wrap" Text="Datenbank" VerticalAlignment="Top"/>
+                    <TextBox Name="tbDataBaseName" HorizontalAlignment="Left" Height="23" Margin="80,138,0,0" TextWrapping="Wrap" Text="ComConDatabase" VerticalAlignment="Top" Width="120"/>
+                    <Label HorizontalAlignment="Left" VerticalAlignment="Bottom" Content="{Binding Status, UpdateSourceTrigger=PropertyChanged}"></Label>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

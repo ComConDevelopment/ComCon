@@ -15,7 +15,7 @@ using ComCon.Client.Base.ServerService;
 
 namespace ComCon.Client.Modules.Chat
 {
-    [ModuleExport(typeof(ClientChatModule), InitializationMode = InitializationMode.OnDemand)]
+    [ModuleExport(typeof(ClientChatModule), InitializationMode = InitializationMode.OnDemand),]
     public class ClientChatModule : ClientBaseModule
     {
         [ImportingConstructor]
@@ -25,9 +25,6 @@ namespace ComCon.Client.Modules.Chat
             if (Global.IsLoggedIn)
             {
                 RegionManager.Regions["MainRegion"].RequestNavigate(new Uri("ChatControl", UriKind.Relative));
-
-                //RegionManager.Regions["MainRegion"].Remove(RegionManager.Regions["MainRegion"].Views.ElementAt(0));
-                //RegionManager.RegisterViewWithRegion("MainRegion", typeof(ChatControl));
             }
             
         }

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <system.serviceModel>
+    <behaviors>
+      <serviceBehaviors> 
+        <behavior name="MyMetaInformations">
+          <serviceMetadata httpGetEnabled="true" httpGetUrl="http://localhost:8551/ComConServiceMetadata"/>
+          <useRequestHeadersForMetadataAddress ></useRequestHeadersForMetadataAddress>
+        </behavior>
+      </serviceBehaviors>
+    </behaviors>
+    <services>
+      <service behaviorConfiguration="MyMetaInformations" name="ComCon.Server.ComConServer">
+        <endpoint address="/MainService" binding="netTcpBinding" bindingConfiguration=""
+          name="MainService" contract="ComCon.Shared.Classes.IMainServerFunctions" />
+        <endpoint address="/ChatService" binding="netTcpBinding" bindingConfiguration=""
+          name="ChatService" contract="ComCon.Shared.Classes.IChatServerFunctions" />
+        <host>
+          <baseAddresses>
+            <add baseAddress="net.tcp://projectmedia.selfhost.me:8550/ComConServices" />
+          </baseAddresses>
+        </host>
+      </service>
+    </services>
+    <bindings>
+      <netTcpBinding>
+        <binding name="MyMetaInformations" closeTimeout="00:01:00" receiveTimeout="00:01:00"
+          sendTimeout="00:01:00" maxConnections="100" maxReceivedMessageSize="5242880" portSharingEnabled="True" >
+          <security mode="None" />
+        </binding>
+      </netTcpBinding>
+    </bindings>
+  </system.serviceModel>
+
+</configuration>

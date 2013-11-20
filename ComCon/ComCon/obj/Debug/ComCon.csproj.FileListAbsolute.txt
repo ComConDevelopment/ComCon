@@ -114,7 +114,6 @@ C:\Users\gener_000\Documents\GitHub\ComCon\ComCon\ComCon\bin\Debug\sv\Xceed.Wpf.
 C:\Users\gener_000\Documents\GitHub\ComCon\ComCon\ComCon\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
 C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon\obj\Debug\Styles.baml
 C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon\obj\Debug\App.baml
-C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon\bin\Debug\app.config
 C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon\bin\Debug\ComCon.exe.config
 C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon\bin\Debug\ComCon.exe
 C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon\bin\Debug\ComCon.pdb
@@ -162,3 +161,5 @@ C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon\obj\Debug\ComCon.Properties.R
 C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon\obj\Debug\ComCon.csproj.GenerateResource.Cache
 C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon\obj\Debug\ComCon.exe
 C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon\obj\Debug\ComCon.pdb
+C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon\obj\Debug\ComCon_MarkupCompile.lref

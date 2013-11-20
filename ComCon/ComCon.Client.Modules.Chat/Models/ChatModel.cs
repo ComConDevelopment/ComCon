@@ -19,12 +19,12 @@ using ComCon.Client.Base.Classes;
 namespace ComCon.Client.Modules.Chat.Models
 {
     [CallbackBehavior(UseSynchronizationContext = false)]
-    public class ChatModel : INotifyPropertyChanged, IServerFunctionsCallback
+    public class ChatModel : INotifyPropertyChanged, IChatServerFunctionsCallback
     {
         #region Deklaration
 
-        private ServerFunctionsClient client = null;
-        private List<ChatUser> mUsers;
+        private ChatServerFunctionsClient client = null;
+        private List<User> mUsers;
         private string mMessage;
         private string mChatText;
         private readonly IEventAggregator EventAggregator;
@@ -67,10 +67,10 @@ namespace ComCon.Client.Modules.Chat.Models
 
         public DelegateCommand SendCommand { get; private set; }
 
-        public List<ChatUser> Users
+        public List<User> Users
         {
             get { return (mUsers); }
-            set { mUsers = value; RaisePropertyChanged("Channels"); }
+            set { mUsers = value; RaisePropertyChanged("Users"); }
         }
 
         #endregion
@@ -88,16 +88,14 @@ namespace ComCon.Client.Modules.Chat.Models
 
 
             InstanceContext context = new InstanceContext(this);
-            client = new ServerFunctionsClient(context);
+            client = new ChatServerFunctionsClient(context);
             try
             {
-                //client.Open();
+                client.Open();
                 BusyText = "Verbinde zu Server";
-                Credentials cred = new Credentials();
                 client.ConnectToServerAsync(Global.Credentials);
                 client.ConnectToServerCompleted += (s, args) =>
-                {
-                    Global.User = client.GetUser(Global.Credentials);
+                {                    
                     EventAggregator.GetEvent<OnLoginEvent>().Subscribe(OnLogin);
                     try
                     {
@@ -114,7 +112,7 @@ namespace ComCon.Client.Modules.Chat.Models
             }
             catch (Exception e)
             {
-                ShowMessage(new ChatMessage() { User = new ChatUser() { Username = "Server" }, Message = "Fehler beim Einloggen!\r\n" + e.Message });
+                ShowMessage(new ChatMessage() { User = new User() { Username = "Server" }, Message = "Fehler beim Einloggen!\r\n" + e.Message });
             }
 
 
@@ -173,8 +171,8 @@ namespace ComCon.Client.Modules.Chat.Models
                     {
                         if (!String.IsNullOrEmpty(this.Message))
                         {
-                            ChatUser u = client.GetUser(Global.Credentials);
-                            client.Send(new Base.ServerService.ChatMessage() { Message = this.Message, TimeStamp = DateTime.Now, User = u });
+                            //ChatUser u = client.GetUser(Global.Credentials);
+                            //client.Send(new Base.ServerService.ChatMessage() { Message = this.Message, TimeStamp = DateTime.Now, User = u });
                         }
                     }
                     catch (Exception ex)
@@ -196,6 +194,8 @@ namespace ComCon.Client.Modules.Chat.Models
         {
             EventAggregator.GetEvent<MessageReceivedEvent>().Publish(cm);
         }
+
+        
 
         #endregion
 

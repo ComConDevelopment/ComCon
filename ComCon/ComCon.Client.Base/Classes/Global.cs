@@ -20,8 +20,10 @@ namespace ComCon.Client.Base.Classes
 
         public static bool IsLoggedIn
         {
-            get { return mIsLoggedIn; }
-            set { mIsLoggedIn = value; }
+            get
+            {
+                return Global.User != null;
+            }
         }
 
         
@@ -32,9 +34,9 @@ namespace ComCon.Client.Base.Classes
             set { mIsBusy = value; }
         }
 
-        private static ChatUser mUser;
+        private static User mUser;
 
-        public static ChatUser User
+        public static User User
         {
             get { return mUser; }
             set { mUser = value; }

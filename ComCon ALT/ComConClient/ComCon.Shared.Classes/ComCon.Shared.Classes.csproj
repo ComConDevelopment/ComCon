@@ -44,15 +44,15 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChatMessage.cs" />
-    <Compile Include="ChatUser.cs" />
+    <Compile Include="Chat\ChatMessage.cs" />
+    <Compile Include="Main\User.cs" />
     <Compile Include="Credentials.cs" />
     <Compile Include="Crypter.cs" />
     <Compile Include="DashboardMessage.cs" />
-    <Compile Include="IMainServerFunctions.cs" />
-    <Compile Include="IChatUser.cs" />
-    <Compile Include="IChatServerFunctions.cs" />
-    <Compile Include="IUser.cs" />
+    <Compile Include="Main\IMainServerFunctions.cs" />
+    <Compile Include="Chat\IChatUser.cs" />
+    <Compile Include="Chat\IChatServerFunctions.cs" />
+    <Compile Include="Main\IUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

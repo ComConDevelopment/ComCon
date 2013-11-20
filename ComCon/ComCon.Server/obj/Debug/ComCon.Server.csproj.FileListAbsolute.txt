@@ -115,3 +115,10 @@ C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Server\bin\Debug\zh-Hans\Syst
 C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Server\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
 C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Server\obj\Debug\Views\MainWindow.baml
 C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Server\obj\Debug\Views\MainWindow.g.cs
+C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Server\bin\Debug\Mono.Security.dll
+C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Server\bin\Debug\policy.2.0.Npgsql.dll
+C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Server\bin\Debug\policy.2.0.Npgsql.config
+C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Server\bin\Debug\ComCon.Server.exe.manifest
+C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Server\bin\Debug\ComCon.Server.application
+C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Server\obj\Debug\ComCon.Server.exe.manifest
+C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Server\obj\Debug\ComCon.Server.application

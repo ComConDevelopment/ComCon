@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ComConServer" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="MainService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="ChatService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8551/ComConServiceMetadata?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8551/ComConServiceMetadata?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8551/ComConServiceMetadata?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ComCon.Shared.Classes" />
+      <xsd:import schemaLocation="http://localhost:8551/ComConServiceMetadata?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Windows.Media" />
+      <xsd:import schemaLocation="http://localhost:8551/ComConServiceMetadata?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IMainServerFunctions_Authenticate_InputMessage">
+    <wsdl:part name="parameters" element="tns:Authenticate" />
+  </wsdl:message>
+  <wsdl:message name="IMainServerFunctions_Authenticate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AuthenticateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChatServerFunctions_ConnectToServer_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConnectToServer" />
+  </wsdl:message>
+  <wsdl:message name="IChatServerFunctions_ConnectToServer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConnectToServerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChatServerFunctions_DisconnectFromServer_InputMessage">
+    <wsdl:part name="parameters" element="tns:DisconnectFromServer" />
+  </wsdl:message>
+  <wsdl:message name="IChatServerFunctions_DisconnectFromServer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DisconnectFromServerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChatServerFunctions_Send_InputMessage">
+    <wsdl:part name="parameters" element="tns:Send" />
+  </wsdl:message>
+  <wsdl:message name="IChatServerFunctions_Send_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChatServerFunctions_ConnectToChannel_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConnectToChannel" />
+  </wsdl:message>
+  <wsdl:message name="IChatServerFunctions_ConnectToChannel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConnectToChannelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChatServerFunctions_DisconnectFromChannel_InputMessage">
+    <wsdl:part name="parameters" element="tns:DisconnectFromChannel" />
+  </wsdl:message>
+  <wsdl:message name="IChatServerFunctions_DisconnectFromChannel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DisconnectFromChannelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChatServerFunctions_GetChannels_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetChannels" />
+  </wsdl:message>
+  <wsdl:message name="IChatServerFunctions_GetChannels_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetChannelsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChatServerFunctions_GetUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUser" />
+  </wsdl:message>
+  <wsdl:message name="IChatServerFunctions_GetUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChatServerFunctions_get_LoggedInUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:get_LoggedInUsers" />
+  </wsdl:message>
+  <wsdl:message name="IChatServerFunctions_get_LoggedInUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:get_LoggedInUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChatServerFunctions_ShowMessage_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ShowMessage" />
+  </wsdl:message>
+  <wsdl:portType name="IMainServerFunctions">
+    <wsdl:operation name="Authenticate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMainServerFunctions/Authenticate" message="tns:IMainServerFunctions_Authenticate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMainServerFunctions/AuthenticateResponse" message="tns:IMainServerFunctions_Authenticate_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IChatServerFunctions">
+    <wsdl:operation name="ConnectToServer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChatServerFunctions/ConnectToServer" message="tns:IChatServerFunctions_ConnectToServer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChatServerFunctions/ConnectToServerResponse" message="tns:IChatServerFunctions_ConnectToServer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DisconnectFromServer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChatServerFunctions/DisconnectFromServer" message="tns:IChatServerFunctions_DisconnectFromServer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChatServerFunctions/DisconnectFromServerResponse" message="tns:IChatServerFunctions_DisconnectFromServer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Send">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChatServerFunctions/Send" message="tns:IChatServerFunctions_Send_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChatServerFunctions/SendResponse" message="tns:IChatServerFunctions_Send_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConnectToChannel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChatServerFunctions/ConnectToChannel" message="tns:IChatServerFunctions_ConnectToChannel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChatServerFunctions/ConnectToChannelResponse" message="tns:IChatServerFunctions_ConnectToChannel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DisconnectFromChannel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChatServerFunctions/DisconnectFromChannel" message="tns:IChatServerFunctions_DisconnectFromChannel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChatServerFunctions/DisconnectFromChannelResponse" message="tns:IChatServerFunctions_DisconnectFromChannel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChannels">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChatServerFunctions/GetChannels" message="tns:IChatServerFunctions_GetChannels_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChatServerFunctions/GetChannelsResponse" message="tns:IChatServerFunctions_GetChannels_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChatServerFunctions/GetUser" message="tns:IChatServerFunctions_GetUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChatServerFunctions/GetUserResponse" message="tns:IChatServerFunctions_GetUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="get_LoggedInUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChatServerFunctions/get_LoggedInUsers" message="tns:IChatServerFunctions_get_LoggedInUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChatServerFunctions/get_LoggedInUsersResponse" message="tns:IChatServerFunctions_get_LoggedInUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ShowMessage">
+      <wsdl:output wsaw:Action="http://tempuri.org/IChatServerFunctions/ShowMessage" message="tns:IChatServerFunctions_ShowMessage_OutputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MainService" type="tns:IMainServerFunctions">
+    <wsp:PolicyReference URI="#MainService_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="Authenticate">
+      <soap12:operation soapAction="http://tempuri.org/IMainServerFunctions/Authenticate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ChatService" type="tns:IChatServerFunctions">
+    <wsp:PolicyReference URI="#ChatService_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="ConnectToServer">
+      <soap12:operation soapAction="http://tempuri.org/IChatServerFunctions/ConnectToServer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DisconnectFromServer">
+      <soap12:operation soapAction="http://tempuri.org/IChatServerFunctions/DisconnectFromServer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Send">
+      <soap12:operation soapAction="http://tempuri.org/IChatServerFunctions/Send" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConnectToChannel">
+      <soap12:operation soapAction="http://tempuri.org/IChatServerFunctions/ConnectToChannel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DisconnectFromChannel">
+      <soap12:operation soapAction="http://tempuri.org/IChatServerFunctions/DisconnectFromChannel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChannels">
+      <soap12:operation soapAction="http://tempuri.org/IChatServerFunctions/GetChannels" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <soap12:operation soapAction="http://tempuri.org/IChatServerFunctions/GetUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_LoggedInUsers">
+      <soap12:operation soapAction="http://tempuri.org/IChatServerFunctions/get_LoggedInUsers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowMessage">
+      <soap12:operation soapAction="http://tempuri.org/IChatServerFunctions/ShowMessage" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ComConServer">
+    <wsdl:port name="MainService" binding="tns:MainService">
+      <soap12:address location="net.tcp://localhost:8550/ComConServices/MainService" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8550/ComConServices/MainService</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Upn>Toms-PC\Tom</Upn>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="ChatService" binding="tns:ChatService">
+      <soap12:address location="net.tcp://localhost:8550/ComConServices/ChatService" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8550/ComConServices/ChatService</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Upn>Toms-PC\Tom</Upn>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

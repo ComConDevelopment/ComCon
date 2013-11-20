@@ -137,31 +137,33 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="Service References\ServerService\ComCon.Client.Base.ServerService.ChatUser.datasource">
+    <None Include="Service References\ServerService\ComCon.Client.Base.ServerService.User.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServerService\MetaInfo.xsd">
+    <None Include="Service References\ServerService\ComConServer.wsdl" />
+    <None Include="Service References\ServerService\ComConServiceMetadata.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServerService\MetaInfo1.xsd">
+    <None Include="Service References\ServerService\ComConServiceMetadata1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServerService\MetaInfo2.xsd">
+    <None Include="Service References\ServerService\ComConServiceMetadata2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServerService\MetaInfo3.xsd">
+    <None Include="Service References\ServerService\ComConServiceMetadata3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServerService\MetaInfo4.xsd">
+    <None Include="Service References\ServerService\ComConServiceMetadata4.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServerService\ServerFunctions.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

@@ -9,8 +9,10 @@ using ComCon.Client.Base.Helpers;
 using Microsoft.Practices.Prism.Commands;
 using System.ComponentModel;
 using Microsoft.Practices.Prism.Modularity;
-using ComCon.Shared.Classes;
 using System.Security;
+using Microsoft.Practices.Prism.Regions;
+using ComCon.Client.Base.ServerService;
+using System.Windows;
 
 namespace ComCon.Client.Modules.Login.Models
 {
@@ -19,13 +21,18 @@ namespace ComCon.Client.Modules.Login.Models
         #region Deklaration
 
         private readonly IEventAggregator EventAggregator;
+        private MainServerFunctionsClient client;
 
         #endregion
 
         #region Properties
 
-        public DelegateCommand LoginCommand { get; private set; }
 
+
+        public DelegateCommand LoginCommand { get; private set; }
+        public DelegateCommand RegisterCommand { get; private set; }
+        public DelegateCommand ShowRegisterViewCommand { get; private set; }
+        public readonly IRegionManager RegionManager;
 
         private string mName;
         public string Name
@@ -60,6 +67,9 @@ namespace ComCon.Client.Modules.Login.Models
         {
             
             LoginCommand = new DelegateCommand(Login);
+            RegisterCommand = new DelegateCommand(Register);
+            ShowRegisterViewCommand = new DelegateCommand(ShowRegistrationView);
+            this.RegionManager = ServiceLocator.Current.GetInstance<IRegionManager>();
             this.EventAggregator = ServiceLocator.Current.GetInstance<IEventAggregator>();
             this.EventAggregator.GetEvent<Events.PasswordChangedEvent>().Subscribe(PasswordChanged);
             
@@ -84,22 +94,36 @@ namespace ComCon.Client.Modules.Login.Models
 
             Global.Credentials = new Base.ServerService.Credentials()
             {
-                 EMail = this.EMail,
+                 Email = this.EMail,
                  Password = this.Password
             };
-
-            //BackgroundWorker bw = new BackgroundWorker();
-            //bw.DoWork += (s, args) =>
-            //    {
-            //        var moduleLoader = ServiceLocator.Current.GetInstance<IModuleManager>();
-            //        moduleLoader.LoadModule("ClientChatModule");
-            //    };
-            //bw.RunWorkerAsync();
+            client = new MainServerFunctionsClient();
+            User u = client.Authenticate(Global.Credentials);
+            if (u != null)
+            {
+                Global.User = u;
+                
+            }
+            else
+            {
+                IsBusy = false;
+                MessageBox.Show("Fehler - Username oder Passwort falsch!");
+            }
 
             var moduleLoader = ServiceLocator.Current.GetInstance<IModuleManager>();
             moduleLoader.LoadModule("ClientChatModule");
-            //EventAggregator.GetEvent<OnLoginEvent>().Publish(Global.User);
             
+        }
+
+        public void Register()
+        {
+            
+        }
+
+        public void ShowRegistrationView()
+        {
+            RegionManager.Regions["MainRegion"].RequestNavigate(new Uri("RegistrationView", UriKind.RelativeOrAbsolute));
+
         }
 
         #endregion
