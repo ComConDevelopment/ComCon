@@ -30,7 +30,7 @@ namespace ComCon.Server.Classes
             }
             catch (Exception ex)
             {
-                //todo Logging
+                LoggingService.LogToFile(ex);
                 return false;
             }
         }
@@ -94,7 +94,7 @@ namespace ComCon.Server.Classes
                 }
                 catch (Exception ex)
                 {
-                    //todo logging
+                    LoggingService.LogToFile(ex);
                     return null;
                 }
                 finally
@@ -109,16 +109,18 @@ namespace ComCon.Server.Classes
         {
             if (ConnectToDatabase())
             {
-                string insertString = "INSERT INTO \"User\"(\"Mail\", \"Password\")  VALUES (" + pEmail + ", " + pPassword + ");";
+                string insertString = "INSERT INTO \"User\"(\"Mail\", \"Password\")  VALUES ('" + pEmail + "', '" + pPassword + "');";
                 try
                 {
                     NpgsqlCommand comm = new NpgsqlCommand(insertString, mDatabaseConnection);
                     comm.ExecuteNonQuery();
+                    
                     return true;
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    
+                    LoggingService.Log("INSERT NEW USER FAILED", LogStatus.ERROR);
+                    LoggingService.LogToFile(ex);
                     return false;
                 }
                 finally
@@ -151,7 +153,7 @@ namespace ComCon.Server.Classes
                 }
                 catch (Exception ex)
                 {
-                    //todo Logging!!
+                    LoggingService.LogToFile(ex);
 
                     return false;
                 }

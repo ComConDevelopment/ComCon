@@ -16,17 +16,31 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="RegisterUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ComCon.Shared.Classes" minOccurs="0" name="pCredentials" nillable="true" type="q3:Credentials" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegisterUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RegisterUserResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="ConnectToServer">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ComCon.Shared.Classes" minOccurs="0" name="credentials" nillable="true" type="q3:Credentials" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ComCon.Shared.Classes" minOccurs="0" name="credentials" nillable="true" type="q4:Credentials" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ConnectToServerResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ComCon.Shared.Classes" minOccurs="0" name="ConnectToServerResult" nillable="true" type="q4:User" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ComCon.Shared.Classes" minOccurs="0" name="ConnectToServerResult" nillable="true" type="q5:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -43,7 +57,7 @@
   <xs:element name="Send">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ComCon.Shared.Classes" minOccurs="0" name="cm" nillable="true" type="q5:ChatMessage" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ComCon.Shared.Classes" minOccurs="0" name="cm" nillable="true" type="q6:ChatMessage" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -80,7 +94,7 @@
   <xs:element name="GetChannelsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetChannelsResult" nillable="true" type="q6:ArrayOfstring" />
+        <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetChannelsResult" nillable="true" type="q7:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -94,7 +108,7 @@
   <xs:element name="GetUserResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ComCon.Shared.Classes" minOccurs="0" name="GetUserResult" nillable="true" type="q7:User" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ComCon.Shared.Classes" minOccurs="0" name="GetUserResult" nillable="true" type="q8:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -106,14 +120,14 @@
   <xs:element name="get_LoggedInUsersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ComCon.Shared.Classes" minOccurs="0" name="get_LoggedInUsersResult" nillable="true" type="q8:ArrayOfUser" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/ComCon.Shared.Classes" minOccurs="0" name="get_LoggedInUsersResult" nillable="true" type="q9:ArrayOfUser" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ShowMessage">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/ComCon.Shared.Classes" minOccurs="0" name="cm" nillable="true" type="q9:ChatMessage" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/ComCon.Shared.Classes" minOccurs="0" name="cm" nillable="true" type="q10:ChatMessage" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -162,10 +162,6 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\ComCon ALT\ComConClient\ComCon.Shared.Classes\ComCon.Shared.Classes.csproj">
-      <Project>{C28BA773-105A-47CE-BFFB-05E6325E8465}</Project>
-      <Name>ComCon.Shared.Classes</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ComCon.Client.Base\ComCon.Client.Base.csproj">
       <Project>{1D039D3D-E657-4FFA-BF57-6CA5A4F0C5FA}</Project>
       <Name>ComCon.Client.Base</Name>

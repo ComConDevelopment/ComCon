@@ -14,5 +14,10 @@ namespace ComCon.Server.Classes
         {
             return SQLStatements.GetChatUser(pCredentials.Email, pCredentials.Password);
         }
+
+        internal static bool RegisterUser(Credentials pCredentials)
+        {
+            return SQLStatements.InsertNewUser(pCredentials.Email, pCredentials.Password);
+        }
     }
 }

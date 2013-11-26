@@ -18,6 +18,11 @@ namespace ComCon.Server
             return LoginService.AuthenticateUser(pCredentials);
         }
 
+        public bool RegisterUser(Credentials pCredentials)
+        {
+            return LoginService.RegisterUser(pCredentials);
+        }
+
         #endregion
 
         #region IChatServerFunctionsImplementation
@@ -44,7 +49,7 @@ namespace ComCon.Server
 
         #endregion
 
-        #region IServerFunctionsImplementations
+        #region IChatServerFunctionsImplementations
 
         public User ConnectToServer(Credentials credentials)
         {
@@ -161,7 +166,6 @@ namespace ComCon.Server
             {
                 User u = new User();
                 u.Username = "Server";
-                Users.Add(u);
                 Server = u;
             }
 
@@ -179,6 +183,8 @@ namespace ComCon.Server
                 connected.ShowMessage(new ChatMessage() { Message = pMessage, User = Server });
             }
         }
+
+        
 
         #endregion
 

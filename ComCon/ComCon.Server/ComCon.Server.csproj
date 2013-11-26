@@ -195,12 +195,6 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\ComCon ALT\ComConClient\ComCon.Shared.Classes\ComCon.Shared.Classes.csproj">
-      <Project>{C28BA773-105A-47CE-BFFB-05E6325E8465}</Project>
-      <Name>ComCon.Shared.Classes</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 und x64%29</ProductName>

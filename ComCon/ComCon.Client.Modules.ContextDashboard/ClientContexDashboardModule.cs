@@ -9,6 +9,7 @@ using ComCon.Client.Base;
 using Microsoft.Practices.Prism.Regions;
 using System.ComponentModel.Composition.Hosting;
 using Microsoft.Practices.Prism.Events;
+using ComCon.Client.Base.Classes;
 
 namespace ComCon.Client.Modules.ContextDashboard
 {
@@ -20,6 +21,7 @@ namespace ComCon.Client.Modules.ContextDashboard
             : base(manager, eventAggregator)
         {
             RegionManager.RegisterViewWithRegion("DashboardRegion", typeof(Views.Dashboard));
+            
         }
     }
 }

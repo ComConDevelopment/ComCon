@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 
 namespace ComCon.Server.Classes
 {
@@ -9,12 +10,33 @@ namespace ComCon.Server.Classes
     {
         public delegate void LogEventHandler(object sender, LoggingEventArgs data);
         public static event LogEventHandler LogEvent = delegate { };
+        private const string Line = "---------------------------------";
 
         
 
         public static void Log(string pLog, LogStatus pStatus)
         {
             LogEvent(null, new LoggingEventArgs() { LogString = pLog, Status = pStatus });
+        }
+
+        public static void LogToFile(Exception ex)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(ex.Message);
+            sb.AppendLine(Line);
+            sb.AppendLine("\n\nSTACKTRACE");
+            sb.AppendLine(Line);
+            sb.AppendLine(ex.StackTrace);
+            LogToFile(sb.ToString(), LogStatus.ERROR);
+        }
+
+
+        private static void LogToFile(string pLog, LogStatus pStatus)
+        {
+            string LogPath = @"C:\ComCon\Log\Log_" + DateTime.Today.Date + ".txt";
+            TextWriter tw = new StreamWriter(LogPath, true);
+            tw.Write("[" + pStatus.ToString("G") + "]" + pLog);
+            tw.Close();
         }
     }
 

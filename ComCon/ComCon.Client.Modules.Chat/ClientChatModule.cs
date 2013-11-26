@@ -24,6 +24,7 @@ namespace ComCon.Client.Modules.Chat
         {
             if (Global.IsLoggedIn)
             {
+                Global.LoadedModules.Add("Chat");
                 RegionManager.Regions["MainRegion"].RequestNavigate(new Uri("ChatControl", UriKind.Relative));
             }
             

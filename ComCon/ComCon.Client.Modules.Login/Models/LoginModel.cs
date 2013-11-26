@@ -13,6 +13,11 @@ using System.Security;
 using Microsoft.Practices.Prism.Regions;
 using ComCon.Client.Base.ServerService;
 using System.Windows;
+using com.dominicsayers.isemail;
+using ComCon.Client.Modules.Login.Classes;
+using Microsoft.Practices.Prism;
+using System.ComponentModel.DataAnnotations;
+using ComCon.Client.Base;
 
 namespace ComCon.Client.Modules.Login.Models
 {
@@ -21,40 +26,48 @@ namespace ComCon.Client.Modules.Login.Models
         #region Deklaration
 
         private readonly IEventAggregator EventAggregator;
-        private MainServerFunctionsClient client;
+        private MainServerFunctionsClient client = new MainServerFunctionsClient();
+        private string mName;
+        private string mPassword;
+        private string mPasswordVerification;
+        private string mEMail;
+        private string mValidationText;
 
         #endregion
 
         #region Properties
-
-
 
         public DelegateCommand LoginCommand { get; private set; }
         public DelegateCommand RegisterCommand { get; private set; }
         public DelegateCommand ShowRegisterViewCommand { get; private set; }
         public readonly IRegionManager RegionManager;
 
-        private string mName;
-        public string Name
-        {
-            get { return (mName); }
-            set { mName = value; RaisePropertyChanged("Name"); }
-        }
-
-
-        private string mPassword;
+        [Required(ErrorMessage = "Passwort muss angegeben werden!")]
         public string Password
         {
             get { return (mPassword); }
             set { mPassword = value; RaisePropertyChanged("Password"); }
         }
 
-
-        private string mEMail;
+        [Required(ErrorMessage = "Passwort muss angegeben werden!")]
+        public string PasswordVerification
+        {
+            get { return (mPasswordVerification); }
+            set { mPasswordVerification = value; RaisePropertyChanged("PasswordVerification"); }
+        }
+        
+        [Required(ErrorMessage = "E-Mail muss angegeben werden!")]
+        [StringLength(50, ErrorMessage = "E-Mail darf nicht länger als 50 Zeichen sein!")]
         public string EMail
         {
             get { return (mEMail); }
             set { mEMail = value; RaisePropertyChanged("EMail"); }
+        }
+        
+        public string ValidationText
+        {
+            get { return (mValidationText); }
+            set { mValidationText = value; RaisePropertyChanged("ValidationText"); }
         }
 
         public bool IsBusy { get { return Global.IsBusy; } set { Global.IsBusy = value; RaisePropertyChanged("IsBusy"); } }
@@ -65,13 +78,14 @@ namespace ComCon.Client.Modules.Login.Models
 
         public LoginModel()
         {
-            
-            LoginCommand = new DelegateCommand(Login);
+
+            LoginCommand = new DelegateCommand(doBackWorking);
             RegisterCommand = new DelegateCommand(Register);
             ShowRegisterViewCommand = new DelegateCommand(ShowRegistrationView);
             this.RegionManager = ServiceLocator.Current.GetInstance<IRegionManager>();
             this.EventAggregator = ServiceLocator.Current.GetInstance<IEventAggregator>();
             this.EventAggregator.GetEvent<Events.PasswordChangedEvent>().Subscribe(PasswordChanged);
+            this.EventAggregator.GetEvent<Events.PasswordVerificationChangedEvent>().Subscribe(PasswordVerificationChanged);
             
         }
 
@@ -84,45 +98,112 @@ namespace ComCon.Client.Modules.Login.Models
             Password = pPassword;
         }
 
+        private void PasswordVerificationChanged(string pPassword)
+        {
+            PasswordVerification = pPassword;
+        }
+
         #endregion
 
         #region Diverses
 
+
+        #region BackgroundWorker
+
+        private System.ComponentModel.BackgroundWorker mBackWorker = new System.ComponentModel.BackgroundWorker();
+
+        private void doBackWorking()
+        {
+            mBackWorker.DoWork += new DoWorkEventHandler(mBackWorker_DoWork);
+            mBackWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(mBackWorker_RunWorkerCompleted);
+            mBackWorker.RunWorkerAsync();
+        }
+
+        private void mBackWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            Login();
+        }
+
+        private void mBackWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (Global.IsLoggedIn)
+            {
+                var moduleLoader = ServiceLocator.Current.GetInstance<IModuleManager>();
+                moduleLoader.LoadModule("ClientChatModule");
+            }
+        }
+
+        #endregion
+
         public void Login()
         {
+            
             IsBusy = true;
 
-            Global.Credentials = new Base.ServerService.Credentials()
+            try
             {
-                 Email = this.EMail,
-                 Password = this.Password
-            };
-            client = new MainServerFunctionsClient();
-            User u = client.Authenticate(Global.Credentials);
-            if (u != null)
-            {
-                Global.User = u;
-                
+                Global.Credentials = new Base.ServerService.Credentials()
+                {
+                    Email = this.EMail,
+                    Password = this.Password
+                };
+                User u = client.Authenticate(Global.Credentials);
+                if (u != null)
+                {
+                    Global.User = u;
+
+                }
+                else
+                {
+                    ValidationText = "Fehler - Username oder Passwort falsch!";
+                }
+
             }
-            else
+            catch (Exception ex)
+            {
+                ValidationText = "Fehler. ComCon-Server nicht erreichbar!";
+            }
+            finally
             {
                 IsBusy = false;
-                MessageBox.Show("Fehler - Username oder Passwort falsch!");
             }
 
-            var moduleLoader = ServiceLocator.Current.GetInstance<IModuleManager>();
-            moduleLoader.LoadModule("ClientChatModule");
+
             
         }
 
         public void Register()
         {
+            ValidationText = "";
+            if (PasswordVerification == Password && PasswordVerification != null)
+            {
+                IsEMail isEmail = new IsEMail();
+                if (isEmail.IsEmailValid(EMail))
+                {
+                    if (client.RegisterUser(new Credentials() { Email = this.EMail, Password = this.Password }))
+                    {
+                        MessageBox.Show("Registrierung erfolgreich!");
+                    }
+                }
+                else
+                {
+                    ValidationText = "Die E-Mail Adresse hat das falsche Format!";
+                }
+            }
+            else
+            {
+                ValidationText = "Passwörter sind nicht gleich!";
+            }
             
         }
 
         public void ShowRegistrationView()
         {
-            RegionManager.Regions["MainRegion"].RequestNavigate(new Uri("RegistrationView", UriKind.RelativeOrAbsolute));
+            ValidationText = "";
+            Parameters.Save(this.GetHashCode(), this);
+            UriQuery q = new UriQuery();
+            q.Add("hash", this.GetHashCode().ToString());
+            RegionManager.Regions["MainRegion"].RequestNavigate(new Uri("RegistrationView" + q.ToString(), UriKind.RelativeOrAbsolute));
 
         }
 
@@ -140,7 +221,5 @@ namespace ComCon.Client.Modules.Login.Models
         }
 
         #endregion
-
-
     }
 }

@@ -116,3 +116,5 @@ C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Login\bin\Debu
 C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Login\bin\Debug\ComCon.Shared.Classes.pdb
 C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Login\obj\Debug\Views\RegistrationView.baml
 C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Login\obj\Debug\Views\RegistrationView.g.cs
+C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Login\bin\Debug\com.dominicsayers.isemail.IsEMail.dll
+C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Login\bin\Debug\com.dominicsayers.isemail.IsEMail.pdb

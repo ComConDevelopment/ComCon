@@ -7,6 +7,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using ComCon.Client.Base.Classes;
+using Microsoft.Practices.Prism.Regions;
+using Microsoft.Practices.ServiceLocation;
 
 namespace ComCon.Client.Modules.Menu.Models
 {
@@ -24,6 +26,8 @@ namespace ComCon.Client.Modules.Menu.Models
         #endregion
 
         #region Properties
+
+        public readonly IRegionManager RegionManager;
 
         public ObservableCollection<MenuItem> CurrentMenuItems
         {
@@ -54,8 +58,15 @@ namespace ComCon.Client.Modules.Menu.Models
 
         public MenuModel()
         {
+            this.RegionManager = ServiceLocator.Current.GetInstance<IRegionManager>();
             NextCommand = new DelegateCommand(Next);
             PreviousCommand = new DelegateCommand(Previous);
+            Global.LoadedModules.CollectionChanged += LoadedModules_CollectionChanged;
+            LoadMenu();
+        }
+
+        void LoadedModules_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
             LoadMenu();
         }
 
@@ -90,15 +101,27 @@ namespace ComCon.Client.Modules.Menu.Models
 
         private void LoadMenu()
         {
-            MenuItems.Add(new MenuItem("Test1", "MainView", Regions.Main));
-            MenuItems.Add(new MenuItem("Test2", "MainView", Regions.Main));
-            MenuItems.Add(new MenuItem("Test3", "MainView", Regions.Main));
-            MenuItems.Add(new MenuItem("Test4", "MainView", Regions.Main));
-            MenuItems.Add(new MenuItem("Test5", "MainView", Regions.Main));
-            MenuItems.Add(new MenuItem("Test6", "MainView", Regions.Main));
-            MenuItems.Add(new MenuItem("Test7", "MainView", Regions.Main));
-            MenuItems.Add(new MenuItem("Test8", "MainView", Regions.Main));
+            MenuItems.Clear();
+            foreach (string s in Global.LoadedModules)
+            {
+                MenuItem m = new MenuItem(s, "MainView", Regions.Main);
+                m.MenuItemClicked += m_MenuItemClicked;
+                MenuItems.Add(m);
+            }
+            //MenuItems.Add(new MenuItem("Test1", "MainView", Regions.Main));
+            //MenuItems.Add(new MenuItem("Test2", "MainView", Regions.Main));
+            //MenuItems.Add(new MenuItem("Test3", "MainView", Regions.Main));
+            //MenuItems.Add(new MenuItem("Test4", "MainView", Regions.Main));
+            //MenuItems.Add(new MenuItem("Test5", "MainView", Regions.Main));
+            //MenuItems.Add(new MenuItem("Test6", "MainView", Regions.Main));
+            //MenuItems.Add(new MenuItem("Test7", "MainView", Regions.Main));
+            //MenuItems.Add(new MenuItem("Test8", "MainView", Regions.Main));
             RaisePropertyChanged("CurrentMenuItems");
+        }
+
+        void m_MenuItemClicked(object sender, MenuItemClickedEventArgs data)
+        {
+            RegionManager.Regions[data.CorrelatedRegion.ToString("G")].RequestNavigate(new Uri(data.CorrelatedView, UriKind.RelativeOrAbsolute));
         }
 
         #endregion

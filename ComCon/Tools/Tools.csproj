@@ -99,12 +99,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\ComCon ALT\ComConClient\ComCon.Shared.Classes\ComCon.Shared.Classes.csproj">
-      <Project>{c28ba773-105a-47ce-bffb-05e6325e8465}</Project>
-      <Name>ComCon.Shared.Classes</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

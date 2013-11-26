@@ -9,6 +9,16 @@ namespace ComCon.Client.Modules.Menu.Classes
 {
     public class MenuItem : INotifyPropertyChanged
     {
+        public delegate void MenuItemClickedHandler(object sender, MenuItemClickedEventArgs data);
+        public event MenuItemClickedHandler MenuItemClicked;
+
+        public void OnMenuItemClicked(object sender, MenuItemClickedEventArgs data)
+        {
+            if (MenuItemClicked != null)
+            {
+                MenuItemClicked(this, data);
+            }
+        }
 
         private string mCaption;
         public string Caption
@@ -19,7 +29,7 @@ namespace ComCon.Client.Modules.Menu.Classes
 
 
         private string mCorrelatedView;
-        public string CorrelatedModule
+        public string CorrelatedView
         {
             get { return (mCorrelatedView); }
             set { mCorrelatedView = value; RaisePropertyChanged("CorrelatedView"); }
@@ -37,7 +47,7 @@ namespace ComCon.Client.Modules.Menu.Classes
         {
             Caption = pCaption;
             CorrelatedRegion = pRegion;
-            CorrelatedModule = pCorrelatedView;
+            CorrelatedView = pCorrelatedView;
         }
 
 
@@ -53,5 +63,17 @@ namespace ComCon.Client.Modules.Menu.Classes
         }
 
         #endregion
+    }
+
+    public class MenuItemClickedEventArgs : EventArgs
+    {
+        public string CorrelatedView { get; internal set; }
+        public Regions CorrelatedRegion { get; internal set; }
+
+        public MenuItemClickedEventArgs(string pCorrelatedModule, Regions pCorrelatedRegion)
+        {
+            CorrelatedView = pCorrelatedModule;
+            CorrelatedRegion = pCorrelatedRegion;
+        }
     }
 }

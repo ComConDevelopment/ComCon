@@ -29,5 +29,10 @@ namespace ComCon.Client.Modules.Menu
             this.DataContext = new MenuModel();
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            //(this.DataContext as MenuModel).MenuItems[MainListBox.SelectedIndex].OnMenuItemClicked(this, new Classes.MenuItemClickedEventArgs((this.DataContext as MenuModel).MenuItems[MainListBox.SelectedIndex].CorrelatedView, (this.DataContext as MenuModel).MenuItems[MainListBox.SelectedIndex].CorrelatedRegion));
+        }
     }
 }

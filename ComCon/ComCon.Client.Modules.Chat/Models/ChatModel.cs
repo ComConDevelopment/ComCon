@@ -79,8 +79,6 @@ namespace ComCon.Client.Modules.Chat.Models
 
         public ChatModel()
         {
-            IsBusy = true;
-            BusyText = "Lade Modul";
             this.EventAggregator = ServiceLocator.Current.GetInstance<IEventAggregator>();
             this.EventAggregator.GetEvent<OnExitEvent>().Subscribe(OnAppExit);
             //this.EventAggregator.GetEvent<OnLoginEvent>().Subscribe(Login, true);
@@ -172,7 +170,7 @@ namespace ComCon.Client.Modules.Chat.Models
                         if (!String.IsNullOrEmpty(this.Message))
                         {
                             //ChatUser u = client.GetUser(Global.Credentials);
-                            //client.Send(new Base.ServerService.ChatMessage() { Message = this.Message, TimeStamp = DateTime.Now, User = u });
+                            client.Send(new Base.ServerService.ChatMessage() { Message = this.Message, TimeStamp = DateTime.Now, User = Global.User });
                         }
                     }
                     catch (Exception ex)

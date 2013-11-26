@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using ComCon.Client.Base.ServerService;
+using System.Collections.ObjectModel;
 
 namespace ComCon.Client.Base.Classes
 {
@@ -26,7 +27,13 @@ namespace ComCon.Client.Base.Classes
             }
         }
 
-        
+        private static ObservableCollection<string> mLoadedModules = new ObservableCollection<string>();
+        public static ObservableCollection<string> LoadedModules
+        {
+            get { return mLoadedModules; }
+            set { mLoadedModules = value; }
+            
+        }
 
         public static bool IsBusy
         {

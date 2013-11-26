@@ -90,6 +90,9 @@ namespace ComCon.Client.Base.ServerService {
         private bool IsAdminField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsVisibleField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime LastOnlineField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -130,6 +133,19 @@ namespace ComCon.Client.Base.ServerService {
                 if ((this.IsAdminField.Equals(value) != true)) {
                     this.IsAdminField = value;
                     this.RaisePropertyChanged("IsAdmin");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsVisible {
+            get {
+                return this.IsVisibleField;
+            }
+            set {
+                if ((this.IsVisibleField.Equals(value) != true)) {
+                    this.IsVisibleField = value;
+                    this.RaisePropertyChanged("IsVisible");
                 }
             }
         }
@@ -287,6 +303,14 @@ namespace ComCon.Client.Base.ServerService {
         System.IAsyncResult BeginAuthenticate(ComCon.Client.Base.ServerService.Credentials pCredentials, System.AsyncCallback callback, object asyncState);
         
         ComCon.Client.Base.ServerService.User EndAuthenticate(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMainServerFunctions/RegisterUser", ReplyAction="http://tempuri.org/IMainServerFunctions/RegisterUserResponse")]
+        bool RegisterUser(ComCon.Client.Base.ServerService.Credentials pCredentials);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMainServerFunctions/RegisterUser", ReplyAction="http://tempuri.org/IMainServerFunctions/RegisterUserResponse")]
+        System.IAsyncResult BeginRegisterUser(ComCon.Client.Base.ServerService.Credentials pCredentials, System.AsyncCallback callback, object asyncState);
+        
+        bool EndRegisterUser(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -314,6 +338,25 @@ namespace ComCon.Client.Base.ServerService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class RegisterUserCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public RegisterUserCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public bool Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class MainServerFunctionsClient : System.ServiceModel.ClientBase<ComCon.Client.Base.ServerService.IMainServerFunctions>, ComCon.Client.Base.ServerService.IMainServerFunctions {
         
         private BeginOperationDelegate onBeginAuthenticateDelegate;
@@ -321,6 +364,12 @@ namespace ComCon.Client.Base.ServerService {
         private EndOperationDelegate onEndAuthenticateDelegate;
         
         private System.Threading.SendOrPostCallback onAuthenticateCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginRegisterUserDelegate;
+        
+        private EndOperationDelegate onEndRegisterUserDelegate;
+        
+        private System.Threading.SendOrPostCallback onRegisterUserCompletedDelegate;
         
         public MainServerFunctionsClient() {
         }
@@ -342,6 +391,8 @@ namespace ComCon.Client.Base.ServerService {
         }
         
         public event System.EventHandler<AuthenticateCompletedEventArgs> AuthenticateCompleted;
+        
+        public event System.EventHandler<RegisterUserCompletedEventArgs> RegisterUserCompleted;
         
         public ComCon.Client.Base.ServerService.User Authenticate(ComCon.Client.Base.ServerService.Credentials pCredentials) {
             return base.Channel.Authenticate(pCredentials);
@@ -391,6 +442,56 @@ namespace ComCon.Client.Base.ServerService {
             }
             base.InvokeAsync(this.onBeginAuthenticateDelegate, new object[] {
                         pCredentials}, this.onEndAuthenticateDelegate, this.onAuthenticateCompletedDelegate, userState);
+        }
+        
+        public bool RegisterUser(ComCon.Client.Base.ServerService.Credentials pCredentials) {
+            return base.Channel.RegisterUser(pCredentials);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginRegisterUser(ComCon.Client.Base.ServerService.Credentials pCredentials, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginRegisterUser(pCredentials, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public bool EndRegisterUser(System.IAsyncResult result) {
+            return base.Channel.EndRegisterUser(result);
+        }
+        
+        private System.IAsyncResult OnBeginRegisterUser(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            ComCon.Client.Base.ServerService.Credentials pCredentials = ((ComCon.Client.Base.ServerService.Credentials)(inValues[0]));
+            return this.BeginRegisterUser(pCredentials, callback, asyncState);
+        }
+        
+        private object[] OnEndRegisterUser(System.IAsyncResult result) {
+            bool retVal = this.EndRegisterUser(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnRegisterUserCompleted(object state) {
+            if ((this.RegisterUserCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.RegisterUserCompleted(this, new RegisterUserCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void RegisterUserAsync(ComCon.Client.Base.ServerService.Credentials pCredentials) {
+            this.RegisterUserAsync(pCredentials, null);
+        }
+        
+        public void RegisterUserAsync(ComCon.Client.Base.ServerService.Credentials pCredentials, object userState) {
+            if ((this.onBeginRegisterUserDelegate == null)) {
+                this.onBeginRegisterUserDelegate = new BeginOperationDelegate(this.OnBeginRegisterUser);
+            }
+            if ((this.onEndRegisterUserDelegate == null)) {
+                this.onEndRegisterUserDelegate = new EndOperationDelegate(this.OnEndRegisterUser);
+            }
+            if ((this.onRegisterUserCompletedDelegate == null)) {
+                this.onRegisterUserCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnRegisterUserCompleted);
+            }
+            base.InvokeAsync(this.onBeginRegisterUserDelegate, new object[] {
+                        pCredentials}, this.onEndRegisterUserDelegate, this.onRegisterUserCompletedDelegate, userState);
         }
     }
     
