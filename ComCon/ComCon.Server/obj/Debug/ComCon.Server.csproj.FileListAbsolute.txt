@@ -122,3 +122,7 @@ C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Server\bin\Debug\ComCon.Serve
 C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Server\bin\Debug\ComCon.Server.application
 C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Server\obj\Debug\ComCon.Server.exe.manifest
 C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Server\obj\Debug\ComCon.Server.application
+C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Server\bin\Debug\ComConCrypter.dll
+C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Server\bin\Debug\ComConMail.dll
+C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Server\bin\Debug\ComConCrypter.pdb
+C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Server\bin\Debug\ComConMail.pdb

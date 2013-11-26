@@ -17,7 +17,24 @@ namespace ComCon.Server.Classes
 
         internal static bool RegisterUser(Credentials pCredentials)
         {
-            return SQLStatements.InsertNewUser(pCredentials.Email, pCredentials.Password);
+            string key = GetRandomString();
+            if (SQLStatements.InsertNewUser(pCredentials.Email, pCredentials.Password, pCredentials.Username, key))
+            {
+                ComConMail.Mail mMail = new ComConMail.Mail();
+                return mMail.SendRegistrationMail(pCredentials.Username, key, pCredentials.Email);
+            }
+            return false;
+        }
+
+
+        private static string GetRandomString()
+        {
+            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz";
+            var random = new Random();
+            return new string(
+                Enumerable.Repeat(chars, 20)
+                          .Select(s => s[random.Next(s.Length)])
+                          .ToArray());
         }
     }
 }

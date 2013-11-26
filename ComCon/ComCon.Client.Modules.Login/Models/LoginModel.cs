@@ -63,6 +63,14 @@ namespace ComCon.Client.Modules.Login.Models
             get { return (mEMail); }
             set { mEMail = value; RaisePropertyChanged("EMail"); }
         }
+
+
+        private string mUsername;
+        public string Username
+        {
+            get { return (mUsername); }
+            set { mUsername = value; RaisePropertyChanged("Username"); }
+        }
         
         public string ValidationText
         {
@@ -180,10 +188,18 @@ namespace ComCon.Client.Modules.Login.Models
                 IsEMail isEmail = new IsEMail();
                 if (isEmail.IsEmailValid(EMail))
                 {
-                    if (client.RegisterUser(new Credentials() { Email = this.EMail, Password = this.Password }))
+                    if (!String.IsNullOrEmpty(Username))
                     {
-                        MessageBox.Show("Registrierung erfolgreich!");
+                        if (client.RegisterUser(new Credentials() { Email = this.EMail, Password = this.Password, Username = this.Username }))
+                        {
+                            MessageBox.Show("Registrierung erfolgreich!");
+                        }
                     }
+                    else
+                    {
+                        ValidationText = "Der Username ist leer!";
+                    }
+
                 }
                 else
                 {

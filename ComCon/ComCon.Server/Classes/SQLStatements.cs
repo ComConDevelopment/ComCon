@@ -105,11 +105,29 @@ namespace ComCon.Server.Classes
             return null;
         }
 
-        public static bool InsertNewUser(string pEmail, string pPassword)
+        public static bool InsertNewUser(string pEmail, string pPassword, string pUsername, string pRegKey)
         {
             if (ConnectToDatabase())
             {
-                string insertString = "INSERT INTO \"User\"(\"Mail\", \"Password\")  VALUES ('" + pEmail + "', '" + pPassword + "');";
+                List<string> fields = new List<string>();
+                List<string> paras = new List<string>();
+                fields.Add("Mail");
+                fields.Add("Password");
+                fields.Add("Username");
+                fields.Add("RegKey");
+                fields.Add("IsRegistrationComplete");
+
+                paras.Add(pEmail);
+                paras.Add(pPassword);
+                paras.Add(pUsername);
+                paras.Add(pRegKey);
+                paras.Add("false");
+
+
+
+                //string insertString = GetSQLCommand(SQLCommand.INSERT, "User", fields, paras); 
+
+                string insertString = "INSERT INTO \"User\"(\"Mail\", \"Password\", \"Username\", \"RegKey\")  VALUES ('" + pEmail + "', '" + pPassword + "', '" + pUsername + "', '" + pRegKey + "');";
                 try
                 {
                     NpgsqlCommand comm = new NpgsqlCommand(insertString, mDatabaseConnection);
@@ -166,5 +184,57 @@ namespace ComCon.Server.Classes
             return false;
             
         }
+
+
+        private static string GetSQLCommand(SQLCommand pCommand, string pTable, List<string> mFields, List<string> mParameters)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            switch (pCommand)
+            {
+                case SQLCommand.INSERT:
+                    sb.Append("INSERT INTO ");
+                    sb.Append(pTable);
+                    sb.Append("(");
+                    foreach (string s in mFields)
+                    {
+                        sb.Append("\"" + s + "\"");
+                        if (s != mFields[mFields.Count - 1])
+                            sb.Append(",");
+
+                    }
+                    sb.Append(") VALUES (");
+
+                    foreach (string s in mParameters)
+                    {
+                        sb.Append("'" + s + "'");
+                        if (s != mParameters[mParameters.Count - 1])
+                            sb.Append(",");
+                    }
+                    sb.Append(");");
+                    return sb.ToString();
+                case SQLCommand.DELETE:
+                    throw new NotImplementedException();
+                case SQLCommand.SELECT:
+                    throw new NotImplementedException();
+                case SQLCommand.UPDATE:
+                    throw new NotImplementedException();
+                default:
+                    throw new NotImplementedException();
+                    
+            }
+        }
+
+
+
+        private enum SQLCommand
+        {
+            INSERT,
+            UPDATE,
+            SELECT,
+            DELETE
+        }
     }
+
+    
 }
