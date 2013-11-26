@@ -20,6 +20,7 @@ namespace ComCon.Shared.Classes
         private bool mIsAdmin;
         private DateTime mLastOnline;
         private IChatUser mCallback;
+        private bool mIsVisible;
 
         public IChatUser Callback
         {
@@ -68,6 +69,13 @@ namespace ComCon.Shared.Classes
         {
             get { return mLastOnline; }
             set { mLastOnline = value; }
+        }
+
+        [DataMember]
+        public bool IsVisible
+        {
+            get { return mIsVisible; }
+            set { mIsVisible = value; }
         }
 
      

@@ -12,6 +12,9 @@ namespace ComCon.Shared.Classes
     {
         [OperationContract]
         User Authenticate(Credentials pCredentials);
+
+        [OperationContract]
+        bool RegisterUser(Credentials pCredentials);
         
     }
 }
