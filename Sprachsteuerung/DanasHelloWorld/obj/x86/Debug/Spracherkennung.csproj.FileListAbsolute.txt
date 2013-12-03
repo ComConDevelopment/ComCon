@@ -1,0 +1,4 @@
+C:\Users\TFiedler\Documents\Visual Studio 2010\Projects\DanasHelloWorld\DanasHelloWorld\bin\Debug\Spracherkennung.exe
+C:\Users\TFiedler\Documents\Visual Studio 2010\Projects\DanasHelloWorld\DanasHelloWorld\bin\Debug\Spracherkennung.pdb
+C:\Users\TFiedler\Documents\Visual Studio 2010\Projects\DanasHelloWorld\DanasHelloWorld\obj\x86\Debug\Spracherkennung.exe
+C:\Users\TFiedler\Documents\Visual Studio 2010\Projects\DanasHelloWorld\DanasHelloWorld\obj\x86\Debug\Spracherkennung.pdb

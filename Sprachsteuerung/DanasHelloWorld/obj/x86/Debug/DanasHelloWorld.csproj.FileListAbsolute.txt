@@ -1,0 +1,5 @@
+c:\users\tfiedler\documents\visual studio 2010\Projects\DanasHelloWorld\DanasHelloWorld\bin\Debug\DanasHelloWorld.exe
+c:\users\tfiedler\documents\visual studio 2010\Projects\DanasHelloWorld\DanasHelloWorld\bin\Debug\DanasHelloWorld.pdb
+c:\users\tfiedler\documents\visual studio 2010\Projects\DanasHelloWorld\DanasHelloWorld\obj\x86\Debug\DanasHelloWorld.exe
+c:\users\tfiedler\documents\visual studio 2010\Projects\DanasHelloWorld\DanasHelloWorld\obj\x86\Debug\DanasHelloWorld.pdb
+C:\Users\TFiedler\Documents\Visual Studio 2010\Projects\DanasHelloWorld\DanasHelloWorld\obj\x86\Debug\DanasHelloWorld.csprojResolveAssemblyReference.cache
