@@ -2,3 +2,8 @@ C:\Users\TFiedler\Documents\Visual Studio 2010\Projects\DanasHelloWorld\DanasHel
 C:\Users\TFiedler\Documents\Visual Studio 2010\Projects\DanasHelloWorld\DanasHelloWorld\bin\Debug\Spracherkennung.pdb
 C:\Users\TFiedler\Documents\Visual Studio 2010\Projects\DanasHelloWorld\DanasHelloWorld\obj\x86\Debug\Spracherkennung.exe
 C:\Users\TFiedler\Documents\Visual Studio 2010\Projects\DanasHelloWorld\DanasHelloWorld\obj\x86\Debug\Spracherkennung.pdb
+C:\Users\WBoestro\Documents\GitHub\ComCon\Sprachsteuerung\DanasHelloWorld\obj\x86\Debug\Spracherkennung.exe
+C:\Users\WBoestro\Documents\GitHub\ComCon\Sprachsteuerung\DanasHelloWorld\obj\x86\Debug\Spracherkennung.pdb
+C:\Users\WBoestro\Documents\GitHub\ComCon\Sprachsteuerung\DanasHelloWorld\obj\x86\Debug\Spracherkennung.csprojResolveAssemblyReference.cache
+C:\Users\WBoestro\Documents\GitHub\ComCon\Sprachsteuerung\DanasHelloWorld\bin\Debug\Spracherkennung.exe
+C:\Users\WBoestro\Documents\GitHub\ComCon\Sprachsteuerung\DanasHelloWorld\bin\Debug\Spracherkennung.pdb
