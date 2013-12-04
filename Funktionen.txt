@@ -1,0 +1,22 @@
+ProjectJ ist ein Sprachassistent.
+
+Funktionen von Jarvis:
+
+-Jarvis mit C# realisieren
+-Einfacher Smalltalk mit aktuellen Ereignissen (Quellen aus Wetterdaten, Nachrichten, Facebook, Twitter, etc.)
+-Steuerung der Räumlichkeiten (Licht, Heizung, Rollläden, sowie elektrische Geräte wie TV, Anlage, etc.)
+-Anzeigen von aktuellen Daten wie Nachrichten, Facebook, Wetter, Mails, Kalendereinträge
+-Vorlesen neuer Mails, Nachrichten und Beiträge ausgewählter Personen bei Facebook (Empfänger automatisch, Nachricht nur auf Anfrage) [EMail von X, vorlesen?]
+-Sprach- und Gesichtserkennung
+-Wecken mit Begrüßung und aktuellen Ereignissen (Musik aus Zufallswiedergabe; Wecker Playlist)
+-Wecker (über Google Kalender) und Timer (über Sprachbefehl)
+-Per Webcam einen Sichtschalter (mit Gesichtserkennung) bauen für automatische Abfrage von Mails, Lichtsteuerung, Mediasteuerung (Bildschirme aus, Musik/ Film pausieren)
+-Fenster zu maximieren und zwischen den Bildschirmen hin und her zu wechseln
+-Screenshots erstellen
+-Internetsuche (Youtube, Bing, Wikipedia, Seiten öffnen)
+-(XBMC steuern)
+-Temperatur steuern  [Mensch, ist das warm. /Heizung runter, aus]
+-Wolphram Alpha für Suche
+-(Stimme über Server decodieren und an Boxen schicken)
+
+
