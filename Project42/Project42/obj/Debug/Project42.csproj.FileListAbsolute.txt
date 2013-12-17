@@ -1,0 +1,13 @@
+c:\users\wboestro\documents\visual studio 2012\Projects\Project42\Project42\bin\Debug\Project42.exe.config
+c:\users\wboestro\documents\visual studio 2012\Projects\Project42\Project42\bin\Debug\Project42.exe
+c:\users\wboestro\documents\visual studio 2012\Projects\Project42\Project42\bin\Debug\Project42.pdb
+c:\users\wboestro\documents\visual studio 2012\Projects\Project42\Project42\obj\Debug\Project42.csprojResolveAssemblyReference.cache
+c:\users\wboestro\documents\visual studio 2012\Projects\Project42\Project42\obj\Debug\MainWindow.baml
+c:\users\wboestro\documents\visual studio 2012\Projects\Project42\Project42\obj\Debug\MainWindow.g.cs
+c:\users\wboestro\documents\visual studio 2012\Projects\Project42\Project42\obj\Debug\App.g.cs
+c:\users\wboestro\documents\visual studio 2012\Projects\Project42\Project42\obj\Debug\Project42_MarkupCompile.cache
+c:\users\wboestro\documents\visual studio 2012\Projects\Project42\Project42\obj\Debug\Project42.g.resources
+c:\users\wboestro\documents\visual studio 2012\Projects\Project42\Project42\obj\Debug\Project42.Properties.Resources.resources
+c:\users\wboestro\documents\visual studio 2012\Projects\Project42\Project42\obj\Debug\Project42.csproj.GenerateResource.Cache
+c:\users\wboestro\documents\visual studio 2012\Projects\Project42\Project42\obj\Debug\Project42.exe
+c:\users\wboestro\documents\visual studio 2012\Projects\Project42\Project42\obj\Debug\Project42.pdb
