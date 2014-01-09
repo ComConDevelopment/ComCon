@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Diagnostics;
+using System.Reflection;
+
 
 namespace speedsearch
 {
@@ -27,9 +29,22 @@ namespace speedsearch
             InitializeComponent();
         }
 
-     
+        private bool website = false;
+        private string sz = ".";
+
+        
+
         public void tb_KeyDown(object sender, KeyEventArgs e)
         {
+            
+
+            foreach (char zeichen in sz)
+            {
+                if (TextBox.Text.Contains(zeichen))
+                {
+                    website = true;
+                }
+            }
             
             if (e.Key == Key.Return)
             {
@@ -37,7 +52,14 @@ namespace speedsearch
                 {
                     if (TextBox.Text != "")
                     {
-                        Process.Start("http://google.de/search?q=" + TextBox.Text);
+                        if (website == true)
+                        {
+                          Process.Start("http://" + TextBox.Text);
+                        }
+                        if (website == false)
+                        {
+                          Process.Start("http://google.de/search?q=" + TextBox.Text);
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -45,6 +67,7 @@ namespace speedsearch
                     MessageBox.Show(ex.Message, "Error");
                 }
                 TextBox.Text = "";
+                website = false;
             }
           
         }
