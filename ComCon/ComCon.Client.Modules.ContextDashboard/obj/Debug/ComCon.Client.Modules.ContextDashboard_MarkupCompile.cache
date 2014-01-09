@@ -4,7 +4,7 @@
 library
 C#
 .cs
-C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.ContextDashboard\obj\Debug\
+C:\Users\WBoestro\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.ContextDashboard\obj\Debug\
 ComCon.Client.Modules.ContextDashboard
 none
 false
@@ -13,7 +13,7 @@ DEBUG;TRACE
 1-624749430
 
 4-1486042915
-181839550008
+181025225413
 Views\Dashboard.xaml;
 
 False

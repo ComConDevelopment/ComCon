@@ -4,7 +4,7 @@
 library
 C#
 .cs
-C:\Users\Tom\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Login\obj\Debug\
+C:\Users\WBoestro\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Login\obj\Debug\
 ComCon.Client.Modules.Login
 none
 false
@@ -13,7 +13,7 @@ DEBUG;TRACE
 2324635839
 1-179482031
 8-1127105323
-311309446978
+31-559505695
 Views\LoginView.xaml;Views\RegistrationView.xaml;
 
 False
