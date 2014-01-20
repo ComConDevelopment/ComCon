@@ -16,6 +16,9 @@ using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Windows.Interop;
+using System.Runtime.Serialization;
+using Newtonsoft.Json;
+using System
 
 
 namespace P42
@@ -42,7 +45,10 @@ namespace P42
         private bool enter = false;
 
         private string sz = ".";
+
         
+        //Programm per Hotkeys verbergen und zeigen
+        //------------------------------------------------------------------
 
         //[DllImport("User32.dll")]
         //private static extern bool RegisterHotKey(
@@ -126,6 +132,9 @@ namespace P42
             set { mKeywords = value; }
         }
 
+       
+        //überprüft auf Tastendruck
+        //------------------------------------------------------------------
         public void tb_KeyDown(object sender, KeyEventArgs e)
         {
 
@@ -213,7 +222,16 @@ namespace P42
                         //Google Suche
                         if (suche == true)
                         {
-                            Process.Start("http://google.de/search?q=" + web);
+                            //Process.Start("http://google.de/search?q=" + web);
+                            var client = new ();
+                            var address = new Uri("https://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=" + web);
+                            HttpResponseMessage response = await client.GetAsync(address);
+                            String stream = await response.Content.ReadAsStringAsync();
+                            dynamic jObj = JsonConvert.DeserializeObject(json);
+                            foreach (var res in jObj.responseData.results)
+                            {
+                                Console.WriteLine("{0} => {1}\n", res.title, res.url);
+                            }
                         }
                         //Programm starten
                         if (starte == true)
@@ -284,6 +302,54 @@ namespace P42
 
         }
 
+        //------------------------------------------------------------------
+        //GoogleSearchJSON
+        //------------------------------------------------------------------
+        public class Result
+        {
+            public string GsearchResultClass { get; set; }
+            public string unescapedUrl { get; set; }
+            public string url { get; set; }
+            public string visibleUrl { get; set; }
+            public string cacheUrl { get; set; }
+            public string title { get; set; }
+            public string titleNoFormatting { get; set; }
+            public string content { get; set; }
+        }
+
+        public class Page
+        {
+            public string start { get; set; }
+            public int label { get; set; }
+        }
+
+        public class Cursor
+        {
+            public string resultCount { get; set; }
+            public List<Page> pages { get; set; }
+            public string estimatedResultCount { get; set; }
+            public int currentPageIndex { get; set; }
+            public string moreResultsUrl { get; set; }
+            public string searchResultTime { get; set; }
+        }
+
+        public class ResponseData
+        {
+            public List<Result> results { get; set; }
+            public Cursor cursor { get; set; }
+        }
+
+        public class RootObject
+        {
+            public ResponseData responseData { get; set; }
+            public object responseDetails { get; set; }
+            public int responseStatus { get; set; }
+        }
+
+        //------------------------------------------------------------------
+        //Fenster zentrieren
+        //------------------------------------------------------------------
+
         private void CenterWindowOnScreen()
         {
             double screenWidth = SystemParameters.PrimaryScreenWidth;
@@ -298,7 +364,9 @@ namespace P42
 
     }
 
+    //------------------------------------------------------------------
     //LevenshteinDistance
+    //------------------------------------------------------------------
     static class LevenshteinDistance
     {
         /// <summary>
