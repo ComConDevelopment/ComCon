@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -18,8 +19,7 @@ using System.Runtime.InteropServices;
 using System.Windows.Interop;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
-using System
-
+using System.Net.Http;
 
 namespace P42
 {
@@ -45,6 +45,7 @@ namespace P42
         private bool enter = false;
 
         private string sz = ".";
+        private string gsweb = "";
 
         
         //Programm per Hotkeys verbergen und zeigen
@@ -149,6 +150,8 @@ namespace P42
 
             if (e.Key == Key.Return)
             {
+                listbox1.Items.Clear();
+                listbox2.Items.Clear();
                 enter = true;
                 string text = TextBox.Text;
                 text = text.ToLower();
@@ -181,6 +184,7 @@ namespace P42
                 string web = text;
                 string befehl = text.Substring(c + 1);
                 text = text.Substring(0, c);
+               
                 foreach (string s in Keywords)
                 {
                     
@@ -213,7 +217,7 @@ namespace P42
                     {
                         //string text = TextBox.Text;
                         //text = text.Substring(2);
-
+                        Console.ReadLine();
                         //Webseite aufrufen
                         if (website == true)
                         {
@@ -223,15 +227,18 @@ namespace P42
                         if (suche == true)
                         {
                             //Process.Start("http://google.de/search?q=" + web);
-                            var client = new ();
+
+                            var client = new HttpClient();
                             var address = new Uri("https://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=" + web);
-                            HttpResponseMessage response = await client.GetAsync(address);
-                            String stream = await response.Content.ReadAsStringAsync();
-                            dynamic jObj = JsonConvert.DeserializeObject(json);
+                            
+                            String stream = new System.Net.WebClient().DownloadString(address);
+                            dynamic jObj = JsonConvert.DeserializeObject(stream);
                             foreach (var res in jObj.responseData.results)
                             {
-                                Console.WriteLine("{0} => {1}\n", res.title, res.url);
+                                listbox1.Items.Add(res.title);
+                                listbox2.Items.Add(res.url);
                             }
+                             
                         }
                         //Programm starten
                         if (starte == true)
@@ -291,6 +298,7 @@ namespace P42
                 starte = false;
                 rechner = false;
                 
+                
 
                 //if (enter == true)
                 //{
@@ -345,6 +353,8 @@ namespace P42
             public object responseDetails { get; set; }
             public int responseStatus { get; set; }
         }
+
+       
 
         //------------------------------------------------------------------
         //Fenster zentrieren

@@ -11,3 +11,10 @@ c:\users\wboestro\documents\visual studio 2012\Projects\P42\P42\obj\Debug\P42.Pr
 c:\users\wboestro\documents\visual studio 2012\Projects\P42\P42\obj\Debug\P42.csproj.GenerateResource.Cache
 c:\users\wboestro\documents\visual studio 2012\Projects\P42\P42\obj\Debug\P42.exe
 c:\users\wboestro\documents\visual studio 2012\Projects\P42\P42\obj\Debug\P42.pdb
+C:\Users\WBoestro\documents\visual studio 2012\Projects\P42\P42\bin\Debug\Newtonsoft.Json.dll
+C:\Users\WBoestro\documents\visual studio 2012\Projects\P42\P42\bin\Debug\System.Net.Http.Extensions.dll
+C:\Users\WBoestro\documents\visual studio 2012\Projects\P42\P42\bin\Debug\System.Net.Http.Primitives.dll
+C:\Users\WBoestro\documents\visual studio 2012\Projects\P42\P42\bin\Debug\Newtonsoft.Json.xml
+C:\Users\WBoestro\documents\visual studio 2012\Projects\P42\P42\bin\Debug\System.Net.Http.Extensions.xml
+C:\Users\WBoestro\documents\visual studio 2012\Projects\P42\P42\bin\Debug\System.Net.Http.Primitives.xml
+C:\Users\WBoestro\documents\visual studio 2012\Projects\P42\P42\obj\Debug\P42.csproj.App.config
