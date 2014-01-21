@@ -2,8 +2,8 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:P42.UserControls"
-        Title="MainWindow" Height="356" Width="692.8">
-        <TabControl>
+        Title="42" Height="356" Width="692.8" ResizeMode="NoResize" WindowState="Maximized">
+        <TabControl Margin="57,40,60,27">
             <TabItem Header="Google Suche">
             <local:GoogleControl></local:GoogleControl>
         </TabItem>

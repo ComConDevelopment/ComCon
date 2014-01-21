@@ -24,3 +24,27 @@ c:\users\tfiedler\documents\visual studio 2012\Projects\P42\P42\obj\Debug\UserCo
 c:\users\tfiedler\documents\visual studio 2012\Projects\P42\P42\obj\Debug\GeneratedInternalTypeHelper.g.cs
 c:\users\tfiedler\documents\visual studio 2012\Projects\P42\P42\obj\Debug\P42_MarkupCompile.lref
 c:\users\tfiedler\documents\visual studio 2012\Projects\P42\P42\obj\Debug\UserControls\GoogleControl.baml
+C:\Users\WBoestro\Documents\GitHub\ComCon\P42_Tom\P42\P42\bin\Debug\P42.exe.config
+C:\Users\WBoestro\Documents\GitHub\ComCon\P42_Tom\P42\P42\obj\Debug\P42.exe
+C:\Users\WBoestro\Documents\GitHub\ComCon\P42_Tom\P42\P42\obj\Debug\P42.pdb
+C:\Users\WBoestro\Documents\GitHub\ComCon\P42_Tom\P42\P42\bin\Debug\P42.exe
+C:\Users\WBoestro\Documents\GitHub\ComCon\P42_Tom\P42\P42\bin\Debug\P42.pdb
+C:\Users\WBoestro\Documents\GitHub\ComCon\P42_Tom\P42\P42\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\Users\WBoestro\Documents\GitHub\ComCon\P42_Tom\P42\P42\bin\Debug\Microsoft.Practices.Prism.pdb
+C:\Users\WBoestro\Documents\GitHub\ComCon\P42_Tom\P42\P42\bin\Debug\Microsoft.Practices.Prism.xml
+C:\Users\WBoestro\Documents\GitHub\ComCon\P42_Tom\P42\P42\bin\Debug\Newtonsoft.Json.xml
+C:\Users\WBoestro\Documents\GitHub\ComCon\P42_Tom\P42\P42\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+C:\Users\WBoestro\Documents\GitHub\ComCon\P42_Tom\P42\P42\obj\Debug\P42.csprojResolveAssemblyReference.cache
+C:\Users\WBoestro\Documents\GitHub\ComCon\P42_Tom\P42\P42\obj\Debug\UserControls\SearchTextBox.baml
+C:\Users\WBoestro\Documents\GitHub\ComCon\P42_Tom\P42\P42\obj\Debug\UserControls\GoogleControl.g.cs
+C:\Users\WBoestro\Documents\GitHub\ComCon\P42_Tom\P42\P42\obj\Debug\UserControls\SearchTextBox.g.cs
+C:\Users\WBoestro\Documents\GitHub\ComCon\P42_Tom\P42\P42\obj\Debug\Views\MainWindow.g.cs
+C:\Users\WBoestro\Documents\GitHub\ComCon\P42_Tom\P42\P42\obj\Debug\App.g.cs
+C:\Users\WBoestro\Documents\GitHub\ComCon\P42_Tom\P42\P42\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\WBoestro\Documents\GitHub\ComCon\P42_Tom\P42\P42\obj\Debug\P42_MarkupCompile.cache
+C:\Users\WBoestro\Documents\GitHub\ComCon\P42_Tom\P42\P42\obj\Debug\P42_MarkupCompile.lref
+C:\Users\WBoestro\Documents\GitHub\ComCon\P42_Tom\P42\P42\obj\Debug\UserControls\GoogleControl.baml
+C:\Users\WBoestro\Documents\GitHub\ComCon\P42_Tom\P42\P42\obj\Debug\Views\MainWindow.baml
+C:\Users\WBoestro\Documents\GitHub\ComCon\P42_Tom\P42\P42\obj\Debug\P42.g.resources
+C:\Users\WBoestro\Documents\GitHub\ComCon\P42_Tom\P42\P42\obj\Debug\P42.Properties.Resources.resources
+C:\Users\WBoestro\Documents\GitHub\ComCon\P42_Tom\P42\P42\obj\Debug\P42.csproj.GenerateResource.Cache

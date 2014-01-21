@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-c:\users\tfiedler\documents\visual studio 2012\Projects\P42\P42\obj\Debug\
+C:\Users\WBoestro\Documents\GitHub\ComCon\P42_Tom\P42\P42\obj\Debug\
 P42
 none
 false
 DEBUG;TRACE
-c:\users\tfiedler\documents\visual studio 2012\Projects\P42\P42\App.xaml
+C:\Users\WBoestro\Documents\GitHub\ComCon\P42_Tom\P42\P42\App.xaml
 31535500757
 
-13-494977456
-16662280388
+13411932343
+16-1285019434
 UserControls\GoogleControl.xaml;UserControls\SearchTextBox.xaml;Views\MainWindow.xaml;
 
-False
+True
 
