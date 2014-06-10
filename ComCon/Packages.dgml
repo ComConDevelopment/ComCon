@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph GraphDirection="LeftToRight" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="ComCon.Shared.Classes" Label="ComCon.Shared.Classes" Category="Projekt" />
+    <Node Id="EntityFramework 6.0.1" Label="EntityFramework 6.0.1" Category="Paket" />
+    <Node Id="ComCon.Client.Modules.Login" Label="ComCon.Client.Modules.Login" Category="Projekt" />
+    <Node Id="Extended.Wpf.Toolkit 2.0.0" Label="Extended.Wpf.Toolkit 2.0.0" Category="Paket" />
+    <Node Id="ComCon.Server" Label="ComCon.Server" Category="Projekt" />
+    <Node Id="EntityFramework 6.0.1" Label="EntityFramework 6.0.1" Category="Paket" />
+    <Node Id="Extended.Wpf.Toolkit 2.0.0" Label="Extended.Wpf.Toolkit 2.0.0" Category="Paket" />
+    <Node Id="ComCon.Client.Modules.Chat" Label="ComCon.Client.Modules.Chat" Category="Projekt" />
+    <Node Id="Extended.Wpf.Toolkit 2.0.0" Label="Extended.Wpf.Toolkit 2.0.0" Category="Paket" />
+    <Node Id="ComCon" Label="ComCon" Category="Projekt" />
+    <Node Id="Extended.Wpf.Toolkit 2.0.0" Label="Extended.Wpf.Toolkit 2.0.0" Category="Paket" />
+    <Node Id="System.Windows.Interactivity.WPF 2.0.20525" Label="System.Windows.Interactivity.WPF 2.0.20525" Category="Paket" />
+  </Nodes>
+  <Links>
+    <Link Source="ComCon.Shared.Classes" Target="EntityFramework 6.0.1" Category="Installiertes Paket" />
+    <Link Source="ComCon.Client.Modules.Login" Target="Extended.Wpf.Toolkit 2.0.0" Category="Installiertes Paket" />
+    <Link Source="ComCon.Server" Target="EntityFramework 6.0.1" Category="Installiertes Paket" />
+    <Link Source="ComCon.Server" Target="Extended.Wpf.Toolkit 2.0.0" Category="Installiertes Paket" />
+    <Link Source="ComCon.Client.Modules.Chat" Target="Extended.Wpf.Toolkit 2.0.0" Category="Installiertes Paket" />
+    <Link Source="ComCon" Target="Extended.Wpf.Toolkit 2.0.0" Category="Installiertes Paket" />
+    <Link Source="ComCon" Target="System.Windows.Interactivity.WPF 2.0.20525" Category="Installiertes Paket" />
+  </Links>
+  <Categories>
+    <Category Id="Projekt" />
+    <Category Id="Paket" />
+  </Categories>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="Projekt" ValueLabel="True">
+      <Condition Expression="HasCategory('Projekt')" />
+      <Setter Property="Background" Value="Blue" />
+    </Style>
+  </Styles>
+</DirectedGraph>
