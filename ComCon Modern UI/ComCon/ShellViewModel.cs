@@ -48,12 +48,13 @@ namespace ComCon
 
         public ShellViewModel()
         {
+            LoadMenu();
 
-            LinkGroup g = new LinkGroup();
-            g.GroupName = "ComCon";
-            g.DisplayName = "ComCon";
+            //LinkGroup g = new LinkGroup();
+            //g.GroupName = "ComCon";
+            //g.DisplayName = "ComCon";
 
-            MenuGroups.Add(g);
+            //MenuGroups.Add(g);
 
             LinkGroup lg = new LinkGroup();
             lg.GroupName = "Einstellungen";

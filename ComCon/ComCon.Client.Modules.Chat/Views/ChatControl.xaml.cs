@@ -12,12 +12,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.ComponentModel.Composition;
-using Microsoft.Practices.Prism.Events;
-using Microsoft.Practices.ServiceLocation;
-using ComCon.Client.Base;
-using ComCon.Client.Base.ServerService;
-using ComCon.Client.Base.Helpers;
 using System.Windows.Threading;
+using ComCon.Modulization;
+using FirstFloor.ModernUI.Windows;
 
 namespace ComCon.Client.Modules.Chat
 {
@@ -25,65 +22,35 @@ namespace ComCon.Client.Modules.Chat
     /// Interaktionslogik für ChatControl.xaml
     /// </summary>
     /// 
-    [Export("ChatControl")]
-    public partial class ChatControl : UserControl
+    [Content("/Chat")]
+    public partial class ChatControl : UserControl, IContent
     {
-        private readonly IEventAggregator EventAggregator;
         private delegate void MyDelegate();
         public ChatControl()
         {
-            EventAggregator = ServiceLocator.Current.GetInstance<IEventAggregator>();
-            this.DataContext = new ComCon.Client.Modules.Chat.Models.ChatModel();
-            InitializeComponent();
 
-            EventAggregator.GetEvent<MessageReceivedEvent>().Subscribe(MessageReceived);
 
         }
 
-        public void MessageReceived(ChatMessage pMessage)
+
+        public void OnFragmentNavigation(FirstFloor.ModernUI.Windows.Navigation.FragmentNavigationEventArgs e)
         {
-            switch (pMessage.User.Username)
-            {
-                case "Server":
-                    DispatchService.Invoke(() =>
-                        AppendTextToRTB("<" + pMessage.User.Username + "> " + pMessage.Message, new SolidColorBrush(Colors.Green)));
-                    EventAggregator.GetEvent<OnLoginEvent>().Publish("New User");
-                    
-                    break;
-                default:
-                    DispatchService.Invoke(() =>
-                        AppendTextToRTB("<" + pMessage.User.Username + "> " + pMessage.Message, new SolidColorBrush(Colors.Black)));
-                    break;
-            }
             
-
         }
 
-
-        public void AppendTextToRTB(string pText, SolidColorBrush pColor)
+        public void OnNavigatedFrom(FirstFloor.ModernUI.Windows.Navigation.NavigationEventArgs e)
         {
-            Run r = new Run();
-            r.Text = pText;
-            r.Foreground = pColor;
-            Paragraph p = new Paragraph(r);
-            p.Margin = new Thickness(0);
-            ChatBox.Document.Blocks.Add(p);
+            
         }
-    }
 
-    public static class DispatchService
-    {
-        public static void Invoke(Action action)
+        public void OnNavigatedTo(FirstFloor.ModernUI.Windows.Navigation.NavigationEventArgs e)
         {
-            Dispatcher dispatchObject = Application.Current.Dispatcher;
-            if (dispatchObject == null || dispatchObject.CheckAccess())
-            {
-                action();
-            }
-            else
-            {
-                dispatchObject.Invoke(action, DispatcherPriority.Send);
-            }
+            
+        }
+
+        public void OnNavigatingFrom(FirstFloor.ModernUI.Windows.Navigation.NavigatingCancelEventArgs e)
+        {
+           
         }
     }
 }

@@ -4,7 +4,7 @@
 library
 C#
 .cs
-C:\Users\WBoestro\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Chat\obj\Debug\
+C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Chat\obj\Debug\
 ComCon.Client.Modules.Chat
 none
 false
@@ -12,8 +12,8 @@ DEBUG;TRACE
 
 2-1222942541
 
-6850588946
-271472569838
+61148225099
+241374456973
 Resources.xaml;Views\ChatControl.xaml;
 
 False

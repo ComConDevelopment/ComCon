@@ -9,25 +9,7 @@
     <!--<UserControl.Effect>
         <DropShadowEffect BlurRadius="5" ShadowDepth="1" Direction="270" Opacity="0.7"></DropShadowEffect>
     </UserControl.Effect>-->
-    <UserControl.RenderTransform>
-        <TranslateTransform X="0" Y="0"></TranslateTransform>
-    </UserControl.RenderTransform>
-    <UserControl.Triggers>
-        <EventTrigger RoutedEvent="Loaded">
-            <BeginStoryboard>
-                <Storyboard>
-                    <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UserControl.RenderTransform).(TranslateTransform.X)" Storyboard.TargetName="Window" Duration="0:0:1">
-                        <SplineDoubleKeyFrame Value="-800" KeyTime="0:0:0"></SplineDoubleKeyFrame>
-                        <SplineDoubleKeyFrame Value="0" KeyTime="0:0:0.2"></SplineDoubleKeyFrame>
-                        <SplineDoubleKeyFrame Value="20" KeyTime="0:0:0.25"></SplineDoubleKeyFrame>
-                        <SplineDoubleKeyFrame Value="10" KeyTime="0:0:0.3"></SplineDoubleKeyFrame>
-                        <SplineDoubleKeyFrame Value="0" KeyTime="0:0:0.35"></SplineDoubleKeyFrame>
-                    </DoubleAnimationUsingKeyFrames>
-                    <!--<DoubleAnimation Storyboard.TargetProperty="Opacity" Storyboard.TargetName="Window" From="0" To="1" Duration="0:0:1" AutoReverse="False"/>-->
-                </Storyboard>
-            </BeginStoryboard>
-        </EventTrigger>
-    </UserControl.Triggers>
+    
     <UserControl.Resources>
         <ResourceDictionary Source="../Resources.xaml"/>
     </UserControl.Resources>

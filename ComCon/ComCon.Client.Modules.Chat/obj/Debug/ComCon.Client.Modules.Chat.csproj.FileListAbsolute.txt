@@ -156,3 +156,5 @@ C:\Users\WBoestro\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Chat\obj\
 C:\Users\WBoestro\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Chat\obj\Debug\ComCon.Client.Modules.Chat.csproj.GenerateResource.Cache
 C:\Users\WBoestro\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Chat\obj\Debug\ComCon.Client.Modules.Chat.dll
 C:\Users\WBoestro\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Chat\obj\Debug\ComCon.Client.Modules.Chat.pdb
+C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon Modern UI\ComCon\bin\Debug\Modules\ComCon.Client.Modules.Chat.dll
+C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon Modern UI\ComCon\bin\Debug\Modules\ComCon.Client.Modules.Chat.pdb

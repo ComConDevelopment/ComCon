@@ -2,33 +2,36 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Microsoft.Practices.Prism.MefExtensions.Modularity;
-using Microsoft.Practices.Prism.Modularity;
 using System.ComponentModel.Composition;
-using ComCon.Client.Base;
-using Microsoft.Practices.Prism.Regions;
 using System.ComponentModel.Composition.Hosting;
-using Microsoft.Practices.Prism.Events;
-using ComCon.Client.Base.Classes;
-using ComCon.Client.Base.Helpers;
-using ComCon.Client.Base.ServerService;
+using ComCon.Modulization;
 
-namespace ComCon.Client.Modules.Chat
+namespace ComCon.Modules.Chat
 {
-    [ModuleExport(typeof(ClientChatModule), InitializationMode = InitializationMode.OnDemand),]
-    public class ClientChatModule : ClientBaseModule
+    [Module("ComCon Chat", "/Chat")]
+    public class ChatModule : IModule
     {
-        [ImportingConstructor]
-        public ClientChatModule(IRegionManager manager, IEventAggregator eventAggregator)
-            : base(manager, eventAggregator)
+        public List<MenuItem> ModuleMenuItems
         {
-            if (Global.IsLoggedIn)
-            {
-                Global.LoadedModules.Add("Chat");
-                RegionManager.Regions["MainRegion"].RequestNavigate(new Uri("ChatControl", UriKind.Relative));
-            }
-            
+            get;
+            set;
         }
 
+        public ChatModule()
+        {
+            ModuleMenuItems = new List<MenuItem>()
+            {
+                new MenuItem() 
+                { 
+                    DisplayName = "Chat",
+                    GroupName = "Chat", 
+                    SubMenuItems = new List<SubMenuItem>() 
+                    {
+                        new SubMenuItem() { DisplayName = "Chat", Source = new Uri("/Chat", UriKind.RelativeOrAbsolute)}
+                    }
+                }
+
+            };
+        }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ComCon.Modules.Main
 {
-    [Module("ComCon", "/Login", ShowInTopLinks = false)]
+    [Module("ComCon", "/Login", ShowInTopLinks = true)]
     public class MainModule : IModule
     {
         #region IModule Member
@@ -27,11 +27,11 @@ namespace ComCon.Modules.Main
             {
                 GroupName = "ComCon",
                 DisplayName = "ComCon",
-                //SubMenuItems = new List<SubMenuItem>()
-                //    {
-                //        new SubMenuItem() { Source = new Uri("/Login", UriKind.RelativeOrAbsolute), DisplayName = "Login"}
+                SubMenuItems = new List<SubMenuItem>()
+                    {
+                        new SubMenuItem() { Source = new Uri("/Login", UriKind.RelativeOrAbsolute), DisplayName = "Login"}
                         
-                //    }
+                    }
             });
 
 
