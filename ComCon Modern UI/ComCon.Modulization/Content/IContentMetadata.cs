@@ -9,5 +9,6 @@ namespace ComCon.Modulization
     public interface IContentMetadata
     {
         string ContentUri { get; }
+        string ModuleName { get; }
     }
 }

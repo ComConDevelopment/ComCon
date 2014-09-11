@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:ComCon"
              xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             xmlns:conv="clr-namespace:ComCon.Converters"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
@@ -22,6 +23,9 @@
                 <Setter Property="ContentLoader" Value="{DynamicResource MefContentLoader}" />
             </Style>
 
+            <conv:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"></conv:BoolToVisibilityConverter>
+            <conv:ReverseBoolToVisibilityConverter x:Key="ReverseBoolToVisibilityConverter"></conv:ReverseBoolToVisibilityConverter>
+            
 
 
 

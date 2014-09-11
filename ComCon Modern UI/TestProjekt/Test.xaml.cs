@@ -21,7 +21,7 @@ namespace TestProjekt
     /// <summary>
     /// Interaktionslogik für Test.xaml
     /// </summary>
-    [Content("/Test")]
+    [Content("/Test", "TestModule")]
     public partial class Test : UserControl, IContent
     {
         public Test()

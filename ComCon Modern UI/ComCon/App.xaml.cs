@@ -25,21 +25,8 @@ namespace ComCon
                                     
             // bootstrap MEF composition
 
-            var aggregateCatatlog = new AggregateCatalog();
-
-            aggregateCatatlog.Catalogs.Add(new AssemblyCatalog(Assembly.GetExecutingAssembly()));
-            aggregateCatatlog.Catalogs.Add(new DirectoryCatalog("Modules"));
-            var container = new CompositionContainer(aggregateCatatlog);
-
-            var contentLoader = container.GetExport<MefContentLoader>().Value;
-
-            var menuLoader = container.GetExport<MenuLoader>().Value;
-
-            var modules = menuLoader.GetModules();
-
-            this.Resources.Add("Modules", modules);
-            this.Resources.Add("MenuLoader", menuLoader);
-            this.Resources.Add("MefContentLoader", contentLoader);
+            Bootstrapper b = new Bootstrapper();
+            b.Run();
 
 
         }

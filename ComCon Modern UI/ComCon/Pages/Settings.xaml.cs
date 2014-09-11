@@ -19,7 +19,7 @@ namespace ComCon.Pages
     /// <summary>
     /// Interaction logic for Settings.xaml
     /// </summary>
-    [ComCon.Modulization.Content("/Pages/Settings")]
+    [ComCon.Modulization.Content("/Pages/Settings", "ShellModule")]
     public partial class Settings : UserControl, IContent
     {
         public Settings()

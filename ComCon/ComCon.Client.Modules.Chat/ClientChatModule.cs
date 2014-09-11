@@ -8,8 +8,7 @@ using ComCon.Modulization;
 
 namespace ComCon.Modules.Chat
 {
-    [Module("ComCon Chat", "/Chat")]
-    public class ChatModule : IModule
+    public class ChatModule
     {
         public List<MenuItem> ModuleMenuItems
         {

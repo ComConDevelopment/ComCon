@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace TestProjekt
 {
-    [Module("TestModule", "/Test")]
-    public class ComConModule : IModule
+    public class ComConModule
     {
         #region IModule Member
 

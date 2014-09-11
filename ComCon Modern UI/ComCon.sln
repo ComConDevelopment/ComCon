@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProjekt", "TestProjekt\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComCon.Client.Modules.Chat", "..\ComCon\ComCon.Client.Modules.Chat\ComCon.Client.Modules.Chat.csproj", "{8C2CCE9D-3752-48CF-9C2B-0A7FA12D1009}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComCon.Modules.Services", "ComCon.Modules.Services\ComCon.Modules.Services.csproj", "{08A69218-D282-4631-A033-47F0AA52E2B9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,12 @@ Global
 		{8C2CCE9D-3752-48CF-9C2B-0A7FA12D1009}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8C2CCE9D-3752-48CF-9C2B-0A7FA12D1009}.Release|x86.ActiveCfg = Release|x86
 		{8C2CCE9D-3752-48CF-9C2B-0A7FA12D1009}.Release|x86.Build.0 = Release|x86
+		{08A69218-D282-4631-A033-47F0AA52E2B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08A69218-D282-4631-A033-47F0AA52E2B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08A69218-D282-4631-A033-47F0AA52E2B9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{08A69218-D282-4631-A033-47F0AA52E2B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08A69218-D282-4631-A033-47F0AA52E2B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08A69218-D282-4631-A033-47F0AA52E2B9}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

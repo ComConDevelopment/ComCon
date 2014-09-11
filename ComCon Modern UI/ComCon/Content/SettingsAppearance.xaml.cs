@@ -19,7 +19,7 @@ namespace ComCon.Content
     /// <summary>
     /// Interaction logic for SettingsAppearance.xaml
     /// </summary>
-    [ComCon.Modulization.Content("/Content/SettingsAppearance")]
+    [ComCon.Modulization.Content("/Content/SettingsAppearance", "ShellModule")]
     public partial class SettingsAppearance : UserControl, IContent
     {
         public SettingsAppearance()

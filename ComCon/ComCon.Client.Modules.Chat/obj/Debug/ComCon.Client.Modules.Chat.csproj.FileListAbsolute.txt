@@ -70,18 +70,6 @@ C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Chat\bin\
 C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Chat\bin\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
 C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Chat\bin\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
 C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Chat\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
-C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Chat\obj\Debug\ComCon.Client.Modules.Chat.csprojResolveAssemblyReference.cache
-C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Chat\obj\Debug\Views\ChatControl.baml
-C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Chat\obj\Debug\Views\ChatControl.g.cs
-C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Chat\obj\Debug\ComCon.Client.Modules.Chat_MarkupCompile.cache
-C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Chat\obj\Debug\ComCon.Client.Modules.Chat.g.resources
-C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Chat\obj\Debug\ComCon.Client.Modules.Chat.Properties.Resources.resources
-C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Chat\obj\Debug\ComCon.Client.Modules.Chat.csproj.GenerateResource.Cache
-C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Chat\obj\Debug\ComCon.Client.Modules.Chat.dll
-C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Chat\obj\Debug\ComCon.Client.Modules.Chat.pdb
-C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Chat\obj\Debug\GeneratedInternalTypeHelper.g.cs
-C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Chat\obj\Debug\ComCon.Client.Modules.Chat_MarkupCompile.lref
-C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Chat\obj\Debug\Resources.baml
 C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Chat\bin\Debug\Microsoft.Practices.Prism.dll
 C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Chat\bin\Debug\Microsoft.Practices.Prism.Interactivity.dll
 C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Chat\bin\Debug\Microsoft.Practices.Prism.MefExtensions.dll
@@ -156,5 +144,17 @@ C:\Users\WBoestro\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Chat\obj\
 C:\Users\WBoestro\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Chat\obj\Debug\ComCon.Client.Modules.Chat.csproj.GenerateResource.Cache
 C:\Users\WBoestro\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Chat\obj\Debug\ComCon.Client.Modules.Chat.dll
 C:\Users\WBoestro\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Chat\obj\Debug\ComCon.Client.Modules.Chat.pdb
+C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Chat\obj\Debug\Views\ChatControl.baml
+C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Chat\obj\Debug\Views\ChatControl.g.cs
+C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Chat\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Chat\obj\Debug\ComCon.Client.Modules.Chat_MarkupCompile.cache
+C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Chat\obj\Debug\ComCon.Client.Modules.Chat_MarkupCompile.lref
 C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon Modern UI\ComCon\bin\Debug\Modules\ComCon.Client.Modules.Chat.dll
 C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon Modern UI\ComCon\bin\Debug\Modules\ComCon.Client.Modules.Chat.pdb
+C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Chat\obj\Debug\ComCon.Client.Modules.Chat.csprojResolveAssemblyReference.cache
+C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Chat\obj\Debug\Resources.baml
+C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Chat\obj\Debug\ComCon.Client.Modules.Chat.g.resources
+C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Chat\obj\Debug\ComCon.Client.Modules.Properties.Resources.resources
+C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Chat\obj\Debug\ComCon.Client.Modules.Chat.csproj.GenerateResource.Cache
+C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Chat\obj\Debug\ComCon.Client.Modules.Chat.dll
+C:\Users\TFiedler\Documents\GitHub\ComCon\ComCon\ComCon.Client.Modules.Chat\obj\Debug\ComCon.Client.Modules.Chat.pdb

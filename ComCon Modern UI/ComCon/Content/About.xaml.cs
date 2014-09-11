@@ -19,7 +19,7 @@ namespace ComCon.Content
     /// <summary>
     /// Interaction logic for About.xaml
     /// </summary>
-    [ComCon.Modulization.Content("/Content/About")]
+    [ComCon.Modulization.Content("/Content/About", "ShellModule")]
     public partial class About : UserControl, IContent
     {
         public About()

@@ -22,7 +22,7 @@ namespace ComCon.Client.Modules.Chat
     /// Interaktionslogik für ChatControl.xaml
     /// </summary>
     /// 
-    [Content("/Chat")]
+    [Content("/Chat", "ComCon Chat")]
     public partial class ChatControl : UserControl, IContent
     {
         private delegate void MyDelegate();

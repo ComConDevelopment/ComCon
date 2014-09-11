@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ComCon.Client.Modules.Chat.Properties {
+namespace ComCon.Client.Modules.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

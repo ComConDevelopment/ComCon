@@ -21,7 +21,7 @@ namespace ComCon.Modules.Main
     /// Interaction logic for Login.xaml
     /// </summary>
     
-    [ComCon.Modulization.Content("/Login")]
+    [ComCon.Modulization.Content("/Login", "MainModule")]
     public partial class Login : UserControl, IContent
     {
         public Login()

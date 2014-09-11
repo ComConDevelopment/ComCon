@@ -20,9 +20,9 @@
             <StackPanel Grid.Row="1" Width="200" Margin="20">
                 <TextBox Style="{StaticResource WaterMarkTextBoxMail}" Foreground="#FF303030" Height="35" BorderThickness="2" />
                 <PasswordBox Style="{StaticResource NormalPasswordBox}" Foreground="#FF303030"  Height="35" Margin="0,10,0,0" BorderThickness="2"/>
-            
-                <Button Content="Login" Margin="0,30,0,0"/>
-                <Button Content="Registrieren" Margin="0,10,0,0"/>
+                <mui:ModernProgressRing IsActive="True" Width="50" Height="50" Style="{StaticResource ThreeBounceProgressRingStyle}" Visibility="{Binding IsLoading, Converter={StaticResource BoolToVisibilityConverter}}"></mui:ModernProgressRing>
+                <Button Content="Login" Margin="0,30,0,0" Visibility="{Binding IsLoading, Converter={StaticResource ReverseBoolToVisibilityConverter}}"/>
+                <Button Content="Registrieren" Margin="0,10,0,0" Visibility="{Binding IsLoading, Converter={StaticResource ReverseBoolToVisibilityConverter}}"/>
             </StackPanel>
         </Border>
     </Grid>
