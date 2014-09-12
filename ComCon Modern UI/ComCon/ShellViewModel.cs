@@ -2,6 +2,10 @@
 using System;
 using System.ComponentModel;
 using Microsoft.Practices.ServiceLocation;
+using Microsoft.Practices.Prism.Events;
+using System.ComponentModel.Composition;
+using ComCon.Common.Events;
+using ComCon.Contracts.Menu;
 namespace ComCon
 {
     internal class ShellViewModel : INotifyPropertyChanged
@@ -29,13 +33,14 @@ namespace ComCon
             set { mTopMenuLinks = value; RaisePropertyChanged("TopMenuLinks"); }
         }
 
+        public IEventAggregator EventAggregator { get; set; }
+
         #endregion
 
         #region Konstruktor
 
         public ShellViewModel()
         {
-            LoadMenu();
 
             //LinkGroup g = new LinkGroup();
             //g.GroupName = "ComCon";
@@ -57,10 +62,23 @@ namespace ComCon
 
         #region Events
 
-        public void LoadMenu()
+        public void LoadMenuItem(IComConMenuItem pItem)
         {
+            LinkGroup lg = new LinkGroup();
+            lg.GroupKey = pItem.GroupName;
+            lg.DisplayName = pItem.DisplayName;
+            foreach (IComConSubMenuItem sub in pItem.SubMenuItems)
+            {
+                lg.Links.Add(new Link() { DisplayName = sub.DisplayName, Source = sub.Source });
+            }
+            MenuGroups.Add(lg);
             RaisePropertyChanged("MenuGroups");
-        }       
+        }
+
+        public void Init()
+        {
+            EventAggregator.GetEvent<LoadMenuEvent>().Subscribe(LoadMenuItem);
+        }
 
         #endregion
 

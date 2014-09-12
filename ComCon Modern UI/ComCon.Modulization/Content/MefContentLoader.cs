@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ComCon.Modulization
+namespace ComCon.Modulization.Content
 {
     [Export]
     public class MefContentLoader : DefaultContentLoader

@@ -1,4 +1,4 @@
-﻿using ComCon.Modulization.Module;
+﻿using ComCon.Modulization.Modules;
 using Microsoft.Practices.Prism.MefExtensions.Modularity;
 using Microsoft.Practices.Prism.Modularity;
 using System;

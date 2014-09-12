@@ -10,27 +10,22 @@ namespace ComCon.Modules.Chat
 {
     public class ChatModule
     {
-        public List<MenuItem> ModuleMenuItems
-        {
-            get;
-            set;
-        }
 
         public ChatModule()
         {
-            ModuleMenuItems = new List<MenuItem>()
-            {
-                new MenuItem() 
-                { 
-                    DisplayName = "Chat",
-                    GroupName = "Chat", 
-                    SubMenuItems = new List<SubMenuItem>() 
-                    {
-                        new SubMenuItem() { DisplayName = "Chat", Source = new Uri("/Chat", UriKind.RelativeOrAbsolute)}
-                    }
-                }
+            //ModuleMenuItems = new List<ComConMenuItem>()
+            //{
+            //    new ComConMenuItem() 
+            //    { 
+            //        DisplayName = "Chat",
+            //        GroupName = "Chat", 
+            //        SubMenuItems = new List<ComConSubMenuItem>() 
+            //        {
+            //            new ComConSubMenuItem() { DisplayName = "Chat", Source = new Uri("/Chat", UriKind.RelativeOrAbsolute)}
+            //        }
+            //    }
 
-            };
+            //};
         }
     }
 }

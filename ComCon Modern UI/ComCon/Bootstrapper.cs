@@ -17,7 +17,9 @@ namespace ComCon
     {
         protected override DependencyObject CreateShell()
         {
-            return this.Container.GetExportedValue<MainWindow>();
+            var window = this.Container.GetExportedValue<MainWindow>();
+            window.pAggregator = this.Container.GetExportedValue<IEventAggregator>();
+            return window;
         }
 
         /// <summary>
@@ -35,6 +37,9 @@ namespace ComCon
         {
 
             this.AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof(Bootstrapper).Assembly));
+            //this.AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof(ComCon.Modules.Main.MainModule).Assembly));
+            //this.AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof(ComCon.Modulization.ModulizationModule).Assembly));
+            this.AggregateCatalog.Catalogs.Add(new DirectoryCatalog("Modules"));
         }
 
         protected override void InitializeModules()
@@ -46,12 +51,12 @@ namespace ComCon
         /// Erstellt den Modulkatalog aus einem xaml-Modulkatalog
         /// </summary>
         /// <returns></returns>
-        protected override Microsoft.Practices.Prism.Modularity.IModuleCatalog CreateModuleCatalog()
-        {
-            IModuleCatalog cat = new DirectoryModuleCatalog() { ModulePath = "Modules" };
+        //protected override Microsoft.Practices.Prism.Modularity.IModuleCatalog CreateModuleCatalog()
+        //{
+        //    IModuleCatalog cat = new DirectoryModuleCatalog() { ModulePath = "\\Modules" };
             
-            return cat;
-        }
+        //    return cat;
+        //}
 
         /// <summary>
         /// Konfiguriert den Container (hier für den EventAggregator)

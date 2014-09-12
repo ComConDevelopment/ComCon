@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ComCon.Modulization
+namespace ComCon.Modulization.Content
 {
     public class ContentChangedEvent : CompositePresentationEvent<string>
     {

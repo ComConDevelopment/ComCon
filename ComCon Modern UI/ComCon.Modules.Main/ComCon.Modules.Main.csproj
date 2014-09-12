@@ -65,6 +65,7 @@
     <Compile Include="Classes\ViewModelBase.cs" />
     <Compile Include="Helpers\WatermarkTextHelper.cs" />
     <Compile Include="MainModule.cs" />
+    <Compile Include="MainModuleController.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\ColorToBrushConverter.cs" />
@@ -73,13 +74,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ComCon.Contracts\ComCon.Contracts.csproj">
+      <Project>{0ef993bf-6031-4367-bbdc-5477f819925a}</Project>
+      <Name>ComCon.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ComCon.Modulization\ComCon.Modulization.csproj">
       <Project>{47b1712d-e763-4d87-b2b3-f00f2fbd03e1}</Project>
       <Name>ComCon.Modulization</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ComCon\ComCon.csproj">
-      <Project>{67ba135d-6739-4a6d-87b7-2456565fb6aa}</Project>
-      <Name>ComCon</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

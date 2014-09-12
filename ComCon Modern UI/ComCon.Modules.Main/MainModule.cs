@@ -1,14 +1,18 @@
-﻿using ComCon.Modulization.Module;
+﻿using ComCon.Modulization.Modules;
 using Microsoft.Practices.Prism.MefExtensions.Modularity;
 using Microsoft.Practices.Prism.Modularity;
+using System.ComponentModel.Composition;
 
 
 namespace ComCon.Modules.Main
 {
-    [ModuleExport(typeof(MainModule), InitializationMode = InitializationMode.WhenAvailable)]
+    [ModuleExport("ComCon Main Module", typeof(MainModule), InitializationMode = InitializationMode.WhenAvailable)]
     public class MainModule : ModuleBase
     {
+        [Import]
+        MainModuleController Controller { get; set; }
 
+        [ImportingConstructor]
         public MainModule()
         {
             

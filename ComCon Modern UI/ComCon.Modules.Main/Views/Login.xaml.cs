@@ -1,4 +1,5 @@
-﻿using FirstFloor.ModernUI.Windows;
+﻿using ComCon.Modulization.Content;
+using FirstFloor.ModernUI.Windows;
 using FirstFloor.ModernUI.Windows.Controls;
 using System;
 using System.Collections.Generic;
@@ -21,8 +22,8 @@ namespace ComCon.Modules.Main
     /// Interaction logic for Login.xaml
     /// </summary>
     
-    [ComCon.Modulization.Content("/Login", "MainModule")]
-    public partial class Login : UserControl, IContent
+    //[Content("/Login", "MainModule")]
+    public partial class Login : UserControl
     {
         public Login()
         {

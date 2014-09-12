@@ -4,7 +4,7 @@
         xmlns:mui="http://firstfloorsoftware.com/ModernUI"
         Title="mui" IsTitleVisible="True"
         LogoData=""          
-        ContentSource="/Login" Height="600" Width="1000" MenuLinkGroups="{Binding MenuGroups, UpdateSourceTrigger=PropertyChanged}" TitleLinks="{Binding TopMenuLinks, UpdateSourceTrigger=PropertyChanged}">
+        Height="600" Width="1000" MenuLinkGroups="{Binding MenuGroups, UpdateSourceTrigger=PropertyChanged}" TitleLinks="{Binding TopMenuLinks, UpdateSourceTrigger=PropertyChanged}">
 
     <!--<mui:ModernWindow.MenuLinkGroups>
         <mui:LinkGroup DisplayName="Wilkommen bei ComCon">

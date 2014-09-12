@@ -1,5 +1,4 @@
 ﻿using ComCon;
-using ComCon.Modulization;
 using FirstFloor.ModernUI.Windows;
 using System;
 using System.Collections.Generic;
@@ -21,7 +20,7 @@ namespace TestProjekt
     /// <summary>
     /// Interaktionslogik für Test.xaml
     /// </summary>
-    [Content("/Test", "TestModule")]
+   // [Content("/Test", "TestModule")]
     public partial class Test : UserControl, IContent
     {
         public Test()

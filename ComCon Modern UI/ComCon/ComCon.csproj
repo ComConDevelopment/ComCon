@@ -119,6 +119,18 @@
     <Resource Include="Resources\mailSmall.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ComCon.Common\ComCon.Common.csproj">
+      <Project>{d74e34f6-8255-49c1-84ca-80df1f15b5c0}</Project>
+      <Name>ComCon.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ComCon.Contracts\ComCon.Contracts.csproj">
+      <Project>{0ef993bf-6031-4367-bbdc-5477f819925a}</Project>
+      <Name>ComCon.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ComCon.Modules.Main\ComCon.Modules.Main.csproj">
+      <Project>{45ea9ef3-0e0e-4e7e-9e1f-46a4775db264}</Project>
+      <Name>ComCon.Modules.Main</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ComCon.Modulization\ComCon.Modulization.csproj">
       <Project>{47b1712d-e763-4d87-b2b3-f00f2fbd03e1}</Project>
       <Name>ComCon.Modulization</Name>

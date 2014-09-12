@@ -15,6 +15,7 @@ using System.ComponentModel.Composition;
 using System.Windows.Threading;
 using ComCon.Modulization;
 using FirstFloor.ModernUI.Windows;
+using ComCon.Modulization.Content;
 
 namespace ComCon.Client.Modules.Chat
 {

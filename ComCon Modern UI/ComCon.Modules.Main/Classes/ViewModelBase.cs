@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Practices.Prism.Events;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace ComCon.Modules.Main.Classes
 {
     public abstract class ViewModelBase : INotifyPropertyChanged
     {
-        public ViewModelBase()
+        public ViewModelBase(IEventAggregator pAggregator)
         {
 
         }

@@ -58,15 +58,23 @@
     <Compile Include="Content\IContentCatalog.cs" />
     <Compile Include="Content\IContentMetadata.cs" />
     <Compile Include="Content\MefContentLoader.cs" />
-    <Compile Include="Menu\ComConLink.cs" />
-    <Compile Include="Menu\MenuItem.cs" />
-    <Compile Include="Module\ModuleBase.cs" />
+    <Compile Include="Modules\ControllerBase.cs" />
+    <Compile Include="Modules\ModuleBase.cs" />
     <Compile Include="ModulizationModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Menu\SubMenuItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ComCon.Common\ComCon.Common.csproj">
+      <Project>{d74e34f6-8255-49c1-84ca-80df1f15b5c0}</Project>
+      <Name>ComCon.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ComCon.Contracts\ComCon.Contracts.csproj">
+      <Project>{0ef993bf-6031-4367-bbdc-5477f819925a}</Project>
+      <Name>ComCon.Contracts</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
